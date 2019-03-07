@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "bundle": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest andro id/app/src/main/res",
     "test": "jest"
   },
   "dependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.6.3",
     "react-native": "0.58.3",
     "react-native-gesture-handler": "^1.0.15",
@@ -15,7 +17,7 @@
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-persist": "^5.10.0",
-    "redux-saga": "^1.0.0"
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",

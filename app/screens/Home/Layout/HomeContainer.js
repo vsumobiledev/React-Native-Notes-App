@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import LoginView from './LoginView';
+import HomeView from './HomeView';
 import { connect } from 'react-redux';
-import * as loginActions from 'app/actions/loginActions';
+import { loadReviews } from './actions';
 
-class LoginContainer extends Component {
+class HomeContainer extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return <LoginView {...this.props} />;
+        return <HomeView {...this.props} />;
     }
 }
 
@@ -18,10 +18,10 @@ function mapStateToProps() {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        onLogin: (un, pwd) => dispatch(loginActions.requestLogin(un, pwd))
+        loadReviews: () => dispatch(loadReviews())
     };
 }
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(LoginContainer);
+)(HomeContainer);
