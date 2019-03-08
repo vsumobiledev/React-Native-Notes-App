@@ -7,13 +7,18 @@ class HomeView extends Component {
     constructor(props) {
         super(props);
     }
-
+    logout = () => {
+        this.props.logout();
+    }
     render() {
         return (
             <View style={styles.container}>
                 <Text>Home</Text>
                 <TouchableOpacity onPress={this.props.loadReviews}>
                     <Text>Go to Home</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={this.logout}>
+                    <Text>Logout</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -22,6 +27,7 @@ class HomeView extends Component {
 
 HomeView.propTypes = {
     loadReviews: PropTypes.func,
+    logout: PropTypes.func
 };
 
 export default HomeView;
