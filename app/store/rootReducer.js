@@ -1,4 +1,4 @@
-import homeReducer from 'app/screens/Home/Layout/reducer';
+import reviewReducer from 'app/screens/Reviews/Layout/reducer';
 
-const rootReducer = {home: homeReducer};
+const rootReducer = {review: reviewReducer};
 export default rootReducer;
