@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
-import HomeView from './HomeView';
+import ReviewsView from './ReviewsView';
 import { connect } from 'react-redux';
 import { loadReviews, logoutUser } from './actions';
 
-class HomeContainer extends Component {
+class ReviewsContainer extends Component {
     constructor(props) {
         super(props);
     }
 
     render() {
-        return <HomeView {...this.props} />;
+        return <ReviewsView {...this.props} />;
     }
 }
 
@@ -25,4 +25,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(HomeContainer);
+)(ReviewsContainer);

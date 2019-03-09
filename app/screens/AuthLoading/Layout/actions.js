@@ -7,10 +7,10 @@ export const initAuthState = () => dispatch => {
     firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             dispatch({ type: AUTH_STATE_LOGIN, payload: firebaseUser });
-            NavigationService.navigate('Home');
+            NavigationService.replace('Tab');
         } else {
             dispatch({ type: AUTH_STATE_NOT_LOGIN });
-            NavigationService.navigate('Login');
+            NavigationService.replace('Login');
         }
     });
 };

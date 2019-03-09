@@ -13,7 +13,7 @@ class LoginView extends React.Component {
         };
     }
     login = () => {
-        this.props.login(this.state.login, this.state.password);
+        this.props.login(this.state.login.trim(), this.state.password);
     };
     render() {
         return (
@@ -30,7 +30,7 @@ class LoginView extends React.Component {
                 ) : null}
                 <AuthTextInputComponent
                     onChangeText={value => this.setState({ login: value })}
-                    placeholder="Enter login..."
+                    placeholder="Enter email..."
                 />
                 <AuthTextInputComponent
                     onChangeText={value => this.setState({ password: value })}
@@ -53,9 +53,9 @@ class LoginView extends React.Component {
 LoginView.propTypes = {
     isLoading: PropTypes.bool,
     login: PropTypes.func,
-    navigation: {
+    navigation: PropTypes.shape({
         navigate: PropTypes.func
-    }
+    })
 };
 
 export default LoginView;

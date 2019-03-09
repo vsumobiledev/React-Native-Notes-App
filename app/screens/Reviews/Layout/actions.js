@@ -13,7 +13,7 @@ export const logoutUser = () => dispatch => {
         .auth()
         .signOut()
         .then(() => {
-            NavigationService.navigate('Login');
+            NavigationService.replace('Login');
             dispatch({ type: LOGOUT });
         });
 };

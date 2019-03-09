@@ -31,7 +31,7 @@ class AuthTextInputComponent extends React.Component {
 }
 
 AuthTextInputComponent.propTypes = {
-    onChangeText: PropTypes.bool,
+    onChangeText: PropTypes.func,
     placeholder: PropTypes.string,
     type: PropTypes.string
 };

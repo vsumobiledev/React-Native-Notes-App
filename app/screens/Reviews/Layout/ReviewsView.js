@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-class HomeView extends Component {
+class ReviewsView extends Component {
     constructor(props) {
         super(props);
     }
@@ -13,8 +13,8 @@ class HomeView extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>Home</Text>
-                <TouchableOpacity onPress={this.props.loadReviews}>
+                <Text>Reviews</Text>
+                <TouchableOpacity onPress={this.stubOnPress}>
                     <Text>Go to Home</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={this.logout}>
@@ -25,9 +25,9 @@ class HomeView extends Component {
     }
 }
 
-HomeView.propTypes = {
+ReviewsView.propTypes = {
     loadReviews: PropTypes.func,
     logout: PropTypes.func
 };
 
-export default HomeView;
+export default ReviewsView;
