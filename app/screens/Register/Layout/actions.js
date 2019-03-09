@@ -1,6 +1,7 @@
 import { REGISTER, REGISTER_SUCCESS, REGISTER_FAILED } from './constants';
 import { Alert } from 'react-native';
 import { initUser } from '../../../core/redux/user/actions';
+import NavigationService from '../../../navigation/NavigationService';
 import firebase from 'firebase';
 
 export const registerUser = (user, password) => dispatch => {
@@ -29,7 +30,8 @@ export const registerUser = (user, password) => dispatch => {
                                 ...user
                             }
                         });
-                        dispatch(initUser(user.uid));
+                        dispatch(initUser(firebaseUser.uid));
+                        NavigationService.replace('Tab');
                     });
             },
             error => {

@@ -1,5 +1,5 @@
 
-import { INIT_USER, UPDATE_USER, UPDATE_FAILED } from './constants';
+import { INIT_USER, UPDATE_USER, UPDATE_FAILED, LOGOUT_USER } from './constants';
 
 const initialState = {
     isLoading: false,
@@ -23,6 +23,11 @@ export default function reducer(state = initialState, action) {
         return {
             ...state,
             isLoading: false
+        };
+    case LOGOUT_USER:
+        return {
+            ...state,
+            data: null
         };
     default:
         return state;

@@ -1,5 +1,4 @@
 import { INIT_USER, UPDATE_USER, UPDATE_FAILED } from './constants';
-import { Alert } from 'react-native';
 import firebase from 'firebase';
 
 export const initUser = uid => dispatch => {
@@ -10,9 +9,14 @@ export const initUser = uid => dispatch => {
         .child('users')
         .child(uid)
         .on('value', e => {
-            Alert.alert('test', JSON.stringify(e));
             if (e.val()) {
-                dispatch({ type: UPDATE_USER, payload: e.val() });
+                dispatch({
+                    type: UPDATE_USER,
+                    payload: {
+                        ...e.val(),
+                        uid
+                    }
+                });
             } else {
                 dispatch({ type: UPDATE_FAILED });
             }

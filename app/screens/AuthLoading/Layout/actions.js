@@ -5,7 +5,7 @@ import firebase from 'firebase';
 
 export const initAuthState = () => dispatch => {
     dispatch({ type: INIT_AUTH });
-    firebase.auth().onAuthStateChanged(firebaseUser => {
+    const unsubscribe = firebase.auth().onAuthStateChanged(firebaseUser => {
         if (firebaseUser) {
             dispatch({ type: AUTH_STATE_LOGIN, payload: firebaseUser });
             dispatch(initUser(firebaseUser.uid));
@@ -14,5 +14,6 @@ export const initAuthState = () => dispatch => {
             dispatch({ type: AUTH_STATE_NOT_LOGIN });
             NavigationService.replace('Login');
         }
+        unsubscribe();
     });
 };

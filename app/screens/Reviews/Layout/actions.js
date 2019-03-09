@@ -1,4 +1,5 @@
-import { LOAD_REVIEWS, LOGOUT } from './constants';
+import { LOAD_REVIEWS } from './constants';
+import { LOGOUT_USER } from '../../../core/redux/user/constants';
 import NavigationService from '../../../navigation/NavigationService';
 import firebase from 'firebase';
 
@@ -13,7 +14,7 @@ export const logoutUser = () => dispatch => {
         .auth()
         .signOut()
         .then(() => {
+            dispatch({ type: LOGOUT_USER });
             NavigationService.replace('Login');
-            dispatch({ type: LOGOUT });
         });
 };
