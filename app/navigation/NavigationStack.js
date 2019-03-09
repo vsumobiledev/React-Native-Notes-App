@@ -1,13 +1,16 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 
+import AuthLoading from '../screens/AuthLoading/Layout';
+import Login from '../screens/Login/Layout';
+import Register from '../screens/Register/Layout';
 import Reviews from 'app/screens/Reviews/Layout';
 import Profile from 'app/screens/Profile/Layout';
 import Users from 'app/screens/Users/Layout';
 
-const RNApp = createBottomTabNavigator(
+const Tab = createBottomTabNavigator(
     {
         Reviews: {
             screen: Reviews,
@@ -29,10 +32,39 @@ const RNApp = createBottomTabNavigator(
         }
     },
     {
+        initialRouteName: 'Reviews',
         tabBarOptions: {
             showLabel: false
         }
     }
 );
-
-export default createAppContainer(RNApp);
+const Stack = createStackNavigator(
+    {
+        Tab: {
+            screen: Tab,
+            navigationOptions: { header: null, gesturesEnabled: false }
+        },
+        AuthLoading: {
+            screen: AuthLoading,
+            navigationOptions: { header: null, gesturesEnabled: false }
+        },
+        Login: {
+            screen: Login,
+            navigationOptions: { header: null, gesturesEnabled: false }
+        },
+        Register: {
+            screen: Register,
+            navigationOptions: {
+                title: 'Register',
+                gesturesEnabled: false,
+                headerStyle: {
+                    backgroundColor: '#C0C0C0'
+                }
+            }
+        }
+    },
+    {
+        initialRouteName: 'AuthLoading'
+    }
+);
+export default createAppContainer(Stack);

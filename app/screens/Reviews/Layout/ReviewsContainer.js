@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReviewsView from './ReviewsView';
 import { connect } from 'react-redux';
-import { loadReviews } from './actions';
+import { loadReviews, logoutUser } from './actions';
 
 class ReviewsContainer extends Component {
     constructor(props) {
@@ -18,7 +18,8 @@ function mapStateToProps() {
 }
 function mapDispatchToProps(dispatch) {
     return {
-        loadReviews: () => dispatch(loadReviews())
+        loadReviews: () => dispatch(loadReviews()),
+        logout: () => dispatch(logoutUser())
     };
 }
 export default connect(
