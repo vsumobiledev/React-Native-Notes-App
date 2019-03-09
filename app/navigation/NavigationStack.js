@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import { createBottomTabNavigator, createStackNavigator, createDrawerNavigator, createAppContainer } from 'react-navigation';
+import { createBottomTabNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 
 import AuthLoading from '../screens/AuthLoading/Layout';

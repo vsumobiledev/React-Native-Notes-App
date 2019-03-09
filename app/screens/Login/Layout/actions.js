@@ -1,5 +1,6 @@
 import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILED } from './constants';
 import { Alert } from 'react-native';
+import { initUser } from '../../../core/redux/user/actions';
 import firebase from 'firebase';
 
 export const loginUser = (login, password) => dispatch => {
@@ -10,6 +11,7 @@ export const loginUser = (login, password) => dispatch => {
         .then(
             user => {
                 dispatch({ type: LOGIN_SUCCESS, payload: user });
+                dispatch(initUser(user.uid));
             },
             error => {
                 dispatch({ type: LOGIN_FAILED });

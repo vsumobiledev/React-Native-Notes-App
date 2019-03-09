@@ -1,5 +1,6 @@
 import { REGISTER, REGISTER_SUCCESS, REGISTER_FAILED } from './constants';
 import { Alert } from 'react-native';
+import { initUser } from '../../../core/redux/user/actions';
 import firebase from 'firebase';
 
 export const registerUser = (user, password) => dispatch => {
@@ -14,18 +15,22 @@ export const registerUser = (user, password) => dispatch => {
                     .database()
                     .ref()
                     .child('users')
-                    .push({
+                    .child(firebaseUser.uid)
+                    .set({
                         firstName,
                         lastName,
                         email: login
+                    })
+                    .then(() => {
+                        dispatch({
+                            type: REGISTER_SUCCESS,
+                            payload: {
+                                firebaseUser,
+                                ...user
+                            }
+                        });
+                        dispatch(initUser(user.uid));
                     });
-                dispatch({
-                    type: REGISTER_SUCCESS,
-                    payload: {
-                        firebaseUser,
-                        ...user
-                    }
-                });
             },
             error => {
                 dispatch({ type: REGISTER_FAILED });

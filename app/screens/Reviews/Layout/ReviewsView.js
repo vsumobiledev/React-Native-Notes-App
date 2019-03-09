@@ -20,6 +20,7 @@ class ReviewsView extends Component {
                 <TouchableOpacity onPress={this.logout}>
                     <Text>Logout</Text>
                 </TouchableOpacity>
+                <Text>{JSON.stringify(this.props.user)}</Text>
             </View>
         );
     }
@@ -27,7 +28,8 @@ class ReviewsView extends Component {
 
 ReviewsView.propTypes = {
     loadReviews: PropTypes.func,
-    logout: PropTypes.func
+    logout: PropTypes.func,
+    user: PropTypes.objectw
 };
 
 export default ReviewsView;

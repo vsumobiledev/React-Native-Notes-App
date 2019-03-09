@@ -13,8 +13,10 @@ class ReviewsContainer extends Component {
     }
 }
 
-function mapStateToProps() {
-    return {};
+function mapStateToProps(state) {
+    return {
+        user: state.user.data
+    };
 }
 function mapDispatchToProps(dispatch) {
     return {
