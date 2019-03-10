@@ -1,0 +1,1 @@
+export const LOAD_FILTERED_REVIEWS = 'reviews/LOAD_FILTERED_REVIEWS';
