@@ -31,11 +31,22 @@ function replace(routeName) {
     );
 }
 
+function setToRoot(routeName) {
+    _navigator.dispatch(
+        StackActions.reset({
+            index: 0,
+            key: null,
+            actions: [ NavigationActions.navigate({ routeName }) ]
+        })
+    );
+}
+
 // add other navigation functions that you need and export them
 
 export default {
     navigate,
     goBack,
     replace,
-    setTopLevelNavigator
+    setTopLevelNavigator,
+    setToRoot
 };

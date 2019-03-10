@@ -7,9 +7,6 @@ class ReviewsView extends Component {
     constructor(props) {
         super(props);
     }
-    logout = () => {
-        this.props.logout();
-    }
     render() {
         return (
             <View style={styles.container}>
@@ -17,10 +14,6 @@ class ReviewsView extends Component {
                 <TouchableOpacity onPress={this.stubOnPress}>
                     <Text>Go to Home</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={this.logout}>
-                    <Text>Logout</Text>
-                </TouchableOpacity>
-                <Text>{JSON.stringify(this.props.user)}</Text>
             </View>
         );
     }
@@ -28,8 +21,6 @@ class ReviewsView extends Component {
 
 ReviewsView.propTypes = {
     loadReviews: PropTypes.func,
-    logout: PropTypes.func,
-    user: PropTypes.objectw
 };
 
 export default ReviewsView;

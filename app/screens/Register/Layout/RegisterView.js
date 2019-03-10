@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, TouchableNativeFeedback, Alert, ActivityIndicator } from 'react-native';
+import { Text, View, TouchableNativeFeedback, ActivityIndicator } from 'react-native';
 import AuthTextInputComponent from '../../../shared/component/AuthTextInput/AuthTextInputComponent';
 import { styles } from './styles';
 import PropTypes from 'prop-types';

@@ -1,4 +1,5 @@
-import { INIT_USER, UPDATE_USER, UPDATE_FAILED } from './constants';
+import { INIT_USER, UPDATE_USER, UPDATE_FAILED, LOGOUT_USER, UPDATE_AVATAR } from './constants';
+import NavigationService from '../../../navigation/NavigationService';
 import firebase from 'firebase';
 
 export const initUser = uid => dispatch => {
@@ -17,8 +18,35 @@ export const initUser = uid => dispatch => {
                         uid
                     }
                 });
+                dispatch(initAvatar(uid));
             } else {
                 dispatch({ type: UPDATE_FAILED });
             }
+        });
+};
+
+export const initAvatar = uid => dispatch => {
+    firebase
+        .storage()
+        .ref()
+        .child(`avatars/${uid}.png`)
+        .getDownloadURL()
+        .then(
+            url => {
+                dispatch({ type: UPDATE_AVATAR, payload: url });
+            },
+            () => {
+                dispatch({ type: UPDATE_FAILED });
+            }
+        );
+};
+
+export const logoutUser = () => dispatch => {
+    firebase
+        .auth()
+        .signOut()
+        .then(() => {
+            dispatch({ type: LOGOUT_USER });
+            NavigationService.setToRoot('Login');
         });
 };

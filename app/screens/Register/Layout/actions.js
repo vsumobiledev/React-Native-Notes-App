@@ -32,6 +32,9 @@ export const registerUser = (user, password) => dispatch => {
                         });
                         dispatch(initUser(firebaseUser.uid));
                         NavigationService.replace('Tab');
+                    }, error => {
+                        dispatch({ type: REGISTER_FAILED });
+                        Alert.alert('Register Error', error);
                     });
             },
             error => {
