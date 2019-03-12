@@ -11,6 +11,7 @@ export default class StyleSheetFactory {
             text: {
                 color: 'white' === tagColor ? 'black' : 'white',
                 alignSelf: 'center',
+                paddingBottom: 2
             }
         });
     }

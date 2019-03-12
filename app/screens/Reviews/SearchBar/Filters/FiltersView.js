@@ -1,72 +1,127 @@
 import React from 'react';
-import { View, TouchableOpacity, Text, LayoutAnimation, Platform, UIManager } from 'react-native';
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  LayoutAnimation,
+  Platform,
+  UIManager,
+  Animated,
+  Easing
+} from 'react-native';
+import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 import CancelableTag from '../CancelableTag';
+import RotateAnimation from '../../../../utils/rotateAnimation';
 import AddTag from '../AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
 class FiltersView extends React.Component {
-    constructor() {
-        super();
-     
-        this.state = { 
-            expanded: false,
-            tags: [
-                {value: 'Fantasy', color: '#E94358'},
-                {value: 'Horror', color: '#E94358'},
-                {value: 'Comedy', color: '#E94358'},
-                {value: 'Fantasy1', color: '#E94358'},
-                {value: 'Horror1', color: '#E94358'},
-                {value: 'Comedy1', color: '#E94358'},
-            ],
-            isChecked: false,
-        };
-        
-        if (Platform.OS === 'android') {
-            UIManager.setLayoutAnimationEnabledExperimental(true);
-        }
-    }
+  constructor() {
+    super();
 
-    changeLayout = () => {
-        const { expanded } = this.state;
-        LayoutAnimation.configureNext(LayoutAnimation.create(300, 'easeInEaseOut', 'scaleY'));
-        this.setState({ expanded: !expanded });
+    this.state = {
+      expanded: false,
+      tags: [
+        { value: 'Fantasy', color: '#E94358' },
+        { value: 'Horror', color: '#E94358' },
+        { value: 'Comedy', color: '#E94358' },
+        { value: 'Fantasy1', color: '#E94358' },
+        { value: 'Horror1', color: '#E94358' },
+        { value: 'Comedy1', color: '#E94358' }
+      ],
+      isChecked: false,
+      animationValue: 0
+    };
+    this.rotateAnimation = new RotateAnimation();
+    this.rotateValue = this.rotateAnimation.getAnimatedInstance();
+    this.transformStyle = this.rotateAnimation.getTransformStyle(
+      this.rotateValue
+    );
+    if (Platform.OS === 'android') {
+      UIManager.setLayoutAnimationEnabledExperimental(true);
     }
+  }
 
-    deselectTag = (value) => {
-        const { tags } = this.state;
-        tags.splice(tags.findIndex((tag) => tag.value === value) - 1, 1);
-        this.setState({ tags }); 
-    }
+  handleFilterMenu = () => {
+    const { expanded, animationValue } = this.state;
+    Animated.timing(this.rotateValue, {
+      toValue: animationValue ? 0 : 1,
+      duration: 350,
+      easing: Easing.linear,
+      useNativeDriver: true
+    }).start();
+    LayoutAnimation.configureNext(
+      LayoutAnimation.create(300, 'easeInEaseOut', 'scaleY')
+    );
+    this.setState({
+      expanded: !expanded,
+      animationValue: animationValue ? 0 : 1
+    });
+  };
 
-    onCheckBoxClick = () => {
-        const { isChecked } = this.state; 
-        this.setState({ isChecked: !isChecked });
-    }
+  deselectTag = value => {
+    const { tags } = this.state;
+    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
+    this.setState({ tags });
+  };
 
-    renderSelectedTags = (tags) => tags.map((tag) => (
-        <CancelableTag key={tag.value} value={tag.value} color={tag.color} onClick={this.deselectTag} />
-    ))
+  onCheckBoxClick = () => {
+    const { isChecked } = this.state;
+    this.setState({ isChecked: !isChecked });
+  };
 
-    render() {
-        const { tags, isChecked } = this.state;
-        return (
-            <View style={styles.container}>
-                <TouchableOpacity activeOpacity={1} onPress={this.changeLayout} style={styles.Btn}>
-                    <Text style={styles.btnText}>Filters</Text>
-                </TouchableOpacity>
-                <View style={{ height: this.state.expanded ? null : 0, overflow: 'hidden' }}>
-                    <View style={styles.tagsContainer}>
-                        {this.renderSelectedTags(tags)}
-                        <AddTag />
-                    </View>
-                    <TouchableOpacity onPress={this.onCheckBoxClick} style={styles.checkBoxContainer}>
-                        <CheckBox isCheck={isChecked}/>
-                        <Text style={styles.checkBoxText}>Only my reviews</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        );
-    }
+  renderSelectedTags = tags =>
+    tags.map(tag => (
+      <CancelableTag
+        key={tag.value}
+        value={tag.value}
+        color={tag.color}
+        onClick={this.deselectTag}
+      />
+    ));
+
+  render() {
+    const { tags, isChecked, expanded } = this.state;
+
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          onPress={this.handleFilterMenu}
+          activeOpacity={1}
+          style={styles.filterBtn}
+        >
+          <Animated.View style={this.transformStyle}>
+            <IoniconsComponent
+              style={styles.icon}
+              name="ios-arrow-down"
+              size={20}
+            />
+          </Animated.View>
+          <Text style={styles.btnText}>Filters</Text>
+          <Animated.View style={this.transformStyle}>
+            <IoniconsComponent
+              style={styles.icon}
+              name="ios-arrow-down"
+              size={20}
+            />
+          </Animated.View>
+        </TouchableOpacity>
+        <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
+          <View style={styles.tagsContainer}>
+            {this.renderSelectedTags(tags)}
+            <AddTag />
+          </View>
+          <TouchableOpacity
+            onPress={this.onCheckBoxClick}
+            style={styles.checkBoxContainer}
+          >
+            <CheckBox isCheck={isChecked} />
+            <Text style={styles.checkBoxText}>Only my reviews</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
 }
 
 export default FiltersView;
