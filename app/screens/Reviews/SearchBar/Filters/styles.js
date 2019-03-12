@@ -4,7 +4,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     borderColor: 'rgba(40, 40, 40, 1)',
-    borderBottomWidth: 0.3,
     padding: 5
   },
   filterBtn: {

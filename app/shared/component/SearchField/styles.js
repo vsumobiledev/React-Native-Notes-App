@@ -10,9 +10,9 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 40,
     marginBottom: 5,
-    marginLeft: 30,
-    marginRight: 30,
-    marginTop: 10
+    marginLeft: 5,
+    marginTop: 10,
+    width: '83%'
   },
   icon: {
     marginLeft: 10,

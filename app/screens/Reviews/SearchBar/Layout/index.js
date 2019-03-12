@@ -1,2 +1,2 @@
-import SearchBarView from './SearchBarView';
-export default SearchBarView;
+import SearchBarContainer from './SearchBarContainer';
+export default SearchBarContainer;

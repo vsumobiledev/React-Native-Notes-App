@@ -3,13 +3,10 @@ import {
   View,
   TouchableOpacity,
   Text,
-  LayoutAnimation,
   Platform,
-  UIManager,
-  Animated,
-  Easing
+  UIManager
 } from 'react-native';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import PropTypes from 'prop-types';
 import CancelableTag from '../CancelableTag';
 import RotateAnimation from '../../../../utils/rotateAnimation';
 import AddTag from '../AddTag';
@@ -20,7 +17,6 @@ class FiltersView extends React.Component {
     super();
 
     this.state = {
-      expanded: false,
       tags: [
         { value: 'Fantasy', color: '#E94358' },
         { value: 'Horror', color: '#E94358' },
@@ -41,23 +37,6 @@ class FiltersView extends React.Component {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
-
-  handleFilterMenu = () => {
-    const { expanded, animationValue } = this.state;
-    Animated.timing(this.rotateValue, {
-      toValue: animationValue ? 0 : 1,
-      duration: 350,
-      easing: Easing.linear,
-      useNativeDriver: true
-    }).start();
-    LayoutAnimation.configureNext(
-      LayoutAnimation.create(300, 'easeInEaseOut', 'scaleY')
-    );
-    this.setState({
-      expanded: !expanded,
-      animationValue: animationValue ? 0 : 1
-    });
-  };
 
   deselectTag = value => {
     const { tags } = this.state;
@@ -81,31 +60,10 @@ class FiltersView extends React.Component {
     ));
 
   render() {
-    const { tags, isChecked, expanded } = this.state;
-
+    const { tags, isChecked } = this.state;
+    const { expanded } = this.props;
     return (
       <View style={styles.container}>
-        <TouchableOpacity
-          onPress={this.handleFilterMenu}
-          activeOpacity={1}
-          style={styles.filterBtn}
-        >
-          <Animated.View style={this.transformStyle}>
-            <IoniconsComponent
-              style={styles.icon}
-              name="ios-arrow-down"
-              size={20}
-            />
-          </Animated.View>
-          <Text style={styles.btnText}>Filters</Text>
-          <Animated.View style={this.transformStyle}>
-            <IoniconsComponent
-              style={styles.icon}
-              name="ios-arrow-down"
-              size={20}
-            />
-          </Animated.View>
-        </TouchableOpacity>
         <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
           <View style={styles.tagsContainer}>
             {this.renderSelectedTags(tags)}
@@ -124,4 +82,7 @@ class FiltersView extends React.Component {
   }
 }
 
+FiltersView.propTypes = {
+  expanded: PropTypes.bool
+};
 export default FiltersView;
