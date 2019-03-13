@@ -15,6 +15,7 @@ const SearchFieldView = ({ placeholder, value, onChange }) => {
         onChangeText={onChange}
         selectionColor="black"
         value={value}
+        returnKeyType="search"
       />
     </View>
   );

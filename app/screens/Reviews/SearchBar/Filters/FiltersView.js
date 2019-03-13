@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import PropTypes from 'prop-types';
 import CancelableTag from '../CancelableTag';
-import RotateAnimation from '../../../../utils/rotateAnimation';
+import NavigationService from '../../../../navigation/NavigationService';
 import AddTag from '../AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
@@ -16,64 +16,40 @@ class FiltersView extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      tags: [
-        { value: 'Fantasy', color: '#E94358' },
-        { value: 'Horror', color: '#E94358' },
-        { value: 'Comedy', color: '#E94358' },
-        { value: 'Fantasy1', color: '#E94358' },
-        { value: 'Horror1', color: '#E94358' },
-        { value: 'Comedy1', color: '#E94358' }
-      ],
-      isChecked: false,
-      animationValue: 0
-    };
-    this.rotateAnimation = new RotateAnimation();
-    this.rotateValue = this.rotateAnimation.getAnimatedInstance();
-    this.transformStyle = this.rotateAnimation.getTransformStyle(
-      this.rotateValue
-    );
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
   }
 
-  deselectTag = value => {
-    const { tags } = this.state;
-    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
-    this.setState({ tags });
-  };
-
-  onCheckBoxClick = () => {
-    const { isChecked } = this.state;
-    this.setState({ isChecked: !isChecked });
+  onAddTagClick = () => {
+    NavigationService.navigate('Tags', { selectTag: this.selectTag });
   };
 
   renderSelectedTags = tags =>
+    tags &&
     tags.map(tag => (
       <CancelableTag
         key={tag.value}
         value={tag.value}
         color={tag.color}
-        onClick={this.deselectTag}
+        onClick={this.props.deselectTag}
       />
     ));
 
   render() {
-    const { tags, isChecked } = this.state;
-    const { expanded } = this.props;
+    const { expanded, tags, isOnlyUserReviews, onCheckBoxClick } = this.props;
     return (
       <View style={styles.container}>
         <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
           <View style={styles.tagsContainer}>
             {this.renderSelectedTags(tags)}
-            <AddTag />
+            <AddTag onClick={this.onAddTagClick} />
           </View>
           <TouchableOpacity
-            onPress={this.onCheckBoxClick}
+            onPress={onCheckBoxClick}
             style={styles.checkBoxContainer}
           >
-            <CheckBox isCheck={isChecked} />
+            <CheckBox isCheck={isOnlyUserReviews} />
             <Text style={styles.checkBoxText}>Only my reviews</Text>
           </TouchableOpacity>
         </View>
@@ -83,6 +59,10 @@ class FiltersView extends React.Component {
 }
 
 FiltersView.propTypes = {
-  expanded: PropTypes.bool
+  expanded: PropTypes.bool,
+  tags: PropTypes.array,
+  isOnlyUserReviews: PropTypes.bool,
+  deselectTag: PropTypes.func,
+  onCheckBoxClick: PropTypes.func
 };
 export default FiltersView;

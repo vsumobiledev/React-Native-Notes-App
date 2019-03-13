@@ -3,39 +3,39 @@ import { NavigationActions, StackActions } from 'react-navigation';
 let _navigator;
 
 function setTopLevelNavigator(navigatorRef) {
-    _navigator = navigatorRef;
+  _navigator = navigatorRef;
 }
 
 function navigate(routeName, params) {
-    _navigator.dispatch(
-        NavigationActions.navigate({
-            routeName,
-            params
-        })
-    );
+  _navigator.dispatch(
+    NavigationActions.navigate({
+      routeName,
+      params
+    })
+  );
 }
 
 function goBack(key) {
-    _navigator.dispatch(
-        NavigationActions.back({
-            key: key
-        })
-    );
+  _navigator.dispatch(
+    NavigationActions.back({
+      key: key
+    })
+  );
 }
 
 function replace(routeName) {
-    _navigator.dispatch(
-        StackActions.replace({
-            routeName
-        })
-    );
+  _navigator.dispatch(
+    StackActions.replace({
+      routeName
+    })
+  );
 }
 
 // add other navigation functions that you need and export them
 
 export default {
-    navigate,
-    goBack,
-    replace,
-    setTopLevelNavigator
+  navigate,
+  goBack,
+  replace,
+  setTopLevelNavigator
 };

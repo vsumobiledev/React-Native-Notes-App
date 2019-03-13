@@ -18,12 +18,24 @@ class SearchBarView extends React.Component {
     this.setState({ searchName });
     this.props.loadFilteredReviews({});
   };
-  addTag = tag => {
+  selectTag = tag => {
     const { selectedTags } = this.state;
     selectedTags.push(tag);
     this.setState({ selectedTags });
     this.props.loadFilteredReviews({});
   };
+
+  deselectTag = value => {
+    const { tags } = this.state;
+    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
+    this.setState({ tags });
+  };
+
+  onCheckBoxClick = () => {
+    const { isOnlyUserReviews } = this.state;
+    this.setState({ isOnlyUserReviews: !isOnlyUserReviews });
+  };
+
   handleFilterMenu = () => {
     const { expanded, animationValue } = this.state;
     LayoutAnimation.configureNext(
@@ -35,7 +47,7 @@ class SearchBarView extends React.Component {
     });
   };
   render() {
-    const { searchName, expanded } = this.state;
+    const { searchName, expanded, tags, isOnlyUserReviews } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.searchBar}>
@@ -56,7 +68,14 @@ class SearchBarView extends React.Component {
             />
           </TouchableOpacity>
         </View>
-        <Filters expanded={expanded} />
+        <Filters
+          tags={tags}
+          selectTag={this.selectTag}
+          deselectTag={this.deselectTag}
+          expanded={expanded}
+          isOnlyUserReviews={isOnlyUserReviews}
+          onCheckBoxClick={this.onCheckBoxClick}
+        />
       </View>
     );
   }
