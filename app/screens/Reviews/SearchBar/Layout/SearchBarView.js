@@ -29,21 +29,22 @@ class SearchBarView extends React.Component {
     const { tags } = this.state;
     tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
     this.setState({ tags });
+    this.props.loadFilteredReviews({});
   };
 
   onCheckBoxClick = () => {
     const { isOnlyUserReviews } = this.state;
     this.setState({ isOnlyUserReviews: !isOnlyUserReviews });
+    this.props.loadFilteredReviews({});
   };
 
   handleFilterMenu = () => {
-    const { expanded, animationValue } = this.state;
+    const { expanded } = this.state;
     LayoutAnimation.configureNext(
       LayoutAnimation.create(300, 'easeInEaseOut', 'scaleY')
     );
     this.setState({
-      expanded: !expanded,
-      animationValue: animationValue ? 0 : 1
+      expanded: !expanded
     });
   };
   render() {

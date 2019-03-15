@@ -6,18 +6,6 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(40, 40, 40, 1)',
     padding: 5
   },
-  filterBtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    margin: 5,
-    marginLeft: 30,
-    marginRight: 30
-  },
-  btnText: {
-    textAlign: 'center',
-    color: 'black',
-    fontSize: 16
-  },
   tagsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',

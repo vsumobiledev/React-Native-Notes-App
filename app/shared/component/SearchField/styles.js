@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 40,
     marginBottom: 5,
-    marginLeft: 5,
     marginTop: 10,
     width: '83%'
   },
