@@ -10,11 +10,9 @@ export default class StyleSheetFactory {
         alignItems: 'center',
         backgroundColor: tagColor,
         borderRadius: 15,
-        paddingLeft: 4,
         paddingRight: 5
       },
       icon: {
-        marginLeft: 10,
         marginTop: 1
       }
     });

@@ -11,16 +11,13 @@ import configureStore from 'app/store/configureStore';
 const { persistor, store } = configureStore();
 
 export default class Entrypoint extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <PersistGate
-                    loading={<ActivityIndicator />}
-                    persistor={persistor}
-                >
-                    <Navigator />
-                </PersistGate>
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <PersistGate loading={<ActivityIndicator />} persistor={persistor}>
+          <Navigator />
+        </PersistGate>
+      </Provider>
+    );
+  }
 }

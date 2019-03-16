@@ -16,7 +16,7 @@ class ReviewsListView extends React.Component {
       <View style={styles.container}>
         {!isLoading && reviews ? (
           <FlatList
-            contentContainerStyle={{ paddingTop: 10, paddingBottom: 140 }}
+            contentContainerStyle={styles.flatList}
             data={reviews}
             renderItem={this.renderItem}
           />
@@ -31,7 +31,7 @@ class ReviewsListView extends React.Component {
 }
 
 ReviewsListView.propTypes = {
-  searchName: PropTypes.string,
+  isLoading: PropTypes.bool,
   loadFilteredReviews: PropTypes.func,
   reviews: PropTypes.oneOfType([PropTypes.bool, PropTypes.array])
 };

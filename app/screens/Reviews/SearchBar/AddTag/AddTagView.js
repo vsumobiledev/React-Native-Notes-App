@@ -11,7 +11,7 @@ class AddTagView extends React.Component {
     return (
       <TouchableOpacity onPress={onClick}>
         <View style={styles.container}>
-          <IoniconsComponent style={styles.icon} name="ios-add" size={20} />
+          <IoniconsComponent name="ios-add" size={20} />
           <Tag value="Add tag" color="white" />
         </View>
       </TouchableOpacity>

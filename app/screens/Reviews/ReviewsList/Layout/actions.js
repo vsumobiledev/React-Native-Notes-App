@@ -12,7 +12,17 @@ export const loadFilteredReviews = () => dispatch => {
     .ref('reviews')
     .once('value')
     .then(snapshot => {
-      dispatch({ type: LOAD_REVIEWS_SUCCESS, reviews: snapshot.val() });
+      const dataReviews = snapshot.val();
+      const discriptionLimit = 150;
+      dataReviews.map(review => {
+        const { discription } = review;
+        if (discription.length > discriptionLimit) {
+          const shortDiscr = discription.slice(0, discriptionLimit);
+          review.discription = shortDiscr;
+        }
+        return review;
+      });
+      dispatch({ type: LOAD_REVIEWS_SUCCESS, reviews: dataReviews });
     })
     .catch(error => {
       dispatch({ type: LOAD_REVIEWS_ERROR, error });

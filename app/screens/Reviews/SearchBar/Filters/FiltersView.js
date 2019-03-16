@@ -15,7 +15,6 @@ import styles from './styles';
 class FiltersView extends React.Component {
   constructor() {
     super();
-
     if (Platform.OS === 'android') {
       UIManager.setLayoutAnimationEnabledExperimental(true);
     }
@@ -37,7 +36,7 @@ class FiltersView extends React.Component {
     ));
 
   render() {
-    const { expanded, tags, isOnlyUserReviews, onCheckBoxClick } = this.props;
+    const { expanded, isOnlyUserReviews, onCheckBoxClick, tags } = this.props;
     return (
       <View style={styles.container}>
         <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>

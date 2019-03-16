@@ -10,11 +10,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     borderRadius: 15,
-    paddingLeft: 4,
-    paddingRight: 5
-  },
-  icon: {
-    marginRight: 10
+    paddingLeft: 5
   }
 });
 
