@@ -45,7 +45,9 @@ const Tab = createBottomTabNavigator(
   {
     initialRouteName: 'Reviews',
     tabBarOptions: {
-      showLabel: false
+      showLabel: false,
+      activeTintColor: '#2b5aa6',
+      inactiveTintColor: 'gray'
     }
   }
 );

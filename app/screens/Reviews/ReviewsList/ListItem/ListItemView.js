@@ -60,16 +60,6 @@ class ListItemView extends React.PureComponent {
               {this.renderTags(tags)}
             </View>
             <Text>{discription}...</Text>
-            <View
-              style={{
-                flex: 1,
-                justifyContent: 'flex-end',
-                alignItems: 'flex-end',
-                padding: 10
-              }}
-            >
-              <Text>More...</Text>
-            </View>
           </View>
         </View>
       </TouchableNativeFeedback>
