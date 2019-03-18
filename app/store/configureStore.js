@@ -14,6 +14,7 @@ const config = {
 
 const middleware = [thunk];
 
+// eslint-disable-next-line no-undef
 if (__DEV__) {
   middleware.push(createLogger());
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, TouchableNativeFeedback, TouchableOpacity, ActivityIndicator } from 'react-native';
-import AuthTextInputComponent from '../../../shared/component/AuthTextInput/AuthTextInputComponent';
+import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
 
@@ -28,15 +28,17 @@ class LoginView extends React.Component {
                 {this.props.isLoading ? (
                     <ActivityIndicator style={styles.loading} size="large" color="#FFFF00" />
                 ) : null}
-                <AuthTextInputComponent
-                    onChangeText={value => this.setState({ login: value })}
-                    placeholder="Enter email..."
-                />
-                <AuthTextInputComponent
-                    onChangeText={value => this.setState({ password: value })}
-                    placeholder="Enter password..."
-                    type="password"
-                />
+                <View style={styles.inputsWrapper}>
+                    <TextInputComponent
+                        onChangeText={value => this.setState({ login: value })}
+                        placeholder="Enter email..."
+                    />
+                    <TextInputComponent
+                        onChangeText={value => this.setState({ password: value })}
+                        placeholder="Enter password..."
+                        type="password"
+                    />
+                </View>
                 <TouchableNativeFeedback onPress={this.login}>
                     <View style={styles.login}>
                         <Text style={styles.loginText}>LOGIN</Text>

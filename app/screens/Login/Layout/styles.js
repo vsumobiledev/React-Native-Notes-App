@@ -3,40 +3,43 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        paddingTop: 15,
         alignItems: 'center',
+        backgroundColor: '#fff',
+        flex: 1,
         justifyContent: 'center',
-        backgroundColor: '#fff'
+        paddingTop: 15
+    },
+    inputsWrapper: {
+        width: '50%'
+    },
+    loading: {
+        marginBottom: 30
+    },
+    login: {
+        alignItems: 'center',
+        backgroundColor: '#00FF44',
+        borderRadius: 50,
+        height: 40,
+        justifyContent: 'center',
+        marginTop: 15,
+        width: '50%'
+    },
+    loginText: {
+        color: '#fff',
+        fontWeight: 'bold'
     },
     logo: {
-        width: 100,
-        height: 100
+        height: 100,
+        width: 100
     },
     logoWrapper: {
         marginBottom: 40
-    },
-    subHeader: {
-        marginBottom: 30
     },
     register: {
         color: '#A8A8A8',
         margin: 5
     },
-    login: {
-        width: '50%',
-        backgroundColor: '#00FF44',
-        borderRadius: 50,
-        marginTop: 15,
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 40
-    },
-    loginText: {
-        fontWeight: 'bold',
-        color: '#fff'
-    },
-    loading: {
+    subHeader: {
         marginBottom: 30
     }
 });
