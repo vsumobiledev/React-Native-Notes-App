@@ -6,16 +6,16 @@ import thunk from 'redux-thunk';
 import rootReducer from './rootReducer';
 
 const config = {
-    key: 'root',
-    storage,
-    blacklist: ['nav', 'loadingReducer'],
-    debug: true //to get useful logging
+  key: 'root',
+  storage,
+  blacklist: ['reviewsList'],
+  debug: true //to get useful logging
 };
 
 const middleware = [thunk];
 
 if (__DEV__) {
-    middleware.push(createLogger());
+  middleware.push(createLogger());
 }
 
 const reducers = persistCombineReducers(config, rootReducer);
@@ -24,10 +24,10 @@ const enhancers = [applyMiddleware(...middleware)];
 const persistConfig = { enhancers };
 const store = createStore(reducers, undefined, compose(...enhancers));
 const persistor = persistStore(store, persistConfig, () => {
-    //   console.log('Test', store.getState());
+  //   console.log('Test', store.getState());
 });
 const configureStore = () => {
-    return { persistor, store };
+  return { persistor, store };
 };
 
 export default configureStore;

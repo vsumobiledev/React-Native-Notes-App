@@ -4,25 +4,25 @@ import { connect } from 'react-redux';
 import { loadReviews, logoutUser } from './actions';
 
 class ReviewsContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <ReviewsView {...this.props} />;
-    }
+  render() {
+    return <ReviewsView {...this.props} />;
+  }
 }
 
 function mapStateToProps() {
-    return {};
+  return {};
 }
 function mapDispatchToProps(dispatch) {
-    return {
-        loadReviews: () => dispatch(loadReviews()),
-        logout: () => dispatch(logoutUser())
-    };
+  return {
+    loadReviews: () => dispatch(loadReviews()),
+    logout: () => dispatch(logoutUser())
+  };
 }
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ReviewsContainer);
