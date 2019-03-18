@@ -28,7 +28,7 @@ class ListItemView extends React.PureComponent {
     } = this.props;
     return (
       <TouchableNativeFeedback style={styles.button} onPress={this.onPress}>
-        <View style={styles.container}>
+        <View elevation={5} style={styles.container}>
           <Image style={styles.bookCover} source={{ uri: imageURL }} />
           <View style={styles.bookText}>
             <Text style={styles.title}>{title}</Text>

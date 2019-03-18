@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -5,9 +6,16 @@ const styles = StyleSheet.create({
     fontStyle: 'italic'
   },
   container: {
-    height: 275,
+    borderColor: '#cecece',
     borderWidth: 1,
-    borderColor: 'gray',
+    height: 275,
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 5
+    },
+    shadowRadius: 8,
+    shadowOpacity: 1,
     borderRadius: 10,
     margin: 10,
     flexDirection: 'row',
