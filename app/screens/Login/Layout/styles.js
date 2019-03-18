@@ -9,6 +9,9 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         paddingTop: 15
     },
+    inputsWrapper: {
+        width: '50%'
+    },
     loading: {
         marginBottom: 30
     },

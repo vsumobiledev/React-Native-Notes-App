@@ -3,7 +3,7 @@ import { TextInput } from 'react-native';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
 
-class AuthTextInputComponent extends React.Component {
+class TextInputComponent extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,17 +23,18 @@ class AuthTextInputComponent extends React.Component {
                 placeholder={this.props.placeholder}
                 placeholderTextColor="#ADADAD"
                 selectionColor="black"
-                value={this.state.login}
+                value={this.props.value}
                 secureTextEntry={this.props.type === 'password'}
             />
         );
     }
 }
 
-AuthTextInputComponent.propTypes = {
+TextInputComponent.propTypes = {
     onChangeText: PropTypes.func,
     placeholder: PropTypes.string,
-    type: PropTypes.string
+    type: PropTypes.string,
+    value: PropTypes.value
 };
 
-export default AuthTextInputComponent;
+export default TextInputComponent;

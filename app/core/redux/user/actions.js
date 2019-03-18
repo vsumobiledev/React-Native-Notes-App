@@ -1,4 +1,13 @@
-import { INIT_USER, UPDATE_USER, UPDATE_FAILED, LOGOUT_USER, UPDATE_AVATAR } from './constants';
+import {
+    INIT_USER,
+    UPDATE_USER,
+    UPDATE_FAILED,
+    LOGOUT_USER,
+    UPDATE_AVATAR,
+    SAVE_USER,
+    SAVE_USER_FAILED,
+    SAVE_USER_SUCCESS
+} from './constants';
 import NavigationService from '../../../navigation/NavigationService';
 import firebase from 'firebase';
 
@@ -49,4 +58,22 @@ export const logoutUser = () => dispatch => {
             dispatch({ type: LOGOUT_USER });
             NavigationService.setToRoot('Login');
         });
+};
+
+export const saveUser = user => dispatch => {
+    dispatch({ type: SAVE_USER, payload: user });
+    firebase
+        .database()
+        .ref()
+        .child('users')
+        .child(user.uid)
+        .set(user)
+        .then(
+            () => {
+                dispatch({ type: SAVE_USER_SUCCESS });
+            },
+            () => {
+                dispatch({ type: SAVE_USER_FAILED });
+            }
+        );
 };

@@ -52,21 +52,26 @@ class ProfileView extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.profileCard}>
-                    <View style={styles.avatarWrapper}>
-                        {this.props.isAvatarLoading ? null : this.props.avatar ? (
-                            <Image style={styles.avatar} source={{ uri: this.props.avatar }} />
-                        ) : (
-                            <Image style={styles.avatar} source={require('../../../assets/images/default-avatar.png')} />
-                        )}
+                {this.props.user ? (
+                    <View style={styles.profileCard}>
+                        <View style={styles.avatarWrapper}>
+                            {this.props.isAvatarLoading ? null : this.props.avatar ? (
+                                <Image style={styles.avatar} source={{ uri: this.props.avatar }} />
+                            ) : (
+                                <Image
+                                    style={styles.avatar}
+                                    source={require('../../../assets/images/default-avatar.png')}
+                                />
+                            )}
+                        </View>
+                        <View style={styles.dataWrapper}>
+                            <Text style={styles.nameText}>
+                                {this.props.user.firstName} {this.props.user.lastName}
+                            </Text>
+                            <Text style={styles.subTitleText}>{this.props.user.email}</Text>
+                        </View>
                     </View>
-                    <View style={styles.dataWrapper}>
-                        <Text style={styles.nameText}>
-                            {this.props.user.firstName} {this.props.user.lastName}
-                        </Text>
-                        <Text style={styles.subTitleText}>{this.props.user.email}</Text>
-                    </View>
-                </View>
+                ) : null}
                 <View style={styles.menu}>
                     <FlatList
                         data={this.menuItems}

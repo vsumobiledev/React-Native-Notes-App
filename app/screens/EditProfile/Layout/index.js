@@ -1,2 +1,2 @@
-import EditProfileView from './EditProfileView';
-export default EditProfileView;
+import EditProfileContainer from './EditProfileContainer';
+export default EditProfileContainer;

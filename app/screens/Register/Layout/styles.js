@@ -13,6 +13,9 @@ export const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: 'bold'
     },
+    inputsWrapper: {
+        width: '50%'
+    },
     loading: {
         margin: 30
     },
