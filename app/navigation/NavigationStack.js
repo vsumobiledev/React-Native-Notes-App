@@ -7,7 +7,6 @@ import {
   createStackNavigator,
   createAppContainer
 } from 'react-navigation';
-import { TouchableOpacity } from 'react-native';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 
 import AuthLoading from '../screens/AuthLoading/Layout';
@@ -15,65 +14,54 @@ import Login from '../screens/Login/Layout';
 import Register from '../screens/Register/Layout';
 import Reviews from 'app/screens/Reviews/Layout';
 import Profile from 'app/screens/Profile/Layout';
+import { TouchableOpacity } from 'react-native';
 import Users from 'app/screens/Users/Layout';
 import EditProfile from '../screens/EditProfile/Layout';
 import Tags from '../screens/Tags/Layout';
 import Notification from '../screens/Notification/Layout';
 
-const ProfileStack = createStackNavigator(
-  {
-    Profile: {
-      screen: Profile,
-      navigationOptions: ({ navigation }) => ({
-        title: 'Proifle',
-        headerRight: (
-          <TouchableOpacity onPress={() => navigation.state.params.logOut()}>
-            <IoniconsComponent
-              name="ios-exit"
-              style={{ marginRight: 15 }}
-              size={30}
-              color="black"
-            />
-          </TouchableOpacity>
-        )
-      })
-    },
-    EditProfile: {
-      screen: EditProfile,
-      navigationOptions: {
-        title: 'Edit Profile'
-      }
-    },
-    Tags: {
-      screen: Tags,
-      navigationOptions: {
-        title: 'Tags'
-      }
-    },
-    Notification: {
-      screen: Notification,
-      navigationOptions: {
-        title: 'Notification'
-      }
+const ProfileStack = createStackNavigator({
+  Profile: {
+    screen: Profile,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Profile',
+      headerRight: (
+        <TouchableOpacity onPress={() => navigation.state.params.logOut()}>
+          <IoniconsComponent
+            name="ios-exit"
+            style={{ marginRight: 15 }}
+            size={30}
+            color="black"
+          />
+        </TouchableOpacity>
+      )
+    })
+  },
+  EditProfile: {
+    screen: EditProfile,
+    navigationOptions: {
+      title: 'Edit Profile'
     }
   },
-  {
-    navigationOptions: () => ({
-      tabBarLabel: 'Proifle',
-      tabBarIcon: ({ tintColor }) => (
-        <IoniconsComponent name="ios-contact" size={30} color={tintColor} />
-      ),
-      title: 'Proifle'
-    })
+  Tags: {
+    screen: Tags,
+    navigationOptions: {
+      title: 'Tags'
+    }
+  },
+  Notification: {
+    screen: Notification,
+    navigationOptions: {
+      title: 'Notification'
+    }
   }
-);
+});
 
 const Tab = createBottomTabNavigator(
   {
     Reviews: {
       screen: Reviews,
       navigationOptions: () => ({
-        tabBarLabel: 'Reviews',
         tabBarIcon: ({ tintColor }) => (
           <IoniconsComponent name="ios-paper" size={30} color={tintColor} />
         )
@@ -82,13 +70,19 @@ const Tab = createBottomTabNavigator(
     Users: {
       screen: Users,
       navigationOptions: () => ({
-        tabBarLabel: 'Users',
         tabBarIcon: ({ tintColor }) => (
           <IoniconsComponent name="ios-people" size={30} color={tintColor} />
         )
       })
     },
-    ProfileStack
+    Profile: {
+      screen: ProfileStack,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <IoniconsComponent name="ios-contact" size={30} color={tintColor} />
+        )
+      })
+    }
   },
   {
     initialRouteName: 'Reviews',

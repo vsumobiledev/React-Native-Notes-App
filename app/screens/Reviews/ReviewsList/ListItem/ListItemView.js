@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image, TouchableNativeFeedback } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import NavigationService from '../../../../navigation/NavigationService';
+import Ripple from 'react-native-material-ripple';
 import Tag from '../../../../shared/component/Tag';
 import styles from './styles';
 
@@ -16,6 +17,7 @@ class ListItemView extends React.PureComponent {
   onPress = () => {
     NavigationService.navigate('Tags');
   };
+
   render() {
     const {
       imageURL,
@@ -27,8 +29,13 @@ class ListItemView extends React.PureComponent {
       tags
     } = this.props;
     return (
-      <TouchableNativeFeedback style={styles.button} onPress={this.onPress}>
-        <View elevation={5} style={styles.container}>
+      <View style={styles.button}>
+        <Ripple
+          rippleContainerBorderRadius={10}
+          elevation={5}
+          style={styles.container}
+          onPress={this.onPress}
+        >
           <Image style={styles.bookCover} source={{ uri: imageURL }} />
           <View style={styles.bookText}>
             <Text style={styles.title}>{title}</Text>
@@ -61,8 +68,8 @@ class ListItemView extends React.PureComponent {
             </View>
             <Text>{discription}...</Text>
           </View>
-        </View>
-      </TouchableNativeFeedback>
+        </Ripple>
+      </View>
     );
   }
 }
