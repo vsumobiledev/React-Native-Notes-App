@@ -8,54 +8,11 @@ import {
   createAppContainer
 } from 'react-navigation';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
-
-import AuthLoading from '../screens/AuthLoading/Layout';
-import Login from '../screens/Login/Layout';
-import Register from '../screens/Register/Layout';
 import Reviews from 'app/screens/Reviews/Layout';
-import Profile from 'app/screens/Profile/Layout';
-import { TouchableOpacity } from 'react-native';
 import Users from 'app/screens/Users/Layout';
-import EditProfile from '../screens/EditProfile/Layout';
 import Tags from '../screens/Tags/Layout';
-import Notification from '../screens/Notification/Layout';
-
-const ProfileStack = createStackNavigator({
-  Profile: {
-    screen: Profile,
-    navigationOptions: ({ navigation }) => ({
-      title: 'Profile',
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.state.params.logOut()}>
-          <IoniconsComponent
-            name="ios-exit"
-            style={{ marginRight: 15 }}
-            size={30}
-            color="black"
-          />
-        </TouchableOpacity>
-      )
-    })
-  },
-  EditProfile: {
-    screen: EditProfile,
-    navigationOptions: {
-      title: 'Edit Profile'
-    }
-  },
-  Tags: {
-    screen: Tags,
-    navigationOptions: {
-      title: 'Tags'
-    }
-  },
-  Notification: {
-    screen: Notification,
-    navigationOptions: {
-      title: 'Notification'
-    }
-  }
-});
+import AuthStack from './authScreens';
+import ProfileStack from './profileScreens';
 
 const Tab = createBottomTabNavigator(
   {
@@ -100,28 +57,13 @@ const Stack = createStackNavigator(
       screen: Tab,
       navigationOptions: optionsHeaderless
     },
-    AuthLoading: {
-      screen: AuthLoading,
-      navigationOptions: optionsHeaderless
-    },
-    Login: {
-      screen: Login,
-      navigationOptions: optionsHeaderless
-    },
     Tags: {
       screen: Tags,
-      navigationOptions: optionsHeaderless
-    },
-    Register: {
-      screen: Register,
       navigationOptions: {
-        title: 'Register',
-        gesturesEnabled: false,
-        headerStyle: {
-          backgroundColor: '#C0C0C0'
-        }
+        title: 'Tags'
       }
-    }
+    },
+    ...AuthStack
   },
   {
     initialRouteName: 'AuthLoading'
