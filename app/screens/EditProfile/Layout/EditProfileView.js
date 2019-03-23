@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Image,
-  Text,
-  TouchableNativeFeedback,
-  ScrollView
-} from 'react-native';
+import { View, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
+import Ripple from 'react-native-material-ripple';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import styles from './styles';
 import PropTypes from 'prop-types';
@@ -35,7 +30,7 @@ class EditProfileView extends Component {
         <View style={styles.container}>
           {this.props.user ? (
             <View>
-              <TouchableNativeFeedback onPress={this.changeAvatar}>
+              <TouchableOpacity onPress={this.changeAvatar}>
                 <View style={styles.avatarWrapper}>
                   {this.props.isAvatarLoading ? null : this.props.avatar ? (
                     <Image
@@ -49,7 +44,7 @@ class EditProfileView extends Component {
                     />
                   )}
                 </View>
-              </TouchableNativeFeedback>
+              </TouchableOpacity>
               <View style={styles.dataWrapper}>
                 <TextInputComponent
                   onChangeText={value => this.setState({ firstName: value })}
@@ -64,11 +59,13 @@ class EditProfileView extends Component {
               </View>
             </View>
           ) : null}
-          <TouchableNativeFeedback onPress={this.save}>
-            <View style={styles.login}>
-              <Text style={styles.loginText}>SAVE</Text>
-            </View>
-          </TouchableNativeFeedback>
+          <Ripple
+            rippleContainerBorderRadius={50}
+            style={styles.login}
+            onPress={this.save}
+          >
+            <Text style={styles.loginText}>SAVE</Text>
+          </Ripple>
         </View>
       </ScrollView>
     );

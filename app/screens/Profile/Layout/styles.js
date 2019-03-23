@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-color-literals */
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   avatar: {
@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fafafa',
     borderRadius: 10,
-    elevation: 8,
+    elevation: Platform.OS === 'ios' ? 1 : 8,
     justifyContent: 'center',
     marginTop: 10,
     padding: 20,
     shadowColor: 'black',
-    shadowOffset: { width: 10, height: 10 },
+    shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 1.0
   },
   subTitleText: {

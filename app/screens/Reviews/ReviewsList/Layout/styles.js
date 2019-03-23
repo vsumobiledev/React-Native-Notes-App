@@ -16,13 +16,15 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 140,
     right: 10,
-    // borderWidth: 1,
     backgroundColor: '#2BA699',
     width: 60,
     height: 60,
     borderRadius: 100 / 2,
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  fabIcon: {
+    height: 36
   },
   loading: {
     marginTop: 50,

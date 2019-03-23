@@ -32,7 +32,12 @@ class ReviewsListView extends React.Component {
               renderItem={this.renderItem}
             />
             <TouchableOpacity onPress={this.onPressAdd} style={styles.fab}>
-              <IoniconsComponent color="white" name="ios-add" size={36} />
+              <IoniconsComponent
+                style={styles.fabIcon}
+                color="white"
+                name="ios-add"
+                size={36}
+              />
             </TouchableOpacity>
           </View>
         ) : (
