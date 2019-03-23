@@ -55,15 +55,14 @@ class ProfileView extends Component {
         {this.props.user ? (
           <View style={styles.profileCard}>
             <View style={styles.avatarWrapper}>
-              {this.props.isAvatarLoading ? null : this.props.avatar ? (
+              {this.props.isAvatarLoading ? null : (
                 <Image
                   style={styles.avatar}
-                  source={{ uri: this.props.avatar }}
-                />
-              ) : (
-                <Image
-                  style={styles.avatar}
-                  source={require('../../../assets/images/default-avatar.png')}
+                  source={
+                    this.props.avatar
+                      ? { uri: this.props.avatar }
+                      : require('../../../assets/images/default-avatar.png')
+                  }
                 />
               )}
             </View>
