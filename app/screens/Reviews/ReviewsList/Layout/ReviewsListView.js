@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  View,
-  FlatList,
-  ActivityIndicator,
-  TouchableOpacity
-} from 'react-native';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import { View, FlatList, ActivityIndicator } from 'react-native';
 import ListItem from '../ListItem';
+import Fab from '../../../../shared/component/Fab';
 import NavigationService from '../../../../navigation/NavigationService';
 import styles from './styles';
 
@@ -31,14 +26,7 @@ class ReviewsListView extends React.Component {
               data={reviews}
               renderItem={this.renderItem}
             />
-            <TouchableOpacity onPress={this.onPressAdd} style={styles.fab}>
-              <IoniconsComponent
-                style={styles.fabIcon}
-                color="white"
-                name="ios-add"
-                size={36}
-              />
-            </TouchableOpacity>
+            <Fab onPress={this.onPressAdd} />
           </View>
         ) : (
           <View style={styles.loading}>

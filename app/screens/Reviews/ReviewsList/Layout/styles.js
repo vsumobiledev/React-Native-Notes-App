@@ -12,20 +12,6 @@ const styles = StyleSheet.create({
   item: {
     alignSelf: 'center'
   },
-  fab: {
-    position: 'absolute',
-    bottom: 140,
-    right: 10,
-    backgroundColor: '#2BA699',
-    width: 60,
-    height: 60,
-    borderRadius: 100 / 2,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  fabIcon: {
-    height: 36
-  },
   loading: {
     marginTop: 50,
     justifyContent: 'center',

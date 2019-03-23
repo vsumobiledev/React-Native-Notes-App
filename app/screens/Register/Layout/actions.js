@@ -5,41 +5,45 @@ import NavigationService from '../../../navigation/NavigationService';
 import firebase from 'firebase';
 
 export const registerUser = (user, password) => dispatch => {
-    dispatch({ type: REGISTER });
-    firebase
-        .auth()
-        .createUserWithEmailAndPassword(user.login, password)
-        .then(
-            firebaseUser => {
-                const { firstName, lastName, login } = user;
-                firebase
-                    .database()
-                    .ref()
-                    .child('users')
-                    .child(firebaseUser.uid)
-                    .set({
-                        firstName,
-                        lastName,
-                        email: login
-                    })
-                    .then(() => {
-                        dispatch({
-                            type: REGISTER_SUCCESS,
-                            payload: {
-                                firebaseUser,
-                                ...user
-                            }
-                        });
-                        dispatch(initUser(firebaseUser.uid));
-                        NavigationService.replace('Tab');
-                    }, error => {
-                        dispatch({ type: REGISTER_FAILED });
-                        Alert.alert('Register Error', error);
-                    });
+  dispatch({ type: REGISTER });
+  firebase
+    .auth()
+    .createUserWithEmailAndPassword(user.login, password)
+    .then(
+      firebaseUser => {
+        const { firstName, lastName, login } = user;
+        firebase
+          .database()
+          .ref()
+          .child('users')
+          .child(firebaseUser.uid)
+          .set({
+            firstName,
+            lastName,
+            email: login,
+            role: 'user'
+          })
+          .then(
+            () => {
+              dispatch({
+                type: REGISTER_SUCCESS,
+                payload: {
+                  firebaseUser,
+                  ...user
+                }
+              });
+              dispatch(initUser(firebaseUser.uid));
+              NavigationService.replace('Tab');
             },
             error => {
-                dispatch({ type: REGISTER_FAILED });
-                Alert.alert('Register Error', error.message);
+              dispatch({ type: REGISTER_FAILED });
+              Alert.alert('Register Error', error);
             }
-        );
+          );
+      },
+      error => {
+        dispatch({ type: REGISTER_FAILED });
+        Alert.alert('Register Error', error.message);
+      }
+    );
 };
