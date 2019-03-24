@@ -4,29 +4,27 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../../core/redux/user/actions';
 
 class ProfileContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <ProfileView {...this.props} />;
-    }
+  render() {
+    return <ProfileView {...this.props} />;
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        user: state.user.data,
-        isLoading: state.user.isLoading,
-        isAvatarLoading: state.user.isAvatarLoading,
-        avatar: state.user.avatar
-    };
+  return {
+    user: state.user.data,
+    isLoading: state.user.isLoading
+  };
 }
 function mapDispatchToProps(dispatch) {
-    return {
-        logout: () => dispatch(logoutUser())
-    };
+  return {
+    logout: () => dispatch(logoutUser())
+  };
 }
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(ProfileContainer);

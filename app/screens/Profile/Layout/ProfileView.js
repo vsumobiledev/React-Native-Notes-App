@@ -8,47 +8,22 @@ class ProfileView extends Component {
   constructor(props) {
     super(props);
   }
-  menuItems =
-    this.props.user.role === 'admin'
-      ? [
-          {
-            icon: 'ios-build',
-            text: 'Edit Profile',
-            onPress: () => {
-              this.props.navigation.navigate('EditProfile');
-            }
-          },
-          {
-            icon: 'ios-alert',
-            text: 'Notification',
-            onPress: () => {
-              this.props.navigation.navigate('Notification');
-            }
-          },
-          {
-            icon: 'ios-pricetags',
-            text: 'Tags',
-            onPress: () => {
-              this.props.navigation.navigate('Tags');
-            }
-          }
-        ]
-      : [
-          {
-            icon: 'ios-build',
-            text: 'Edit Profile',
-            onPress: () => {
-              this.props.navigation.navigate('EditProfile');
-            }
-          },
-          {
-            icon: 'ios-alert',
-            text: 'Notification',
-            onPress: () => {
-              this.props.navigation.navigate('Notification');
-            }
-          }
-        ];
+  menuItems = [
+    {
+      icon: 'ios-build',
+      text: 'Edit Profile',
+      onPress: () => {
+        this.props.navigation.navigate('EditProfile');
+      }
+    },
+    {
+      icon: 'ios-alert',
+      text: 'Notification',
+      onPress: () => {
+        this.props.navigation.navigate('Notification');
+      }
+    }
+  ];
   logOut = () => {
     Alert.alert(
       'Logout ',
@@ -66,16 +41,28 @@ class ProfileView extends Component {
   };
   componentDidMount() {
     this.props.navigation.setParams({ logOut: this.logOut });
+    if (this.props.user && this.props.user.role === 'admin') {
+      this.menuItems.push({
+        icon: 'ios-pricetags',
+        text: 'Tags',
+        onPress: () => {
+          this.props.navigation.navigate('Tags');
+        }
+      });
+    }
   }
   render() {
-    console.log(this.menuItems);
-
     return (
       <View style={styles.container}>
         {this.props.user ? (
           <View style={styles.profileCard}>
             <View style={styles.avatarWrapper}>
-              {this.props.isAvatarLoading ? null : (
+              {this.props.user.avatar ? (
+                <Image
+                  style={styles.avatar}
+                  source={{ uri: this.props.user.avatar }}
+                />
+              ) : (
                 <Image
                   style={styles.avatar}
                   source={
@@ -118,7 +105,9 @@ ProfileView.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
-    uid: PropTypes.string
+    uid: PropTypes.string,
+    avatar: PropTypes.string,
+    role: PropTypes.bool
   })
 };
 

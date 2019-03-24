@@ -3,6 +3,7 @@ import { View, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import styles from './styles';
+import ImagePicker from 'react-native-image-picker';
 import PropTypes from 'prop-types';
 
 class EditProfileView extends Component {
@@ -10,7 +11,8 @@ class EditProfileView extends Component {
     super(props);
     this.state = {
       firstName: props.user ? props.user.firstName : null,
-      lastName: props.user ? props.user.lastName : null
+      lastName: props.user ? props.user.lastName : null,
+      avatar: props.user && props.user.avatar ? props.user.avatar : null
     };
   }
   save = () => {
@@ -18,12 +20,29 @@ class EditProfileView extends Component {
       this.props.saveUser({
         ...this.props.user,
         firstName: this.state.firstName,
-        lastName: this.state.lastName
+        lastName: this.state.lastName,
+        avatar: this.state.avatar
       });
       this.props.navigation.goBack();
     }
   };
-  changeAvatar = () => {};
+  changeAvatar = () => {
+    const options = {
+      title: 'Select Avatar',
+      quality: 1,
+      maxWidth: 600,
+      maxHeight: 600
+    };
+    ImagePicker.showImagePicker(options, response => {
+      if (!response.didCancel && !response.error) {
+        const base64 = `data:image/jpeg;base64,${response.data}`;
+        this.setState({
+          ...this.state,
+          avatar: base64
+        });
+      }
+    });
+  };
   render() {
     return (
       <ScrollView>
@@ -32,10 +51,10 @@ class EditProfileView extends Component {
             <View>
               <TouchableOpacity onPress={this.changeAvatar}>
                 <View style={styles.avatarWrapper}>
-                  {this.props.isAvatarLoading ? null : this.props.avatar ? (
+                  {this.props.user && this.props.user.avatar ? (
                     <Image
                       style={styles.avatar}
-                      source={{ uri: this.props.avatar }}
+                      source={{ uri: this.state.avatar }}
                     />
                   ) : (
                     <Image
@@ -77,12 +96,14 @@ EditProfileView.propTypes = {
   isLoading: PropTypes.bool,
   save: PropTypes.func,
   saveUser: PropTypes.func,
+  uploadAvatar: PropTypes.func,
   avatar: PropTypes.string,
   isAvatarLoading: PropTypes.bool,
   user: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
+    avatar: PropTypes.string,
     uid: PropTypes.string
   })
 };
