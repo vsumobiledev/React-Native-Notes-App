@@ -4,28 +4,28 @@ import { loginUser } from './actions';
 import LoginView from './LoginView';
 
 class LoginContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <LoginView {...this.props} />;
-    }
+  render() {
+    return <LoginView {...this.props} />;
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        isLoading: state.login.isLoading
-    };
+  return {
+    isLoading: state.login.isLoading
+  };
 }
 function mapDispatchToProps(dispatch) {
-    return {
-        login: (login, password) => {
-            dispatch(loginUser(login, password));
-        }
-    };
+  return {
+    login: (login, password) => {
+      dispatch(loginUser(login, password));
+    }
+  };
 }
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(LoginContainer);

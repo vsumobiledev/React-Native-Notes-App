@@ -55,10 +55,10 @@ class ProfileView extends Component {
         {this.props.user ? (
           <View style={styles.profileCard}>
             <View style={styles.avatarWrapper}>
-              {this.props.isAvatarLoading ? null : this.props.avatar ? (
+              {this.props.user.avatar ? (
                 <Image
                   style={styles.avatar}
-                  source={{ uri: this.props.avatar }}
+                  source={{ uri: this.props.user.avatar }}
                 />
               ) : (
                 <Image
@@ -99,7 +99,8 @@ ProfileView.propTypes = {
     firstName: PropTypes.string,
     lastName: PropTypes.string,
     email: PropTypes.string,
-    uid: PropTypes.string
+    uid: PropTypes.string,
+    avatar: PropTypes.string
   })
 };
 
