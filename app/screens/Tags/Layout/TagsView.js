@@ -1,19 +1,36 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, ActivityIndicator, Text } from 'react-native';
 import styles from './styles';
+import PropTypes from 'prop-types';
 
-class ProfileView extends Component {
+class TagsView extends Component {
   constructor(props) {
     super(props);
+    this.initTags();
   }
-
+  initTags = () => {
+    this.props.initTags();
+  };
   render() {
     return (
       <View style={styles.container}>
-        <Text>Tags</Text>
+        {this.props.isLoading ? (
+          <ActivityIndicator
+            style={styles.loading}
+            size="large"
+            color="#FFFF00"
+          />
+        ) : null}
+        <Text>{JSON.stringify(this.props.tags)}</Text>
       </View>
     );
   }
 }
 
-export default ProfileView;
+TagsView.propTypes = {
+  isLoading: PropTypes.bool,
+  initTags: PropTypes.func,
+  tags: PropTypes.object
+};
+
+export default TagsView;
