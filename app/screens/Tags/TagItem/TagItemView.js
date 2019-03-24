@@ -11,6 +11,13 @@ class TagItem extends React.Component {
     Alert.alert('edit', 'test');
 
   };
+  seletTag = () => {
+    this.props.selectTag({
+      value: this.props.data.name,
+      color: this.props.data.color
+    });
+    this.props.navigation.goBack();
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -33,8 +40,8 @@ class TagItem extends React.Component {
               <Text style={styles.button}>Edit</Text>
             </TouchableOpacity>
           ) : null}
-          {this.props.addTag ? (
-            <TouchableOpacity onPress={() => this.props.addTag(this.props.data)}>
+          {this.props.selectTag ? (
+            <TouchableOpacity onPress={this.seletTag}>
               <Text style={styles.button}>Add</Text>
             </TouchableOpacity>
           ) : null}
@@ -50,8 +57,9 @@ TagItem.propTypes = {
     name: PropTypes.string
   }),
   isAdmin: PropTypes.bool,
-  addTag: PropTypes.func,
-  index: PropTypes.number
+  selectTag: PropTypes.func,
+  index: PropTypes.number,
+  navigation: PropTypes.object
 };
 
 export default TagItem;

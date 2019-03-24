@@ -5,9 +5,11 @@ const styles = StyleSheet.create({
   container: {
     margin: 3,
     borderRadius: 50,
-    width: '95%',
+    borderWidth: 1,
     marginLeft: '3%',
-    borderWidth: 0.5,
+    width: '95%',
+    overflow: 'hidden',
+    backgroundColor: '#fff',
     borderColor: '#d1d1d1',
     flexDirection: 'row'
   },
@@ -15,6 +17,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     marginLeft: 20,
+    marginTop: 1
   },
   tagColor: {
     width: 35,
@@ -25,10 +28,10 @@ const styles = StyleSheet.create({
     marginRight: 10,
     width: '35%',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
   button: {
-    margin: 5,
+    margin: 7,
     color: '#009dff'
   },
   spacer: {

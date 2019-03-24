@@ -10,7 +10,7 @@ import styles from './styles';
 class SearchBarView extends React.Component {
   state = {
     searchName: '',
-    selectedTags: [],
+    tags: [],
     isOnlyUserReviews: false,
     expanded: false
   };
@@ -19,10 +19,12 @@ class SearchBarView extends React.Component {
     this.props.loadFilteredReviews({});
   };
   selectTag = tag => {
-    const { selectedTags } = this.state;
-    selectedTags.push(tag);
-    this.setState({ selectedTags });
-    this.props.loadFilteredReviews({});
+    const { tags } = this.state;
+    if (tags.findIndex(item => item.value === tag.value) === -1) {
+      tags.push(tag);
+      this.setState({ tags });
+      this.props.loadFilteredReviews({});
+    }
   };
 
   deselectTag = value => {

@@ -15,7 +15,7 @@ class TagsView extends Component {
   };
   createNewTag = () => {
     Alert.alert('create', 'create');
-  }
+  };
   getTagsData = () => {
     return Object.keys(this.props.tags).map(key => {
       const item = this.props.tags[key];
@@ -26,9 +26,9 @@ class TagsView extends Component {
     });
   };
   render() {
-    const { isAdmin } = this.props.navigation.state.params
+    const { isAdmin, selectTag } = this.props.navigation.state.params
       ? this.props.navigation.state.params
-      : { isAdmin: false };
+      : { isAdmin: false, selectTag: null };
     return (
       <View style={styles.container}>
         {this.props.isLoading ? (
@@ -43,11 +43,17 @@ class TagsView extends Component {
             data={this.getTagsData()}
             keyExtractor={(item, index) => `tagitem${index}`}
             renderItem={({ item, index }) => (
-              <TagItem data={item} index={index} isAdmin={isAdmin} />
+              <TagItem
+                data={item}
+                index={index}
+                isAdmin={isAdmin}
+                selectTag={selectTag}
+                navigation={this.props.navigation}
+              />
             )}
           />
         </View>
-        <Fab onPress={this.createNewTag} bottom={20} />
+        {isAdmin ? <Fab onPress={this.createNewTag} bottom={20} /> : null}
       </View>
     );
   }
