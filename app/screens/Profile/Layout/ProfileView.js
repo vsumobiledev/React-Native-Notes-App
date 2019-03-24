@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, View, Text, Image, FlatList } from 'react-native';
-import MenuRowComponent from '../MenuRow/MenuRowComponent';
+import MenuRowComponent from '../MenuRow/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
@@ -46,7 +46,9 @@ class ProfileView extends Component {
         icon: 'ios-pricetags',
         text: 'Tags',
         onPress: () => {
-          this.props.navigation.navigate('Tags');
+          this.props.navigation.navigate('Tags', {
+            isAdmin: true
+          });
         }
       });
     }

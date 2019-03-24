@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import ListItem from '../ListItem';
-import Fab from '../../../../shared/component/Fab';
+import Fab from '../../../../shared/components/Fab';
 import NavigationService from '../../../../navigation/NavigationService';
 import styles from './styles';
 
@@ -26,7 +26,7 @@ class ReviewsListView extends React.Component {
               data={reviews}
               renderItem={this.renderItem}
             />
-            <Fab onPress={this.onPressAdd} />
+            <Fab onPress={this.onPressAdd} bottom={140} />
           </View>
         ) : (
           <View style={styles.loading}>

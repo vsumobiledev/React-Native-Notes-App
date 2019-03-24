@@ -4,7 +4,7 @@ import { View, Text, Image } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import NavigationService from '../../../../navigation/NavigationService';
 import Ripple from 'react-native-material-ripple';
-import Tag from '../../../../shared/component/Tag';
+import Tag from '../../../../shared/components/Tag';
 import styles from './styles';
 
 class ListItemView extends React.PureComponent {

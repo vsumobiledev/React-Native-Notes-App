@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import Tag from '../../../../shared/component/Tag';
+import Tag from '../../../../shared/components/Tag';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 import StyleSheetFactory from './styles';
 

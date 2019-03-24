@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import SearchField from '../../../../shared/component/SearchField';
+import SearchField from '../../../../shared/components/SearchField';
 import IoniconsComponent from 'react-native-vector-icons/Ionicons';
 import { LayoutAnimation } from 'react-native';
 import Filters from '../Filters';
