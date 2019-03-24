@@ -3,7 +3,7 @@ import Login from '../screens/Login/Layout';
 import Register from '../screens/Register/Layout';
 
 const optionsHeaderless = { header: null, gesturesEnabled: false };
-const ProfileStack = {
+const AuthStack = {
   AuthLoading: {
     screen: AuthLoading,
     navigationOptions: optionsHeaderless
@@ -23,4 +23,4 @@ const ProfileStack = {
     }
   }
 };
-export default ProfileStack;
+export default AuthStack;
