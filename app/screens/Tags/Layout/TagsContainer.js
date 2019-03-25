@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { initTags } from './actions';
+import { initTags, addTag, deleteTag, editTag } from './actions';
 import TagsView from './TagsView';
 
 class TagsContainer extends Component {
@@ -17,7 +17,10 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    initTags: () => dispatch(initTags())
+    initTags: () => dispatch(initTags()),
+    addTag: tag => dispatch(addTag(tag)),
+    deleteTag: tag => dispatch(deleteTag(tag)),
+    editTag: (lastKey, tag) => dispatch(editTag(lastKey, tag))
   };
 }
 export default connect(

@@ -1,15 +1,14 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
 class TagItem extends React.Component {
   deleteTag = () => {
-    Alert.alert('delete', 'test');
+    this.props.deleteTag(this.props.data);
   };
   editTag = () => {
-    Alert.alert('edit', 'test');
-
+    this.props.modalEditTag(this.props.data);
   };
   seletTag = () => {
     this.props.selectTag({
@@ -59,7 +58,9 @@ TagItem.propTypes = {
   isAdmin: PropTypes.bool,
   selectTag: PropTypes.func,
   index: PropTypes.number,
-  navigation: PropTypes.object
+  navigation: PropTypes.object,
+  deleteTag: PropTypes.func,
+  modalEditTag: PropTypes.func
 };
 
 export default TagItem;
