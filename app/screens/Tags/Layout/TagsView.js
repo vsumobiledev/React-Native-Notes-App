@@ -44,6 +44,9 @@ class TagsView extends Component {
       };
     });
   };
+  closeModal = () => {
+    this.setState({ modalVisible: false, mode: 'save', oldTag: null });
+  }
   render() {
     const { isAdmin, selectTag } = this.props.navigation.state.params
       ? this.props.navigation.state.params
@@ -77,13 +80,11 @@ class TagsView extends Component {
         </View>
         {isAdmin ? (
           <CreateTagModal
-            closeModal={() =>
-              this.setState({ modalVisible: false, mode: 'save', oldTag: null })
-            }
+            closeModal={this.closeModal}
             modalVisible={this.state.modalVisible}
             mode={this.state.mode}
             addTag={this.props.addTag}
-            editTag={tag => this.editTag(tag)}
+            editTag={this.editTag}
             oldTag={this.state.oldTag}
           />
         ) : null}

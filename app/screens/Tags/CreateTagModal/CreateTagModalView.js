@@ -52,6 +52,14 @@ class CreateTagModalView extends React.Component {
       });
     }
   }
+  onChangeTextName = name => {
+    this.setState({ name });
+  };
+  onColorChange = value => {
+    this.setState({
+      color: tinycolor({ s: 1, l: 0.5, h: value }).toHexString()
+    });
+  };
   render() {
     return (
       <Modal
@@ -65,7 +73,7 @@ class CreateTagModalView extends React.Component {
             <View style={styles.inputs}>
               <Text style={styles.inputTitle}>Tag name</Text>
               <TextInputComponent
-                onChangeText={value => this.setState({ name: value })}
+                onChangeText={this.onChangeTextName}
                 value={this.state.name}
                 placeholder="Enter name..."
               />
@@ -74,11 +82,7 @@ class CreateTagModalView extends React.Component {
                 style={styles.sliderRow}
                 gradientSteps={40}
                 value={tinycolor(this.state.color).toHsl().h}
-                onValueChange={value =>
-                  this.setState({
-                    color: tinycolor({ s: 1, l: 0.5, h: value }).toHexString()
-                  })
-                }
+                onValueChange={this.onColorChange}
               />
               <Text style={styles.inputTitle}>Preview</Text>
               <Tag value={this.state.name} color={this.state.color} />

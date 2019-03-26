@@ -10,6 +10,12 @@ class TextInputComponent extends React.Component {
       focus: false
     };
   }
+  onFocus = () => {
+    this.setState({ focus: true })
+  }
+  onBlur = () => {
+    this.setState({ focus: false })
+  }
   render() {
     return (
       <TextInput
@@ -18,8 +24,8 @@ class TextInputComponent extends React.Component {
           ...(this.state.focus ? styles.inputFocus : {})
         }}
         onChangeText={this.props.onChangeText}
-        onFocus={() => this.setState({ focus: true })}
-        onBlur={() => this.setState({ focus: false })}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}
         placeholder={this.props.placeholder}
         placeholderTextColor="#ADADAD"
         selectionColor="black"
