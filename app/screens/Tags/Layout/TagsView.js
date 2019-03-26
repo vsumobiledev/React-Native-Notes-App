@@ -30,7 +30,6 @@ class TagsView extends Component {
     });
   };
   editTag = tag => {
-    console.log('edit old', this.state.oldTag);
     if (this.state.oldTag !== null) {
       this.props.editTag(this.state.oldTag.name, tag);
       this.setState({ oldTag: null });
@@ -79,12 +78,13 @@ class TagsView extends Component {
         {isAdmin ? (
           <CreateTagModal
             closeModal={() =>
-              this.setState({ modalVisible: false, mode: 'save'})
+              this.setState({ modalVisible: false, mode: 'save', oldTag: null })
             }
             modalVisible={this.state.modalVisible}
             mode={this.state.mode}
             addTag={this.props.addTag}
             editTag={tag => this.editTag(tag)}
+            oldTag={this.state.oldTag}
           />
         ) : null}
         {isAdmin ? <Fab onPress={this.createNewTag} bottom={20} /> : null}

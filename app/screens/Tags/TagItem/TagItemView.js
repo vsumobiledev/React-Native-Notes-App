@@ -26,7 +26,7 @@ class TagItem extends React.Component {
             backgroundColor: this.props.data.color
           }}
         />
-        <Text style={styles.tagName}>{this.props.data.name}</Text>
+        <Text style={styles.tagName} numberOfLines={1}>{this.props.data.name}</Text>
         <View style={styles.spacer}></View>
         <View style={styles.buttons}>
           {this.props.isAdmin ? (

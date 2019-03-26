@@ -29,7 +29,7 @@ class SearchBarView extends React.Component {
 
   deselectTag = value => {
     const { tags } = this.state;
-    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
+    tags.splice(tags.findIndex(tag => tag.value === value), 1);
     this.setState({ tags });
     this.props.loadFilteredReviews({});
   };

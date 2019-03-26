@@ -9,7 +9,6 @@ const styles = StyleSheet.create({
     top: '50%'
   },
   tagsList: {
-    marginTop: 10,
     width: '100%'
   }
 });

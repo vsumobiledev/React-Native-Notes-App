@@ -15,9 +15,10 @@ const styles = StyleSheet.create({
   },
   tagName: {
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 16,
     marginLeft: 20,
-    marginTop: 1
+    marginTop: 4,
+    maxWidth: '46%'
   },
   tagColor: {
     width: 35,

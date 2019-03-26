@@ -15,9 +15,9 @@ class CancelableTagView extends React.Component {
     onClick(value);
   };
   render() {
-    const { value, color, onClick } = this.props;
+    const { value, color } = this.props;
     return (
-      <TouchableOpacity onPress={onClick}>
+      <TouchableOpacity onPress={this.onPress}>
         <View style={this.styles.container}>
           <Tag value={value} color={color} />
           <IoniconsComponent

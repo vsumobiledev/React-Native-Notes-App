@@ -1,3 +1,4 @@
+/* eslint-disable react/no-deprecated */
 import React from 'react';
 import { View, Text, Modal } from 'react-native';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
@@ -12,12 +13,13 @@ class CreateTagModalView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: !this.props.oldTag ? '' : this.props.oldTag.name,
-      color: !this.props.oldTag ? '#D60000' : this.props.oldTag.color
+      name: '',
+      color: '#D60000'
     };
   }
   save = () => {
     if (this.state.name.length > 2) {
+      this.props.closeModal();
       if (this.props.mode === 'save') {
         this.props.addTag({
           name: this.state.name,
@@ -29,7 +31,6 @@ class CreateTagModalView extends React.Component {
           color: this.state.color
         });
       }
-      this.props.closeModal();
       this.clearState();
     }
   };
@@ -43,6 +44,14 @@ class CreateTagModalView extends React.Component {
     this.clearState();
     this.props.closeModal();
   };
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.oldTag !== null) {
+      this.setState({
+        name: nextProps.oldTag.name,
+        color: nextProps.oldTag.color
+      });
+    }
+  }
   render() {
     return (
       <Modal
