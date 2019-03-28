@@ -7,8 +7,8 @@ import {
   createStackNavigator,
   createAppContainer
 } from 'react-navigation';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
-import Reviews from 'app/screens/Reviews/Layout';
+import Icon from 'react-native-vector-icons/Ionicons';
+import ReviewsStack from './reviewsScreens';
 import Users from 'app/screens/Users/Layout';
 import Tags from '../screens/Tags/Layout';
 import AuthStack from './authScreens';
@@ -17,10 +17,10 @@ import ProfileStack from './profileScreens';
 const Tab = createBottomTabNavigator(
   {
     Reviews: {
-      screen: Reviews,
+      screen: ReviewsStack,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <IoniconsComponent name="ios-paper" size={30} color={tintColor} />
+          <Icon name="ios-paper" size={30} color={tintColor} />
         )
       })
     },
@@ -28,7 +28,7 @@ const Tab = createBottomTabNavigator(
       screen: Users,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <IoniconsComponent name="ios-people" size={30} color={tintColor} />
+          <Icon name="ios-people" size={30} color={tintColor} />
         )
       })
     },
@@ -36,7 +36,7 @@ const Tab = createBottomTabNavigator(
       screen: ProfileStack,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <IoniconsComponent name="ios-contact" size={30} color={tintColor} />
+          <Icon name="ios-contact" size={30} color={tintColor} />
         )
       })
     }

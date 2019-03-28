@@ -1,0 +1,3 @@
+export const UPLOAD_REVIEW = 'addReview/UPLOAD_REVIEW';
+export const UPLOAD_REVIEW_SUCCESS = 'addReview/UPLOAD_REVIEW_SUCCESS';
+export const UPLOAD_REVIEW_ERROR = 'addReview/UPLOAD_REVIEW_ERROR';

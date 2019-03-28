@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import ListItem from '../ListItem';
-import Fab from '../../../../shared/component/Fab';
-import NavigationService from '../../../../navigation/NavigationService';
 import styles from './styles';
 
 class ReviewsListView extends React.Component {
@@ -11,22 +9,21 @@ class ReviewsListView extends React.Component {
   componentDidMount() {
     this.props.loadFilteredReviews();
   }
-  onPressAdd = () => {
-    NavigationService.navigate('Tags');
-  };
+
   renderItem = ({ item }) => <ListItem {...item} />;
   render() {
     const { reviews, isLoading } = this.props;
     return (
       <View style={styles.container}>
-        {!isLoading && reviews ? (
+        {!isLoading ? (
           <View>
-            <FlatList
-              contentContainerStyle={styles.flatList}
-              data={reviews}
-              renderItem={this.renderItem}
-            />
-            <Fab onPress={this.onPressAdd} />
+            {reviews && (
+              <FlatList
+                contentContainerStyle={styles.flatList}
+                data={reviews}
+                renderItem={this.renderItem}
+              />
+            )}
           </View>
         ) : (
           <View style={styles.loading}>

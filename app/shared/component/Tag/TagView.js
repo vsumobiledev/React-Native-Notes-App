@@ -3,17 +3,17 @@ import { Text, View } from 'react-native';
 import StyleSheetFactory from './styles';
 import PropTypes from 'prop-types';
 
-const TagView = ({ value, color }) => {
+const TagView = ({ name, color }) => {
   const styles = StyleSheetFactory.getSheet(color);
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{value}</Text>
+      <Text style={styles.text}>{name}</Text>
     </View>
   );
 };
 
 TagView.propTypes = {
-  value: PropTypes.string,
+  name: PropTypes.string,
   color: PropTypes.string
 };
 

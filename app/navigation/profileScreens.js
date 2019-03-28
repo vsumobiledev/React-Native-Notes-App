@@ -4,7 +4,7 @@ import Notification from '../screens/Notification/Layout';
 import Profile from 'app/screens/Profile/Layout';
 import { TouchableOpacity } from 'react-native';
 import { createStackNavigator } from 'react-navigation';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/prop-types */
@@ -16,7 +16,7 @@ const ProfileStack = createStackNavigator({
       title: 'Profile',
       headerRight: (
         <TouchableOpacity onPress={() => navigation.state.params.logOut()}>
-          <IoniconsComponent
+          <Icon
             name="ios-exit"
             style={{ marginRight: 15 }}
             size={30}
