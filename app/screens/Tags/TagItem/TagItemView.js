@@ -1,33 +1,48 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { Alert, View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
 class TagItem extends React.Component {
   deleteTag = () => {
-    this.props.deleteTag(this.props.data);
+    Alert.alert(
+      'Delete',
+      `Are you sure you want to delete ${this.props.data.name} tag?`,
+      [
+        {
+          text: 'Cancel',
+          style: 'cancel'
+        },
+        { text: 'Yes', onPress: () => this.props.deleteTag(this.props.data) }
+      ],
+      { cancelable: false }
+    );
   };
   editTag = () => {
     this.props.modalEditTag(this.props.data);
   };
   seletTag = () => {
-    this.props.selectTag({
-      value: this.props.data.name,
-      color: this.props.data.color
-    });
-    this.props.navigation.goBack();
-  }
+    if (this.props.selectTag) {
+      this.props.selectTag({
+        value: this.props.data.name,
+        color: this.props.data.color
+      });
+      this.props.navigation.goBack();
+    }
+  };
   render() {
     return (
-      <View style={styles.container}>
+      <TouchableOpacity onPress={this.seletTag} style={styles.container}>
         <View
           style={{
             ...styles.tagColor,
             backgroundColor: this.props.data.color
           }}
         />
-        <Text style={styles.tagName} numberOfLines={1}>{this.props.data.name}</Text>
-        <View style={styles.spacer}></View>
+        <Text style={styles.tagName} numberOfLines={1}>
+          {this.props.data.name}
+        </Text>
+        <View style={styles.spacer} />
         <View style={styles.buttons}>
           {this.props.isAdmin ? (
             <TouchableOpacity onPress={this.deleteTag}>
@@ -39,13 +54,8 @@ class TagItem extends React.Component {
               <Text style={styles.button}>Edit</Text>
             </TouchableOpacity>
           ) : null}
-          {this.props.selectTag ? (
-            <TouchableOpacity onPress={this.seletTag}>
-              <Text style={styles.button}>Add</Text>
-            </TouchableOpacity>
-          ) : null}
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

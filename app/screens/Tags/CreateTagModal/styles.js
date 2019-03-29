@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     width: '80%',
+    alignItems: 'center',
     justifyContent: 'center',
     minWidth: 200,
     maxWidth: 400,
@@ -15,8 +16,8 @@ const styles = StyleSheet.create({
     borderColor: '#d1d1d1',
     flexDirection: 'row',
     padding: 10,
-    paddingTop: 20,
     minHeight: 300,
+    zIndex: 10,
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -28,7 +29,8 @@ const styles = StyleSheet.create({
   modalBackground: {
     height: '100%',
     width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    zIndex: 0,
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center'
@@ -59,6 +61,11 @@ const styles = StyleSheet.create({
     marginTop: 25,
     width: '100%',
     alignItems: 'center'
+  },
+  closeButton: {
+    position: 'absolute',
+    right: 10,
+    top: 8
   }
 });
 

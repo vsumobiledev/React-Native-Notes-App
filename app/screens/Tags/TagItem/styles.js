@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginLeft: 20,
     marginTop: 4,
-    maxWidth: '46%'
+    maxWidth: '86%'
   },
   tagColor: {
     width: 35,

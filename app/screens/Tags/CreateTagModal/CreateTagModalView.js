@@ -1,6 +1,6 @@
 /* eslint-disable react/no-deprecated */
 import React from 'react';
-import { View, Text, Modal } from 'react-native';
+import { View, Text, Modal, TouchableOpacity } from 'react-native';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import { HueSlider } from 'react-native-color';
 import Ripple from 'react-native-material-ripple';
@@ -70,6 +70,9 @@ class CreateTagModalView extends React.Component {
       >
         <View style={styles.modalBackground}>
           <View style={styles.container} elevation={5}>
+            <TouchableOpacity style={styles.closeButton} onPress={this.closeModal}>
+              <Text>✕</Text>
+            </TouchableOpacity>
             <View style={styles.inputs}>
               <Text style={styles.inputTitle}>Tag name</Text>
               <TextInputComponent
