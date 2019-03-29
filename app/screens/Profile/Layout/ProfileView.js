@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, View, Text, Image, FlatList } from 'react-native';
 import MenuRowComponent from '../MenuRow/MenuRowComponent';
+import ProfileCardComponent from '../../../shared/components/ProfileCard/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
@@ -55,31 +56,7 @@ class ProfileView extends Component {
     return (
       <View style={styles.container}>
         {this.props.user ? (
-          <View style={styles.profileCard}>
-            <View style={styles.avatarWrapper}>
-              {this.props.user.avatar ? (
-                <Image
-                  style={styles.avatar}
-                  source={{ uri: this.props.user.avatar }}
-                />
-              ) : (
-                <Image
-                  style={styles.avatar}
-                  source={
-                    this.props.avatar
-                      ? { uri: this.props.avatar }
-                      : require('../../../assets/images/default-avatar.png')
-                  }
-                />
-              )}
-            </View>
-            <View style={styles.dataWrapper}>
-              <Text style={styles.nameText}>
-                {this.props.user.firstName} {this.props.user.lastName}
-              </Text>
-              <Text style={styles.subTitleText}>{this.props.user.email}</Text>
-            </View>
-          </View>
+          <ProfileCardComponent user={this.props.user}></ProfileCardComponent>
         ) : null}
         <View style={styles.menu}>
           <FlatList
@@ -99,8 +76,6 @@ ProfileView.propTypes = {
   navigation: PropTypes.object,
   logout: PropTypes.func,
   isLoading: PropTypes.bool,
-  avatar: PropTypes.string,
-  isAvatarLoading: PropTypes.bool,
   user: PropTypes.shape({
     firstName: PropTypes.string,
     lastName: PropTypes.string,
