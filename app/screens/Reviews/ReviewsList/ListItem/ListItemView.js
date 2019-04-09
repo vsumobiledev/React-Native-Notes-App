@@ -20,7 +20,7 @@ class ListItemView extends React.PureComponent {
 
   render() {
     const {
-      imageURL,
+      image,
       title,
       author,
       authorRating,
@@ -36,7 +36,7 @@ class ListItemView extends React.PureComponent {
           style={styles.container}
           onPress={this.onPress}
         >
-          <Image style={styles.bookCover} source={imageURL} />
+          <Image style={styles.bookCover} source={{ uri: image }} />
           <View style={styles.bookText}>
             <Text style={styles.title}>{title}</Text>
             <View style={styles.ratingContainer}>

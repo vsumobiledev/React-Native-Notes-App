@@ -1,5 +1,14 @@
 import React from 'react';
-import { ScrollView, View, Text, Image } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  ActivityIndicator,
+  TouchableOpacity,
+  Alert
+} from 'react-native';
+import ImageResizer from 'react-native-image-resizer';
 import { AirbnbRating } from 'react-native-ratings';
 import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -27,7 +36,7 @@ class AddReviewView extends React.Component {
         color: '#fe2da3'
       }
     ],
-    imageURL: false,
+    image: false,
     isInvalid: false
   };
   onChangeTitle = value => {
@@ -72,28 +81,46 @@ class AddReviewView extends React.Component {
       }
     };
     ImagePicker.showImagePicker(options, response => {
-      response.height = 275;
-      this.setState({
-        imageURL: response,
-        isInvalid: false
-      });
+      if (!response.didCancel) {
+        const source = { uri: 'data:image/jpeg;base64,' + response.data };
+        ImageResizer.createResizedImage(source.uri, 320, 480, 'PNG', 80)
+          .then(response => {
+            this.setState({
+              image: response.uri,
+              isInvalid: false
+            });
+          })
+          .catch(() => {
+            return Alert.alert(
+              'Unable to resize the photo',
+              'Check the console for full the error message'
+            );
+          });
+      }
     });
   };
 
   uploadReview = () => {
-    const { title, discription, authorRating, tags, imageURL } = this.state;
-    if (title && discription && authorRating && tags && imageURL.uri) {
+    const { title, discription, authorRating, tags, image } = this.state;
+    if (title && discription && authorRating && tags && image) {
       this.props.uploadReview({
         title,
         discription,
         authorRating,
         tags,
-        imageURL
+        image
       });
     } else {
       this.setState({ isInvalid: true });
     }
   };
+
+  // renderHints = books =>
+  //   books.map(book => (
+  //     <TouchableOpacity>
+  //       <Text />
+  //     </TouchableOpacity>
+  //   ));
 
   render() {
     const {
@@ -101,35 +128,40 @@ class AddReviewView extends React.Component {
       discription,
       authorRating,
       tags,
-      imageURL,
+      image,
       isInvalid
     } = this.state;
-    const { isLoading, error } = this.props;
+
+    const { isLoading, error, isLoadingHints } = this.props;
     return (
       <ScrollView style={styles.container}>
-        <Fieldset
-          onChangeText={this.onChangeTitle}
-          textValue={title}
-          title="Title"
-          placeholder="Enter title..."
-          isMultiline={false}
-        />
+        <View>
+          <Fieldset
+            onChangeText={this.onChangeTitle}
+            textValue={title}
+            title="Title"
+            placeholder="Enter title..."
+            isMultiline={false}
+            withHints={true}
+          />
+          {isLoadingHints && <ActivityIndicator size="small" color="blue" />}
+        </View>
         <View style={styles.infoContainer}>
           <Ripple
             rippleContainerBorderRadius={10}
             style={[
               styles.addImage,
-              !imageURL.uri && {
+              !image && {
                 borderWidth: 2,
                 borderStyle: 'dashed'
               }
             ]}
             onPress={this.onChooseImage}
           >
-            {!imageURL.uri ? (
+            {!image ? (
               <Icon name="image-plus" size={36} />
             ) : (
-              <Image style={styles.bookCover} source={imageURL} />
+              <Image style={styles.bookCover} source={{ uri: image }} />
             )}
           </Ripple>
           <View style={styles.ratingBlock}>
@@ -175,7 +207,8 @@ class AddReviewView extends React.Component {
 AddReviewView.propTypes = {
   isLoading: PropTypes.bool,
   initAuth: PropTypes.func,
-  uploadReview: PropTypes.func
+  uploadReview: PropTypes.func,
+  isLoadingHints: PropTypes.bool
 };
 
 export default AddReviewView;

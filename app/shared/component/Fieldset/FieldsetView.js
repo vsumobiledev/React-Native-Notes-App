@@ -21,7 +21,8 @@ class FieldsetView extends React.PureComponent {
       textValue,
       title,
       isMultiline,
-      placeholder
+      placeholder,
+      withHints
     } = this.props;
     return (
       <View style={styles.container}>
@@ -29,7 +30,10 @@ class FieldsetView extends React.PureComponent {
           <Text style={styles.title}>{title}</Text>
         </View>
         <TextInput
-          style={!isFocused ? styles.input : styles.focusedInput}
+          style={[
+            !isFocused ? styles.input : styles.focusedInput,
+            withHints && { paddingRight: 15 }
+          ]}
           placeholder={placeholder}
           placeholderTextColor="rgba(0,0,0,0.4)"
           onChangeText={onChangeText}
@@ -48,7 +52,8 @@ FieldsetView.propTypes = {
   textValue: PropTypes.string,
   title: PropTypes.string,
   isMultiline: PropTypes.bool,
-  placeholder: PropTypes.string
+  placeholder: PropTypes.string,
+  withHints: PropTypes.bool
 };
 
 export default FieldsetView;
