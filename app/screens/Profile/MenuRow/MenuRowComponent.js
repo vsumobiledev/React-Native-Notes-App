@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
 class MenuRowComponent extends Component {
@@ -17,14 +17,14 @@ class MenuRowComponent extends Component {
             ...(this.props.index === 0 ? styles.menuRowTop : null)
           }}
         >
-          <IoniconsComponent
+          <Icon
             name={this.props.data.icon}
             style={styles.menuIcon}
             size={30}
             color="black"
           />
           <Text style={styles.menuText}>{this.props.data.text}</Text>
-          <IoniconsComponent
+          <Icon
             name="ios-arrow-forward"
             style={styles.menuArrowIcon}
             size={30}

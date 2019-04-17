@@ -1,13 +1,13 @@
 import React from 'react';
 import { TextInput, View } from 'react-native';
 import { styles } from './styles';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 
 const SearchFieldView = ({ placeholder, value, onChange }) => {
   return (
     <View style={styles.container}>
-      <IoniconsComponent style={styles.icon} name="ios-search" size={20} />
+      <Icon style={styles.icon} name="ios-search" size={20} />
       <TextInput
         style={styles.input}
         placeholder={placeholder}

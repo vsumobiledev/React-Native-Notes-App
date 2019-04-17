@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import Tag from '../../../../shared/component/Tag';
+import Tag from '../Tag';
 import Icon from 'react-native-vector-icons/Ionicons';
 import StyleSheetFactory from './styles';
 
@@ -11,15 +11,15 @@ class CancelableTagView extends React.Component {
     this.styles = StyleSheetFactory.getSheet(props.color);
   }
   onPress = () => {
-    const { value, onClick } = this.props;
-    onClick(value);
+    const { name, onClick } = this.props;
+    onClick(name);
   };
   render() {
-    const { value, color, onClick } = this.props;
+    const { name, color, onClick } = this.props;
     return (
       <TouchableOpacity onPress={onClick}>
         <View style={this.styles.container}>
-          <Tag value={value} color={color} />
+          <Tag name={name} color={color} />
           <Icon style={this.styles.icon} name="ios-close" size={20} />
         </View>
       </TouchableOpacity>
@@ -27,7 +27,7 @@ class CancelableTagView extends React.Component {
   }
 }
 CancelableTagView.propTypes = {
-  value: PropTypes.string,
+  name: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func
 };

@@ -1,2 +1,2 @@
-import ReviewsContainer from './ReviewsContainer';
-export default ReviewsContainer;
+import ReviewsView from './ReviewsView';
+export default ReviewsView;

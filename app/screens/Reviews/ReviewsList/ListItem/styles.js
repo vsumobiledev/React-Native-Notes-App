@@ -28,7 +28,11 @@ const styles = StyleSheet.create({
   },
   ratingContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    alignSelf: 'flex-start',
+    justifyContent: 'flex-start',
+    flexDirection: 'row',
+    flexWrap: 'wrap'
   },
   bookText: {
     paddingLeft: 5,
@@ -43,6 +47,7 @@ const styles = StyleSheet.create({
     marginTop: 5
   },
   tag: {
+    margin: 1,
     marginLeft: 5,
     marginRight: 5
   },
@@ -50,6 +55,10 @@ const styles = StyleSheet.create({
     fontSize: 21,
     fontWeight: 'bold',
     marginBottom: 10
+  },
+  discription: {
+    maxHeight: 80,
+    overflow: 'hidden'
   }
 });
 
