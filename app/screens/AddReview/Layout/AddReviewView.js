@@ -20,16 +20,7 @@ class AddReviewView extends React.Component {
     selectedBook: false,
     discription: '',
     authorRating: 0,
-    tags: [
-      {
-        color: '#50655b',
-        name: 'Crime and Detective'
-      },
-      {
-        name: 'Anthology',
-        color: '#fe2da3'
-      }
-    ],
+    tags: [],
     image: false,
     isInvalid: false,
     typing: false,
@@ -250,7 +241,7 @@ AddReviewView.propTypes = {
   initAuth: PropTypes.func,
   uploadReview: PropTypes.func,
   isLoadingHints: PropTypes.bool,
-  books: PropTypes.oneOfType(PropTypes.array, PropTypes.bool)
+  books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])
 };
 
 export default AddReviewView;

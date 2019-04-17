@@ -67,7 +67,7 @@ FieldsetView.propTypes = {
   placeholder: PropTypes.string,
   withHints: PropTypes.bool,
   isLoadingHints: PropTypes.bool,
-  hintsData: PropTypes.oneOfType(PropTypes.array, PropTypes.bool),
+  hintsData: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   onSelectBook: PropTypes.func
 };
 
