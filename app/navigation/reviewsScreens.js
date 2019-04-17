@@ -3,8 +3,6 @@ import AddReview from 'app/screens/AddReview/Layout';
 import { createStackNavigator } from 'react-navigation';
 
 /* eslint-disable react-native/no-inline-styles */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/display-name */
 
 const optionsHeaderless = { header: null, gesturesEnabled: false };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
@@ -7,11 +7,17 @@ class FieldsetView extends React.PureComponent {
   state = {
     isFocused: false
   };
-  onBlur = () => {
-    this.setState({ isFocused: false });
-  };
+
   onFocus = () => {
-    this.setState({ isFocused: true });
+    this.setState({
+      isFocused: true
+    });
+  };
+
+  onBlur = () => {
+    this.setState({
+      isFocused: false
+    });
   };
 
   render() {
@@ -22,26 +28,32 @@ class FieldsetView extends React.PureComponent {
       title,
       isMultiline,
       placeholder,
-      withHints
+      withHints,
+      isLoadingHints
     } = this.props;
+
     return (
       <View style={styles.container}>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
         <TextInput
-          style={[
-            !isFocused ? styles.input : styles.focusedInput,
-            withHints && { paddingRight: 15 }
-          ]}
+          style={[!isFocused ? styles.input : styles.focusedInput]}
           placeholder={placeholder}
           placeholderTextColor="rgba(0,0,0,0.4)"
           onChangeText={onChangeText}
-          value={textValue}
-          onBlur={this.onBlur}
           onFocus={this.onFocus}
+          onBlur={this.onBlur}
+          value={textValue}
           multiline={isMultiline}
         />
+        {withHints && isLoadingHints && (
+          <ActivityIndicator
+            size="small"
+            color="blue"
+            style={styles.hintsLoader}
+          />
+        )}
       </View>
     );
   }
@@ -53,7 +65,10 @@ FieldsetView.propTypes = {
   title: PropTypes.string,
   isMultiline: PropTypes.bool,
   placeholder: PropTypes.string,
-  withHints: PropTypes.bool
+  withHints: PropTypes.bool,
+  isLoadingHints: PropTypes.bool,
+  hintsData: PropTypes.oneOfType(PropTypes.array, PropTypes.bool),
+  onSelectBook: PropTypes.func
 };
 
 export default FieldsetView;

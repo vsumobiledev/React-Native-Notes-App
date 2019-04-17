@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AddReviewView from './AddReviewView';
 import { connect } from 'react-redux';
-import { uploadReview } from './actions';
+import { uploadReview, preloadBooks } from './actions';
 
 class AddReviewContainer extends Component {
   render() {
@@ -10,16 +10,21 @@ class AddReviewContainer extends Component {
 }
 
 function mapStateToProps(state) {
-  const { isLoading, error } = state.addReview;
+  const { isLoading, isLoadingHints, error, books } = state.addReview;
   return {
     isLoading,
-    error
+    isLoadingHints,
+    error,
+    books
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
     uploadReview: review => {
       dispatch(uploadReview(review));
+    },
+    preloadBooks: title => {
+      dispatch(preloadBooks(title));
     }
   };
 }

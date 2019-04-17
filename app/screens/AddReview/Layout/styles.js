@@ -2,9 +2,6 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    margin: 10
-  },
   addImage: {
     borderRadius: 10,
     justifyContent: 'center',
@@ -14,25 +11,31 @@ export const styles = StyleSheet.create({
     width: '45%',
     overflow: 'hidden'
   },
-  title: {
-    fontWeight: 'bold'
+  bookCover: {
+    paddingTop: 1,
+    width: '100%',
+    height: '100%'
   },
-  ratingBlock: {
-    width: '55%',
-    alignItems: 'center'
+  container: {
+    margin: 10
   },
-  infoContainer: {
-    flexDirection: 'row'
+  chooseBtn: {
+    marginBottom: 10
   },
   error: {
     color: 'red',
     fontWeight: 'bold',
     alignSelf: 'center'
   },
-  bookCover: {
-    paddingTop: 1,
-    width: '100%',
-    height: '100%'
+  infoContainer: {
+    flexDirection: 'row'
+  },
+  ratingBlock: {
+    width: '55%',
+    alignItems: 'center'
+  },
+  title: {
+    fontWeight: 'bold'
   },
   tagsContainer: {
     flexDirection: 'row',

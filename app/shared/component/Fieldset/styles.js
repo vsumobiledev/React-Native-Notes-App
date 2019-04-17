@@ -3,8 +3,9 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
+    position: 'relative',
     marginTop: 10,
-    marginBottom: 20
+    marginBottom: 10
   },
   titleContainer: {
     backgroundColor: 'white',
@@ -15,6 +16,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold'
+  },
+  hintsLoader: {
+    position: 'absolute',
+    top: 25,
+    right: 5
   },
   input: {
     borderWidth: 1,

@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  ScrollView,
-  View,
-  Text,
-  Image,
-  ActivityIndicator,
-  TouchableOpacity,
-  Alert
-} from 'react-native';
+import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 import ImageResizer from 'react-native-image-resizer';
 import { AirbnbRating } from 'react-native-ratings';
 import ImagePicker from 'react-native-image-picker';
@@ -17,6 +9,7 @@ import NavigationService from '../../../navigation/NavigationService';
 import AddTag from '../../../shared/component/AddTag';
 import CancelableTag from '../../../shared/component/CancelableTag';
 import Fieldset from '../../../shared/component/Fieldset';
+import ModalBooks from '../ModalBooks';
 import Button from '../../../shared/component/Button';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
@@ -24,6 +17,7 @@ import { styles } from './styles';
 class AddReviewView extends React.Component {
   state = {
     title: '',
+    selectedBook: false,
     discription: '',
     authorRating: 0,
     tags: [
@@ -37,10 +31,26 @@ class AddReviewView extends React.Component {
       }
     ],
     image: false,
-    isInvalid: false
+    isInvalid: false,
+    typing: false,
+    typingTimeout: 0,
+    modalVisible: false
   };
   onChangeTitle = value => {
-    this.setState({ title: value, isInvalid: false });
+    const self = this;
+
+    if (self.state.typingTimeout) {
+      clearTimeout(self.state.typingTimeout);
+    }
+
+    self.setState({
+      title: value,
+      isInvalid: false,
+      typing: false,
+      typingTimeout: setTimeout(() => {
+        self.props.preloadBooks(self.state.title);
+      }, 300)
+    });
   };
   onChangeDiscription = value => {
     this.setState({ discription: value, isInvalid: false });
@@ -100,27 +110,41 @@ class AddReviewView extends React.Component {
     });
   };
 
+  onSelectBook = book => {
+    this.setState({
+      selectedBook: book.key,
+      title: book.title,
+      image: book.image,
+      modalVisible: false
+    });
+  };
+
+  setModalVisible = visible => {
+    this.setState({ modalVisible: visible });
+  };
+
   uploadReview = () => {
-    const { title, discription, authorRating, tags, image } = this.state;
+    const {
+      title,
+      discription,
+      authorRating,
+      tags,
+      image,
+      selectedBook
+    } = this.state;
     if (title && discription && authorRating && tags && image) {
       this.props.uploadReview({
         title,
         discription,
         authorRating,
         tags,
-        image
+        image,
+        selectedBook
       });
     } else {
       this.setState({ isInvalid: true });
     }
   };
-
-  // renderHints = books =>
-  //   books.map(book => (
-  //     <TouchableOpacity>
-  //       <Text />
-  //     </TouchableOpacity>
-  //   ));
 
   render() {
     const {
@@ -129,25 +153,42 @@ class AddReviewView extends React.Component {
       authorRating,
       tags,
       image,
-      isInvalid
+      isInvalid,
+      modalVisible,
+      selectedBook
     } = this.state;
 
-    const { isLoading, error, isLoadingHints } = this.props;
+    const { isLoading, error, isLoadingHints, books } = this.props;
     return (
       <ScrollView style={styles.container}>
-        <View>
-          <Fieldset
-            onChangeText={this.onChangeTitle}
-            textValue={title}
-            title="Title"
-            placeholder="Enter title..."
-            isMultiline={false}
-            withHints={true}
-          />
-          {isLoadingHints && <ActivityIndicator size="small" color="blue" />}
-        </View>
+        <Fieldset
+          onChangeText={this.onChangeTitle}
+          textValue={title}
+          title="Title"
+          placeholder="Enter title..."
+          isMultiline={false}
+          withHints={true}
+          isLoadingHints={isLoadingHints}
+        />
+        {books && books.length > 0 && (
+          <TouchableOpacity
+            style={styles.chooseBtn}
+            onPress={() => {
+              this.setModalVisible(true);
+            }}
+          >
+            <Text>Select from existing books</Text>
+          </TouchableOpacity>
+        )}
+        <ModalBooks
+          setModalVisible={this.setModalVisible}
+          modalVisible={modalVisible}
+          onSelectBook={this.onSelectBook}
+          books={books}
+        />
         <View style={styles.infoContainer}>
           <Ripple
+            disabled={selectedBook ? true : false}
             rippleContainerBorderRadius={10}
             style={[
               styles.addImage,
@@ -208,7 +249,8 @@ AddReviewView.propTypes = {
   isLoading: PropTypes.bool,
   initAuth: PropTypes.func,
   uploadReview: PropTypes.func,
-  isLoadingHints: PropTypes.bool
+  isLoadingHints: PropTypes.bool,
+  books: PropTypes.oneOfType(PropTypes.array, PropTypes.bool)
 };
 
 export default AddReviewView;
