@@ -33,15 +33,27 @@ class AddReviewView extends React.Component {
     if (self.state.typingTimeout) {
       clearTimeout(self.state.typingTimeout);
     }
-
-    self.setState({
-      title: value,
-      isInvalid: false,
-      typing: false,
-      typingTimeout: setTimeout(() => {
-        self.props.preloadBooks(self.state.title);
-      }, 300)
-    });
+    if (self.state.selectedBook) {
+      self.setState({
+        selectedBook: false,
+        image: false,
+        title: value,
+        isInvalid: false,
+        typing: false,
+        typingTimeout: setTimeout(() => {
+          self.props.preloadBooks(self.state.title);
+        }, 300)
+      });
+    } else {
+      self.setState({
+        title: value,
+        isInvalid: false,
+        typing: false,
+        typingTimeout: setTimeout(() => {
+          self.props.preloadBooks(self.state.title);
+        }, 300)
+      });
+    }
   };
   onChangeDiscription = value => {
     this.setState({ discription: value, isInvalid: false });
@@ -123,7 +135,7 @@ class AddReviewView extends React.Component {
       image,
       selectedBook
     } = this.state;
-    if (title && discription && authorRating && tags && image) {
+    if (title && discription && authorRating && tags.length > 0 && image) {
       this.props.uploadReview({
         title,
         discription,

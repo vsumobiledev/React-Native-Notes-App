@@ -6,8 +6,10 @@ import {
   Text,
   FlatList,
   Modal,
-  View
+  View,
+  Platform
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { AirbnbRating } from 'react-native-ratings';
 import styles from './styles';
 
@@ -44,14 +46,27 @@ class ModalBooksView extends React.Component {
       <Modal
         onRequestClose={this.closeModal}
         animationType="slide"
-        transparent={false}
+        transparent={true}
         visible={modalVisible}
       >
-        <FlatList
-          nestedScrollEnabled
-          data={books}
-          renderItem={this.renderBook}
-        />
+        <View style={styles.container}>
+          <View style={styles.content}>
+            <View style={styles.titleContainer}>
+              <Text style={styles.title}>Choose a book</Text>
+              <TouchableOpacity
+                style={styles.closeButton}
+                onPress={this.closeModal}
+              >
+                <Icon name={'ios-close'} size={42} color="black" />
+              </TouchableOpacity>
+            </View>
+            <FlatList
+              nestedScrollEnabled
+              data={books}
+              renderItem={this.renderBook}
+            />
+          </View>
+        </View>
       </Modal>
     );
   }
