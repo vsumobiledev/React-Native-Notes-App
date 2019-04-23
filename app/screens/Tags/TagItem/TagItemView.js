@@ -24,7 +24,7 @@ class TagItem extends React.Component {
   seletTag = () => {
     if (this.props.selectTag) {
       this.props.selectTag({
-        value: this.props.data.name,
+        name: this.props.data.name,
         color: this.props.data.color
       });
       this.props.navigation.goBack();

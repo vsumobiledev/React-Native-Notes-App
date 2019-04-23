@@ -29,8 +29,8 @@ class FiltersView extends React.Component {
     tags &&
     tags.map(tag => (
       <CancelableTag
-        key={tag.value}
-        value={tag.value}
+        key={tag.name}
+        name={tag.name}
         color={tag.color}
         onClick={this.props.deselectTag}
       />

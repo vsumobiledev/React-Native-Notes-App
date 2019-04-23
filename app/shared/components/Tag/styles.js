@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import tinycolor from 'tinycolor2';
 
 export default class StyleSheetFactory {
   static getSheet(tagColor) {
@@ -11,7 +12,8 @@ export default class StyleSheetFactory {
         paddingRight: 5
       },
       text: {
-        color: 'white' === tagColor ? 'black' : 'white',
+        color:
+          tinycolor(tagColor).getBrightness() < 200 ? '#ffffff' : '#000000',
         alignSelf: 'center',
         paddingBottom: 2
       }
