@@ -1,5 +1,5 @@
 /* eslint-disable react-native/no-color-literals */
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,19 +19,21 @@ const styles = StyleSheet.create({
   },
   hintsLoader: {
     position: 'absolute',
-    top: 25,
+    top: Platform.OS === 'ios' ? 18 : 25,
     right: 5
   },
   input: {
     borderWidth: 1,
     borderRadius: 5,
-    padding: 10
+    padding: 10,
+    paddingTop: 10
   },
   focusedInput: {
     borderColor: '#2b5aa6',
     borderWidth: 1,
     borderRadius: 5,
-    padding: 10
+    padding: 10,
+    paddingTop: 10
   }
 });
 
