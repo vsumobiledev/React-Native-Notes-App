@@ -1,0 +1,6 @@
+export const UPLOAD_REVIEW = 'addReview/UPLOAD_REVIEW';
+export const UPLOAD_REVIEW_SUCCESS = 'addReview/UPLOAD_REVIEW_SUCCESS';
+export const UPLOAD_REVIEW_ERROR = 'addReview/UPLOAD_REVIEW_ERROR';
+export const PRELOAD_BOOKS = 'addReview/PRELOAD_BOOKS';
+export const PRELOAD_BOOKS_SUCCESS = 'addReview/PRELOAD_BOOKS_SUCCESS';
+export const PRELOAD_BOOKS_ERROR = 'addReview/PRELOAD_BOOKS_ERROR';

@@ -10,7 +10,7 @@ import styles from './styles';
 class ListItemView extends React.PureComponent {
   renderTags = tags =>
     tags.map(tag => (
-      <View key={tag.value} style={styles.tag}>
+      <View key={tag.name} style={styles.tag}>
         <Tag {...tag} />
       </View>
     ));
@@ -20,7 +20,7 @@ class ListItemView extends React.PureComponent {
 
   render() {
     const {
-      imageURL,
+      image,
       title,
       author,
       authorRating,
@@ -36,7 +36,7 @@ class ListItemView extends React.PureComponent {
           style={styles.container}
           onPress={this.onPress}
         >
-          <Image style={styles.bookCover} source={{ uri: imageURL }} />
+          <Image style={styles.bookCover} source={{ uri: image }} />
           <View style={styles.bookText}>
             <Text style={styles.title}>{title}</Text>
             <View style={styles.ratingContainer}>
@@ -66,7 +66,7 @@ class ListItemView extends React.PureComponent {
               <Text>Tags: </Text>
               {this.renderTags(tags)}
             </View>
-            <Text>{discription}...</Text>
+            <Text>{discription}</Text>
           </View>
         </Ripple>
       </View>
@@ -76,7 +76,7 @@ class ListItemView extends React.PureComponent {
 
 ListItemView.propTypes = {
   title: PropTypes.string,
-  imageURL: PropTypes.string,
+  imageURL: PropTypes.oneOfType([PropTypes.string, PropTypes.shape()]),
   author: PropTypes.string,
   authorRating: PropTypes.number,
   discription: PropTypes.string,

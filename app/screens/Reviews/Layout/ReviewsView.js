@@ -3,14 +3,16 @@ import { SafeAreaView } from 'react-navigation';
 import PropTypes from 'prop-types';
 import SearchBar from '../SearchBar/Layout';
 import ReviewsList from '../ReviewsList/Layout';
+import Fab from '../../../shared/components/Fab';
+import NavigationService from '../../../navigation/NavigationService';
 import styles from './styles';
 
 class ReviewsView extends Component {
   constructor(props) {
     super(props);
   }
-  logout = () => {
-    this.props.logout();
+  onPressAdd = () => {
+    NavigationService.navigate('AddReview');
   };
   render() {
     return (
@@ -20,6 +22,7 @@ class ReviewsView extends Component {
       >
         <SearchBar />
         <ReviewsList />
+        <Fab onPress={this.onPressAdd} />
       </SafeAreaView>
     );
   }

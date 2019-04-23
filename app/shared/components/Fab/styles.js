@@ -4,8 +4,8 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
-    bottom: 140,
-    right: 10,
+    bottom: 12,
+    right: 12,
     backgroundColor: '#2BA699',
     width: 60,
     height: 60,

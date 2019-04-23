@@ -15,8 +15,11 @@
     "react-native-color": "0.0.10",
     "react-native-gesture-handler": "^1.0.15",
     "react-native-image-picker": "^0.28.0",
+    "react-native-image-resizer": "^1.0.1",
+    "react-native-linear-gradient": "^2.5.4",
     "react-native-material-ripple": "^0.8.0",
     "react-native-ratings": "^6.3.1",
+    "react-native-root-toast": "^3.0.2",
     "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.1.2",
     "react-redux": "^6.0.0",
@@ -25,6 +28,7 @@
     "redux-persist": "^5.10.0",
     "redux-thunk": "^2.3.0",
     "tinycolor2": "^1.4.1",
+    "rn-fetch-blob": "^0.10.15",
     "uuid": "^3.3.2"
   },
   "devDependencies": {

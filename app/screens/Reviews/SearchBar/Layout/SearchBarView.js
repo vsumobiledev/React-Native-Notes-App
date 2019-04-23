@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import SearchField from '../../../../shared/components/SearchField';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { LayoutAnimation } from 'react-native';
 import Filters from '../Filters';
 import styles from './styles';
@@ -64,11 +64,7 @@ class SearchBarView extends React.Component {
             activeOpacity={0.1}
             style={styles.filterBtn}
           >
-            <IoniconsComponent
-              style={styles.icon}
-              name="ios-funnel"
-              size={20}
-            />
+            <Icon style={styles.icon} name="ios-funnel" size={20} />
           </TouchableOpacity>
         </View>
         <Filters

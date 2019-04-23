@@ -12,10 +12,11 @@ export const loadFilteredReviews = filters => dispatch => {
     .ref('reviews')
     .once('value')
     .then(snapshot => {
-      dispatch({
-        type: LOAD_FILTERED_REVIEWS_SUCCESS,
-        reviews: snapshot.val()
-      });
+      let dataReviews = false;
+      if (snapshot.val()) {
+        dataReviews = Object.values(snapshot.val());
+      }
+      dispatch({ type: LOAD_FILTERED_REVIEWS_SUCCESS, reviews: dataReviews });
     })
     .catch(error => {
       dispatch({ type: LOAD_FILTERED_REVIEWS_ERROR, error });

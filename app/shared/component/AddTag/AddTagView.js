@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import Tag from '../../../../shared/components/Tag';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Tag from '../../components/Tag';
+import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
 class AddTagView extends React.Component {
@@ -11,8 +11,8 @@ class AddTagView extends React.Component {
     return (
       <TouchableOpacity onPress={onClick}>
         <View style={styles.container}>
-          <IoniconsComponent name="ios-add" size={20} />
-          <Tag value="Add tag" color="white" />
+          <Icon name="ios-add" size={20} />
+          <Tag name="Add tag" color="white" />
         </View>
       </TouchableOpacity>
     );

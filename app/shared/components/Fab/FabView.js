@@ -1,24 +1,13 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import IoniconsComponent from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
 const FabView = ({ onPress, bottom }) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={{
-        ...styles.fab,
-        bottom: bottom
-      }}
-    >
-      <IoniconsComponent
-        style={styles.fabIcon}
-        color="white"
-        name="ios-add"
-        size={36}
-      />
+    <TouchableOpacity onPress={onPress} style={styles.fab}>
+      <Icon style={styles.fabIcon} color="white" name="ios-add" size={36} />
     </TouchableOpacity>
   );
 };

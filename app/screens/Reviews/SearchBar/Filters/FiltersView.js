@@ -7,9 +7,9 @@ import {
   UIManager
 } from 'react-native';
 import PropTypes from 'prop-types';
-import CancelableTag from '../CancelableTag';
+import CancelableTag from '../../../../shared/component/CancelableTag';
 import NavigationService from '../../../../navigation/NavigationService';
-import AddTag from '../AddTag';
+import AddTag from '../../../../shared/component/AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
 
