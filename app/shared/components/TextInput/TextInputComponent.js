@@ -11,11 +11,11 @@ class TextInputComponent extends React.Component {
     };
   }
   onFocus = () => {
-    this.setState({ focus: true })
-  }
+    this.setState({ focus: true });
+  };
   onBlur = () => {
-    this.setState({ focus: false })
-  }
+    this.setState({ focus: false });
+  };
   render() {
     return (
       <TextInput
@@ -40,7 +40,7 @@ TextInputComponent.propTypes = {
   onChangeText: PropTypes.func,
   placeholder: PropTypes.string,
   type: PropTypes.string,
-  value: PropTypes.value
+  value: PropTypes.string
 };
 
 export default TextInputComponent;

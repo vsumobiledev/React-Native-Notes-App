@@ -62,6 +62,15 @@ class AddReviewView extends React.Component {
     NavigationService.navigate('Tags', { selectTag: this.selectTag });
   };
 
+  selectTag = tag => {
+    const { tags } = this.state;
+
+    if (tags.findIndex(item => item.name === tag.name) === -1) {
+      tags.push(tag);
+      this.setState({ tags });
+    }
+  };
+
   deselectTag = value => {
     const { tags } = this.state;
     tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);

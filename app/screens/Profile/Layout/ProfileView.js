@@ -84,7 +84,7 @@ ProfileView.propTypes = {
     email: PropTypes.string,
     uid: PropTypes.string,
     avatar: PropTypes.string,
-    role: PropTypes.bool
+    role: PropTypes.string
   })
 };
 
