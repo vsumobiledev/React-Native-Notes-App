@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Alert, View, Text, Image, FlatList } from 'react-native';
-import MenuRowComponent from '../MenuRow/MenuRowComponent';
-import ProfileCardComponent from '../../../shared/components/ProfileCard/index';
+import MenuRowComponent from '../MenuRow';
+import ProfileCardComponent from '../../../shared/components/ProfileCard';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
@@ -47,7 +47,9 @@ class ProfileView extends Component {
         icon: 'ios-pricetags',
         text: 'Tags',
         onPress: () => {
-          this.props.navigation.navigate('Tags');
+          this.props.navigation.navigate('Tags', {
+            isAdmin: true
+          });
         }
       });
     }
@@ -56,7 +58,7 @@ class ProfileView extends Component {
     return (
       <View style={styles.container}>
         {this.props.user ? (
-          <ProfileCardComponent user={this.props.user}></ProfileCardComponent>
+          <ProfileCardComponent user={this.props.user} />
         ) : null}
         <View style={styles.menu}>
           <FlatList
@@ -82,7 +84,7 @@ ProfileView.propTypes = {
     email: PropTypes.string,
     uid: PropTypes.string,
     avatar: PropTypes.string,
-    role: PropTypes.bool
+    role: PropTypes.string
   })
 };
 

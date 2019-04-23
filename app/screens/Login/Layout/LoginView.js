@@ -22,6 +22,15 @@ class LoginView extends React.Component {
   login = () => {
     this.props.login(this.state.login.trim(), this.state.password);
   };
+  onEmailChangeText = value => {
+    this.setState({ login: value });
+  }
+  onPasswordChangeText = value => {
+    this.setState({ password: value });
+  }
+  openRegister = () => {
+    this.props.navigation.navigate('Register');
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -41,11 +50,11 @@ class LoginView extends React.Component {
         ) : null}
         <View style={styles.inputsWrapper}>
           <TextInputComponent
-            onChangeText={value => this.setState({ login: value })}
+            onChangeText={this.onEmailChangeText}
             placeholder="Enter email..."
           />
           <TextInputComponent
-            onChangeText={value => this.setState({ password: value })}
+            onChangeText={this.onPasswordChangeText}
             placeholder="Enter password..."
             type="password"
           />
@@ -58,7 +67,7 @@ class LoginView extends React.Component {
           <Text style={styles.loginText}>LOGIN</Text>
         </Ripple>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('Register')}
+          onPress={this.openRegister}
         >
           <Text style={styles.register}>Create Account</Text>
         </TouchableOpacity>

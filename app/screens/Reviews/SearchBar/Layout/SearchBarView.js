@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
-import SearchField from '../../../../shared/component/SearchField';
+import SearchField from '../../../../shared/components/SearchField';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { LayoutAnimation } from 'react-native';
 import Filters from '../Filters';
@@ -10,7 +10,7 @@ import styles from './styles';
 class SearchBarView extends React.Component {
   state = {
     searchName: '',
-    selectedTags: [],
+    tags: [],
     isOnlyUserReviews: false,
     expanded: false
   };
@@ -19,15 +19,17 @@ class SearchBarView extends React.Component {
     this.props.loadFilteredReviews({});
   };
   selectTag = tag => {
-    const { selectedTags } = this.state;
-    selectedTags.push(tag);
-    this.setState({ selectedTags });
-    this.props.loadFilteredReviews({});
+    const { tags } = this.state;
+    if (tags.findIndex(item => item.name === tag.name) === -1) {
+      tags.push(tag);
+      this.setState({ tags });
+      this.props.loadFilteredReviews({});
+    }
   };
 
   deselectTag = value => {
     const { tags } = this.state;
-    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
+    tags.splice(tags.findIndex(tag => tag.name === value), 1);
     this.setState({ tags });
     this.props.loadFilteredReviews({});
   };

@@ -4,6 +4,7 @@ import loginReducer from '../screens/Login/Layout/reducer';
 import registerReducer from '../screens/Register/Layout/reducer';
 import reviewsListReducer from 'app/screens/Reviews/ReviewsList/Layout/reducer';
 import userReducer from '../core/redux/user/reducer';
+import tagsReducer from '../screens/Tags/Layout/reducer';
 
 const rootReducer = {
   addReview: addReviewReducer,
@@ -11,7 +12,8 @@ const rootReducer = {
   login: loginReducer,
   register: registerReducer,
   reviewsList: reviewsListReducer,
-  user: userReducer
+  user: userReducer,
+  tags: tagsReducer
 };
 
 export default rootReducer;

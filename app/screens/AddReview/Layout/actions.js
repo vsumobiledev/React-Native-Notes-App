@@ -14,9 +14,11 @@ import Toast from 'react-native-root-toast';
 import { NativeModules } from 'react-native';
 import uuidv4 from 'uuid/v4';
 
-export const uploadReview = review => (dispatch, getState) => {
+export const uploadReview = (review, selectedBook) => async (
+  dispatch,
+  getState
+) => {
   dispatch({ type: UPLOAD_REVIEW });
-  const { selectedBook } = review;
   const uri = review.image;
   const bookId = selectedBook ? selectedBook : uuidv4();
   const reviewId = uuidv4();
@@ -26,31 +28,30 @@ export const uploadReview = review => (dispatch, getState) => {
   } = getState().user;
   const fs = NativeModules.RNFetchBlob;
   const firebaseRef = firebase.database().ref();
-  if (!selectedBook) {
-    fs.readFile(uploadUri, 'base64').then(imageData => {
-      const image = `data:image/png;base64,${imageData}`;
-      review.author = `${lastName} ${firstName}`;
-      review.authorId = uid;
-      review.key = reviewId;
-      review.image = image;
+  review.author = `${lastName} ${firstName}`;
+  review.authorId = uid;
+  review.key = reviewId;
 
-      firebaseRef
-        .child('books')
-        .child(bookId)
-        .set({
-          key: bookId,
-          title: review.title,
-          rating: [
-            {
-              key: uid,
-              rating: review.authorRating
-            }
-          ],
-          image: image
-        });
+  if (!selectedBook) {
+    await fs.readFile(uploadUri, 'base64').then(imageData => {
+      review.image = `data:image/png;base64,${imageData}`;
     });
+    await firebaseRef
+      .child('books')
+      .child(bookId)
+      .set({
+        key: bookId,
+        title: review.title,
+        rating: [
+          {
+            key: uid,
+            rating: review.authorRating
+          }
+        ],
+        image: review.image
+      });
   } else {
-    firebaseRef
+    await firebaseRef
       .child('books')
       .child(bookId)
       .once('value')
@@ -71,7 +72,7 @@ export const uploadReview = review => (dispatch, getState) => {
   }
   review.bookId = bookId;
 
-  firebaseRef
+  await firebaseRef
     .child('reviews')
     .child(reviewId)
     .set(review)

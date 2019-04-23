@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
-import Tag from '../../component/Tag';
+import Tag from '../../components/Tag';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 

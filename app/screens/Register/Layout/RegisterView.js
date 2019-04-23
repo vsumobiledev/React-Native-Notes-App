@@ -25,6 +25,18 @@ class RegistrationView extends React.Component {
       this.state.password
     );
   };
+  onFirstNameChangeText = value => {
+    this.setState({ firstName: value });
+  }
+  onLastNameChangeText = value => {
+    this.setState({ lastName: value });
+  }
+  onEmailChangeText = value => {
+    this.setState({ login: value });
+  }
+  onPasswordChangeText = value => {
+    this.setState({ password: value });
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -37,19 +49,19 @@ class RegistrationView extends React.Component {
         ) : null}
         <View style={styles.inputsWrapper}>
           <TextInputComponent
-            onChangeText={value => this.setState({ firstName: value })}
+            onChangeText={this.onFirstNameChangeText}
             placeholder="Enter first name..."
           />
           <TextInputComponent
-            onChangeText={value => this.setState({ lastName: value })}
+            onChangeText={this.onLastNameChangeText}
             placeholder="Enter last name..."
           />
           <TextInputComponent
-            onChangeText={value => this.setState({ login: value })}
+            onChangeText={this.onEmailChangeText}
             placeholder="Enter email..."
           />
           <TextInputComponent
-            onChangeText={value => this.setState({ password: value })}
+            onChangeText={this.onPasswordChangeText}
             placeholder="Enter password..."
             type="password"
           />

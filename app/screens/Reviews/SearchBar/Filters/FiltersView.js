@@ -12,6 +12,7 @@ import NavigationService from '../../../../navigation/NavigationService';
 import AddTag from '../../../../shared/component/AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
+
 class FiltersView extends React.Component {
   constructor() {
     super();
@@ -21,15 +22,15 @@ class FiltersView extends React.Component {
   }
 
   onAddTagClick = () => {
-    NavigationService.navigate('Tags', { selectTag: this.selectTag });
+    NavigationService.navigate('Tags', { selectTag: this.props.selectTag });
   };
 
   renderSelectedTags = tags =>
     tags &&
     tags.map(tag => (
       <CancelableTag
-        key={tag.value}
-        value={tag.value}
+        key={tag.name}
+        name={tag.name}
         color={tag.color}
         onClick={this.props.deselectTag}
       />
@@ -62,6 +63,7 @@ FiltersView.propTypes = {
   tags: PropTypes.array,
   isOnlyUserReviews: PropTypes.bool,
   deselectTag: PropTypes.func,
+  selectTag: PropTypes.func,
   onCheckBoxClick: PropTypes.func
 };
 export default FiltersView;

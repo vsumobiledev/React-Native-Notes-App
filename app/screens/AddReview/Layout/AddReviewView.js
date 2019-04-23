@@ -62,6 +62,15 @@ class AddReviewView extends React.Component {
     NavigationService.navigate('Tags', { selectTag: this.selectTag });
   };
 
+  selectTag = tag => {
+    const { tags } = this.state;
+
+    if (tags.findIndex(item => item.name === tag.name) === -1) {
+      tags.push(tag);
+      this.setState({ tags });
+    }
+  };
+
   deselectTag = value => {
     const { tags } = this.state;
     tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
@@ -136,14 +145,16 @@ class AddReviewView extends React.Component {
       selectedBook
     } = this.state;
     if (title && discription && authorRating && tags.length > 0 && image) {
-      this.props.uploadReview({
-        title,
-        discription,
-        authorRating,
-        tags,
-        image,
+      this.props.uploadReview(
+        {
+          title,
+          discription,
+          authorRating,
+          tags,
+          image
+        },
         selectedBook
-      });
+      );
     } else {
       this.setState({ isInvalid: true });
     }

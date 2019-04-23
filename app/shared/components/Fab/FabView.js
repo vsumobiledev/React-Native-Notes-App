@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
-const FabView = ({ onPress }) => {
+const FabView = ({ onPress, bottom }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.fab}>
       <Icon style={styles.fabIcon} color="white" name="ios-add" size={36} />
@@ -13,7 +13,8 @@ const FabView = ({ onPress }) => {
 };
 
 FabView.propTypes = {
-  onPress: PropTypes.func
+  onPress: PropTypes.func,
+  bottom: PropTypes.number
 };
 
 export default FabView;

@@ -1,2 +1,2 @@
-import TagsView from './TagsView';
-export default TagsView;
+import TagsContainer from './TagsContainer';
+export default TagsContainer;

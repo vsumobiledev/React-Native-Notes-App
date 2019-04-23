@@ -20,8 +20,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    uploadReview: review => {
-      dispatch(uploadReview(review));
+    uploadReview: (review, selectedBook) => {
+      dispatch(uploadReview(review, selectedBook));
     },
     preloadBooks: title => {
       dispatch(preloadBooks(title));
