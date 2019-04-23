@@ -14,9 +14,11 @@ import Toast from 'react-native-root-toast';
 import { NativeModules } from 'react-native';
 import uuidv4 from 'uuid/v4';
 
-export const uploadReview = review => async (dispatch, getState) => {
+export const uploadReview = (review, selectedBook) => async (
+  dispatch,
+  getState
+) => {
   dispatch({ type: UPLOAD_REVIEW });
-  const { selectedBook } = review;
   const uri = review.image;
   const bookId = selectedBook ? selectedBook : uuidv4();
   const reviewId = uuidv4();

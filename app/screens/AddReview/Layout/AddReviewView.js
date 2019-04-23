@@ -145,14 +145,16 @@ class AddReviewView extends React.Component {
       selectedBook
     } = this.state;
     if (title && discription && authorRating && tags.length > 0 && image) {
-      this.props.uploadReview({
-        title,
-        discription,
-        authorRating,
-        tags,
-        image,
+      this.props.uploadReview(
+        {
+          title,
+          discription,
+          authorRating,
+          tags,
+          image
+        },
         selectedBook
-      });
+      );
     } else {
       this.setState({ isInvalid: true });
     }
