@@ -26,15 +26,14 @@ export const uploadReview = review => async (dispatch, getState) => {
   } = getState().user;
   const fs = NativeModules.RNFetchBlob;
   const firebaseRef = firebase.database().ref();
+  review.author = `${lastName} ${firstName}`;
+  review.authorId = uid;
+  review.key = reviewId;
+
   if (!selectedBook) {
     await fs.readFile(uploadUri, 'base64').then(imageData => {
-      const image = `data:image/png;base64,${imageData}`;
-      review.image = image;
+      review.image = `data:image/png;base64,${imageData}`;
     });
-    review.author = `${lastName} ${firstName}`;
-    review.authorId = uid;
-    review.key = reviewId;
-
     await firebaseRef
       .child('books')
       .child(bookId)
