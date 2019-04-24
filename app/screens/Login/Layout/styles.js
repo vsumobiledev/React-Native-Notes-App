@@ -1,4 +1,3 @@
-
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 

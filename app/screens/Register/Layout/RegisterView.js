@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Text, View, ActivityIndicator } from 'react-native';
 import Ripple from 'react-native-material-ripple';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
@@ -6,7 +6,7 @@ import { styles } from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
 
-class RegistrationView extends React.Component {
+class RegistrationView extends Component {
   constructor(props) {
     super(props);
     this.state = {

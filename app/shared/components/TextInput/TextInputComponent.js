@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TextInput } from 'react-native';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
 
-class TextInputComponent extends React.Component {
+class TextInputComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {

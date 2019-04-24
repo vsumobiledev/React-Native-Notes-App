@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
 import ImageResizer from 'react-native-image-resizer';
 import { AirbnbRating } from 'react-native-ratings';
@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
 import { styles } from './styles';
 import AppStyles from '../../../config/styles';
 
-class AddReviewView extends React.Component {
+class AddReviewView extends Component {
   state = {
     title: '',
     selectedBook: false,

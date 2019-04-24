@@ -1,5 +1,5 @@
 /* eslint-disable react/no-deprecated */
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Modal, TouchableOpacity } from 'react-native';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import { HueSlider } from 'react-native-color';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
 import AppStyles from '../../../config/styles';
 
-class CreateTagModalView extends React.Component {
+class CreateTagModalView extends Component {
   constructor(props) {
     super(props);
     this.state = {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
   TouchableOpacity,
@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { AirbnbRating } from 'react-native-ratings';
 import styles from './styles';
 
-class ModalBooksView extends React.Component {
+class ModalBooksView extends Component {
   renderBook = ({ item }) => (
     <TouchableOpacity
       onPress={() => {

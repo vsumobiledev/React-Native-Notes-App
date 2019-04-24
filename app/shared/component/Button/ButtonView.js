@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
-class ButtonView extends React.Component {
+class ButtonView extends Component {
   render() {
     const { onClick, text, isLoading, colorStart, colorEnd } = this.props;
     return (

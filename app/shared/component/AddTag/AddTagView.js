@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import Tag from '../../components/Tag';
 import Icon from 'react-native-vector-icons/Ionicons';
 import styles from './styles';
 
-class AddTagView extends React.Component {
+class AddTagView extends Component {
   render() {
     const { onClick } = this.props;
     return (

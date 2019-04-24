@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from './actions';
 import LoginView from './LoginView';
 
-class LoginContainer extends React.Component {
+class LoginContainer extends Component {
   constructor(props) {
     super(props);
   }

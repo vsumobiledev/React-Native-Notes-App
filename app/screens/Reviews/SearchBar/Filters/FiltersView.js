@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -13,7 +13,7 @@ import AddTag from '../../../../shared/component/AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
 
-class FiltersView extends React.Component {
+class FiltersView extends Component {
   constructor() {
     super();
     if (Platform.OS === 'android') {

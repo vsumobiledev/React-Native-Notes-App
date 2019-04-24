@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -12,7 +12,7 @@ import { styles } from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
 
-class LoginView extends React.Component {
+class LoginView extends Component {
   constructor(props) {
     super(props);
     this.state = {

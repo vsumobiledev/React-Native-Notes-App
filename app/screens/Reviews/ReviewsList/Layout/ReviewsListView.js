@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import ListItem from '../ListItem';
 import styles from './styles';
 
-class ReviewsListView extends React.Component {
+class ReviewsListView extends Component {
   state = {};
   componentDidMount() {
     this.props.loadFilteredReviews();

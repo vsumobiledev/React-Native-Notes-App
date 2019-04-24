@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
@@ -7,7 +7,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import StyleSheetFactory from './styles';
 import AppStyles from '../../../config/styles';
 
-class CancelableTagView extends React.Component {
+class CancelableTagView extends Component {
   constructor(props) {
     super(props);
     this.styles = StyleSheetFactory.getSheet(props.color);

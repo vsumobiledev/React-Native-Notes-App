@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Alert, View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
-class TagItem extends React.Component {
+class TagItem extends Component {
   deleteTag = () => {
     Alert.alert(
       'Delete',

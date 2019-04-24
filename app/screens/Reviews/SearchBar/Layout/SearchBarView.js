@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import SearchField from '../../../../shared/components/SearchField';
@@ -7,7 +7,7 @@ import { LayoutAnimation } from 'react-native';
 import Filters from '../Filters';
 import styles from './styles';
 
-class SearchBarView extends React.Component {
+class SearchBarView extends Component {
   state = {
     searchName: '',
     tags: [],
