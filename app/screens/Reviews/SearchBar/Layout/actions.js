@@ -21,7 +21,7 @@ export const loadFilteredReviews = filters => (dispatch, getState) => {
         dataReviews = Object.values(snapshot.val()).filter(review => {
           let isSuit = true;
           if (isSuit && searchName) {
-            isSuit = review.title.includes(searchName);
+            isSuit = review.author.includes(searchName);
           }
           if (isSuit && tags.length > 0) {
             isSuit = tags.every(tag =>
