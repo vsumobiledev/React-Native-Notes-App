@@ -5,6 +5,7 @@ import tinycolor from 'tinycolor2';
 import Tag from '../../components/Tag';
 import Icon from 'react-native-vector-icons/Ionicons';
 import StyleSheetFactory from './styles';
+import AppStyles from '../../../config/styles';
 
 class CancelableTagView extends React.Component {
   constructor(props) {
@@ -23,7 +24,9 @@ class CancelableTagView extends React.Component {
           <Tag name={name} color={color} />
           <Icon
             color={
-              tinycolor(color).getBrightness() < 100 ? '#ffffff' : '#000000'
+              tinycolor(color).getBrightness() < 100
+                ? AppStyles.color.WHITE
+                : AppStyles.color.BLACK
             }
             style={this.styles.icon}
             name="ios-close"

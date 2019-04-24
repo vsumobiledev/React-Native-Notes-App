@@ -5,6 +5,7 @@ import Fab from '../../../shared/components/Fab/index';
 import CreateTagModal from '../CreateTagModal/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class TagsView extends Component {
   constructor(props) {
@@ -46,7 +47,7 @@ class TagsView extends Component {
   };
   closeModal = () => {
     this.setState({ modalVisible: false, mode: 'save', oldTag: null });
-  }
+  };
   render() {
     const { isAdmin, selectTag } = this.props.navigation.state.params
       ? this.props.navigation.state.params
@@ -58,7 +59,7 @@ class TagsView extends Component {
           <ActivityIndicator
             style={styles.loading}
             size="large"
-            color="#FFFF00"
+            color={AppStyles.color.YELLOW}
           />
         ) : null}
         <View style={styles.tagsList}>

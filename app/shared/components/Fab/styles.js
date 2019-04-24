@@ -1,12 +1,13 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   fab: {
     position: 'absolute',
     bottom: 12,
     right: 12,
-    backgroundColor: '#2BA699',
+    backgroundColor: AppStyles.color.DARK_GREEN,
     width: 60,
     height: 60,
     borderRadius: 100 / 2,

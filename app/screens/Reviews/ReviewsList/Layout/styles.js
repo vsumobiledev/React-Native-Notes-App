@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
   flatList: {
     paddingTop: 10,
     paddingBottom: 80,
-    backgroundColor: '#f2f2f2'
+    backgroundColor: AppStyles.color.DARK_WHITE
   },
   item: {
     alignSelf: 'center'

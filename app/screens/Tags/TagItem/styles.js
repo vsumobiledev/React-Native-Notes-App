@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -9,8 +10,8 @@ const styles = StyleSheet.create({
     marginLeft: '3%',
     width: '95%',
     overflow: 'hidden',
-    backgroundColor: '#fff',
-    borderColor: '#d1d1d1',
+    backgroundColor: AppStyles.color.WHITE,
+    borderColor: AppStyles.color.LIGHT_GRAY,
     flexDirection: 'row'
   },
   tagName: {
@@ -33,13 +34,13 @@ const styles = StyleSheet.create({
   },
   button: {
     margin: 7,
-    color: '#009dff'
+    color: AppStyles.color.BLUE
   },
   spacer: {
     flex: 1
   },
   delButton: {
-    color: 'red'
+    color: AppStyles.color.RED
   }
 });
 

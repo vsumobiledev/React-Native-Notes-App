@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../config/styles';
 
 export default class StyleSheetFactory {
   static getSheet(isCheck) {
@@ -8,7 +9,7 @@ export default class StyleSheetFactory {
         width: 24,
         borderWidth: 1,
         borderRadius: 5,
-        borderColor: 'rgba(0,0,0,0.5)',
+        borderColor: AppStyles.rgba.BLACK_05,
         alignItems: 'center',
         justifyContent: 'center'
       },
@@ -16,7 +17,7 @@ export default class StyleSheetFactory {
         height: 15,
         width: 15,
         borderRadius: 5,
-        backgroundColor: isCheck ? '#000' : '#FFF'
+        backgroundColor: isCheck ? AppStyles.color.BLACK : AppStyles.color.WHITE
       }
     });
   }

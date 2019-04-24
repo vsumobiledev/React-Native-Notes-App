@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 export const styles = StyleSheet.create({
   addImage: {
@@ -7,7 +8,7 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: 275,
-    color: 'rgba(0, 0, 0, 0.3)',
+    color: AppStyles.rgba.BLACK_03,
     width: '45%',
     overflow: 'hidden'
   },
@@ -23,7 +24,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10
   },
   error: {
-    color: 'red',
+    color: AppStyles.color.RED,
     fontWeight: 'bold',
     alignSelf: 'center'
   },

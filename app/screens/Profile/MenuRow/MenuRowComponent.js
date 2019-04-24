@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class MenuRowComponent extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class MenuRowComponent extends Component {
             name="ios-arrow-forward"
             style={styles.menuArrowIcon}
             size={30}
-            color="rgba(0, 0, 0, 0.3)"
+            color={AppStyles.rgba.BLACK_03}
           />
         </View>
       </TouchableOpacity>

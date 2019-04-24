@@ -2,6 +2,7 @@ import React from 'react';
 import { TextInput } from 'react-native';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class TextInputComponent extends React.Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class TextInputComponent extends React.Component {
         onFocus={this.onFocus}
         onBlur={this.onBlur}
         placeholder={this.props.placeholder}
-        placeholderTextColor="#ADADAD"
+        placeholderTextColor={AppStyles.color.GRAY}
         selectionColor="black"
         value={this.props.value}
         secureTextEntry={this.props.type === 'password'}

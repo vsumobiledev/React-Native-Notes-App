@@ -8,13 +8,14 @@ import styles from './styles';
 import Tag from '../../../shared/components/Tag/index';
 import PropTypes from 'prop-types';
 import tinycolor from 'tinycolor2';
+import AppStyles from '../../../config/styles';
 
 class CreateTagModalView extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: '',
-      color: '#D60000'
+      color: AppStyles.color.DARK_RED
     };
   }
   save = () => {
@@ -37,7 +38,7 @@ class CreateTagModalView extends React.Component {
   clearState = () => {
     this.setState({
       name: '',
-      color: '#D60000'
+      color: AppStyles.color.DARK_RED
     });
   };
   closeModal = () => {
@@ -70,7 +71,10 @@ class CreateTagModalView extends React.Component {
       >
         <View style={styles.modalBackground}>
           <View style={styles.container} elevation={5}>
-            <TouchableOpacity style={styles.closeButton} onPress={this.closeModal}>
+            <TouchableOpacity
+              style={styles.closeButton}
+              onPress={this.closeModal}
+            >
               <Text>✕</Text>
             </TouchableOpacity>
             <View style={styles.inputs}>

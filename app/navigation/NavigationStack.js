@@ -13,6 +13,7 @@ import Users from 'app/screens/Users/Layout';
 import Tags from '../screens/Tags/Layout';
 import AuthStack from './authScreens';
 import ProfileStack from './profileScreens';
+import AppStyles from '../config/styles';
 
 const Tab = createBottomTabNavigator(
   {
@@ -45,8 +46,8 @@ const Tab = createBottomTabNavigator(
     initialRouteName: 'Reviews',
     tabBarOptions: {
       showLabel: true,
-      activeTintColor: '#2b5aa6',
-      inactiveTintColor: 'gray'
+      activeTintColor: AppStyles.color.DARK_BLUE,
+      inactiveTintColor: AppStyles.color.DARK_GRAY
     }
   }
 );

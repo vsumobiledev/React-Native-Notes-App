@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 export const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
-    borderColor: 'rgba(40, 40, 40, 0.4)',
+    borderColor: AppStyles.rgba.BLACK_04,
     borderRadius: 5,
     borderWidth: 1,
     flexDirection: 'row',

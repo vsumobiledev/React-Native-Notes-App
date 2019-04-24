@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TextInput, ActivityIndicator } from 'react-native';
 import PropTypes from 'prop-types';
 import styles from './styles';
+import AppStyles from '../../../config/styles';
 
 class FieldsetView extends React.PureComponent {
   state = {
@@ -40,7 +41,7 @@ class FieldsetView extends React.PureComponent {
         <TextInput
           style={[!isFocused ? styles.input : styles.focusedInput]}
           placeholder={placeholder}
-          placeholderTextColor="rgba(0,0,0,0.4)"
+          placeholderTextColor={AppStyles.rgba.BLACK_04}
           onChangeText={onChangeText}
           onFocus={this.onFocus}
           onBlur={this.onBlur}

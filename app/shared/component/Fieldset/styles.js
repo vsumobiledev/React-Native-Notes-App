@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet, Platform } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   titleContainer: {
-    backgroundColor: 'white',
+    backgroundColor: AppStyles.color.WHITE,
     alignSelf: 'flex-start',
     marginBottom: -10,
     marginLeft: 10,
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
     paddingTop: 10
   },
   focusedInput: {
-    borderColor: '#2b5aa6',
+    borderColor: AppStyles.color.DARK_BLUE,
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,

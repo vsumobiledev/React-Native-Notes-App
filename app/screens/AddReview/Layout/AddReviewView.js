@@ -13,6 +13,7 @@ import ModalBooks from '../ModalBooks';
 import Button from '../../../shared/component/Button';
 import PropTypes from 'prop-types';
 import { styles } from './styles';
+import AppStyles from '../../../config/styles';
 
 class AddReviewView extends React.Component {
   state = {
@@ -251,8 +252,8 @@ class AddReviewView extends React.Component {
           text="Create"
           onClick={this.uploadReview}
           isLoading={isLoading}
-          colorStart="#5D85E1"
-          colorEnd="#3CCFDB"
+          colorStart={AppStyles.color.LIGTH_PURPLE}
+          colorEnd={AppStyles.color.GREEN}
         />
       </ScrollView>
     );

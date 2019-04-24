@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 export const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    backgroundColor: '#fff',
+    backgroundColor: AppStyles.color.WHITE,
     flex: 1,
     justifyContent: 'center',
     paddingTop: 15
@@ -17,7 +18,7 @@ export const styles = StyleSheet.create({
   },
   login: {
     alignItems: 'center',
-    backgroundColor: '#00FF44',
+    backgroundColor: AppStyles.color.LIGHT_GREEN,
     borderRadius: 50,
     height: 40,
     justifyContent: 'center',
@@ -25,7 +26,7 @@ export const styles = StyleSheet.create({
     width: '50%'
   },
   loginText: {
-    color: '#fff',
+    color: AppStyles.color.WHITE,
     fontWeight: 'bold'
   },
   logo: {
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     marginBottom: 40
   },
   register: {
-    color: '#A8A8A8',
+    color: AppStyles.color.DARK_GRAY,
     margin: 5
   },
   subHeader: {

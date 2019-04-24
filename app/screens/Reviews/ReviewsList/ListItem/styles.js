@@ -1,15 +1,16 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../config/styles';
 
 const styles = StyleSheet.create({
   author: {
     fontStyle: 'italic'
   },
   container: {
-    borderColor: '#cecece',
+    borderColor: AppStyles.color.GRAY,
     borderWidth: 1,
     height: 275,
-    shadowColor: 'black',
+    shadowColor: AppStyles.color.BLACK,
     shadowOffset: {
       width: 0,
       height: 5
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     margin: 10,
     flexDirection: 'row',
     overflow: 'hidden',
-    backgroundColor: 'white'
+    backgroundColor: AppStyles.color.WHITE
   },
   bookCover: {
     paddingTop: '80%',

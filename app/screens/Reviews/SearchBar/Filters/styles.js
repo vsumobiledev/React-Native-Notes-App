@@ -1,9 +1,10 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    borderColor: 'rgba(40, 40, 40, 1)',
+    borderColor: AppStyles.color.LIGHT_BLACK,
     padding: 5
   },
   tagsContainer: {

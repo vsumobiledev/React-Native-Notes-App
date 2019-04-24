@@ -1,6 +1,7 @@
 import AuthLoading from '../screens/AuthLoading/Layout';
 import Login from '../screens/Login/Layout';
 import Register from '../screens/Register/Layout';
+import AppStyles from '../config/styles';
 
 const optionsHeaderless = { header: null, gesturesEnabled: false };
 const AuthStack = {
@@ -18,7 +19,7 @@ const AuthStack = {
       title: 'Register',
       gesturesEnabled: false,
       headerStyle: {
-        backgroundColor: '#C0C0C0'
+        backgroundColor: AppStyles.color.DARK_WHITE
       }
     }
   }

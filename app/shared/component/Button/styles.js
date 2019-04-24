@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   text: {
-    color: 'white',
+    color: AppStyles.color.WHITE,
     fontWeight: 'bold',
     fontSize: 18,
     marginRight: 5

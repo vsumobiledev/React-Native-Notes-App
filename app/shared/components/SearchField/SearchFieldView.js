@@ -3,6 +3,7 @@ import { TextInput, View } from 'react-native';
 import { styles } from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 const SearchFieldView = ({ placeholder, value, onChange }) => {
   return (
@@ -11,7 +12,7 @@ const SearchFieldView = ({ placeholder, value, onChange }) => {
       <TextInput
         style={styles.input}
         placeholder={placeholder}
-        placeholderTextColor="rgba(40, 40, 40, 0.4)"
+        placeholderTextColor={AppStyles.rgba.BLACK_04}
         onChangeText={onChange}
         selectionColor="black"
         value={value}

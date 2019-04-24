@@ -1,11 +1,12 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     width: '100%',
     borderBottomWidth: 0.3,
-    borderColor: 'rgba(0,0,0,0.4)'
+    borderColor: AppStyles.rgba.BLACK_04
   },
   searchBar: {
     alignItems: 'center',

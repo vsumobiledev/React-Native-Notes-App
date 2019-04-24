@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
   content: {
     height: '90%',
     borderWidth: 1,
-    backgroundColor: '#fff',
+    backgroundColor: AppStyles.color.WHITE,
     width: '80%'
   },
   book: {
@@ -16,7 +17,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: 'white',
+    backgroundColor: AppStyles.color.WHITE,
     borderBottomWidth: 1
   },
   bookIcon: {

@@ -4,6 +4,7 @@ import Ripple from 'react-native-material-ripple';
 import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
 import { styles } from './styles';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class RegistrationView extends React.Component {
   constructor(props) {
@@ -27,16 +28,16 @@ class RegistrationView extends React.Component {
   };
   onFirstNameChangeText = value => {
     this.setState({ firstName: value });
-  }
+  };
   onLastNameChangeText = value => {
     this.setState({ lastName: value });
-  }
+  };
   onEmailChangeText = value => {
     this.setState({ login: value });
-  }
+  };
   onPasswordChangeText = value => {
     this.setState({ password: value });
-  }
+  };
   render() {
     return (
       <View style={styles.container}>
@@ -44,7 +45,7 @@ class RegistrationView extends React.Component {
           <ActivityIndicator
             style={styles.loading}
             size="large"
-            color="#FFFF00"
+            color={AppStyles.color.YELLOW}
           />
         ) : null}
         <View style={styles.inputsWrapper}>

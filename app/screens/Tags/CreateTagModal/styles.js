@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-color-literals */
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,13 +13,13 @@ const styles = StyleSheet.create({
     minWidth: 200,
     maxWidth: 400,
     overflow: 'hidden',
-    backgroundColor: '#fff',
-    borderColor: '#d1d1d1',
+    backgroundColor: AppStyles.color.WHITE,
+    borderColor: AppStyles.color.LIGHT_GRAY,
     flexDirection: 'row',
     padding: 10,
     minHeight: 300,
     zIndex: 10,
-    shadowColor: 'black',
+    shadowColor: AppStyles.color.BLACK,
     shadowOffset: {
       width: 0,
       height: 5
@@ -29,7 +30,7 @@ const styles = StyleSheet.create({
   modalBackground: {
     height: '100%',
     width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: AppStyles.rgba.BLACK_05,
     zIndex: 0,
     alignItems: 'center',
     flex: 1,
@@ -43,18 +44,18 @@ const styles = StyleSheet.create({
   },
   inputTitle: {
     fontWeight: 'bold',
-    color: 'black'
+    color: AppStyles.color.BLACK
   },
   save: {
     alignItems: 'center',
-    backgroundColor: '#00FF44',
+    backgroundColor: AppStyles.color.LIGHT_GREEN,
     borderRadius: 50,
     height: 40,
     justifyContent: 'center',
     width: '50%'
   },
   saveText: {
-    color: '#fff',
+    color: AppStyles.color.WHITE,
     fontWeight: 'bold'
   },
   saveWrapper: {
