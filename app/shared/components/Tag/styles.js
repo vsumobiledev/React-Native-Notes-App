@@ -1,4 +1,4 @@
-/* eslint-disable react-native/no-color-literals */
+
 import { StyleSheet } from 'react-native';
 import tinycolor from 'tinycolor2';
 import AppStyles from '../../../config/styles';
