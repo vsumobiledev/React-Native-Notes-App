@@ -11,33 +11,34 @@ class SearchBarView extends Component {
   state = {
     searchName: '',
     tags: [],
-    isOnlyUserReviews: false,
+    isUserReviews: false,
     expanded: false
   };
   onChangeSearchText = searchName => {
     this.setState({ searchName });
-    this.props.loadFilteredReviews({});
   };
   selectTag = tag => {
     const { tags } = this.state;
     if (tags.findIndex(item => item.name === tag.name) === -1) {
       tags.push(tag);
-      this.setState({ tags });
-      this.props.loadFilteredReviews({});
+      this.setState({ tags }, this.onSubmitEditing);
     }
   };
 
   deselectTag = value => {
     const { tags } = this.state;
     tags.splice(tags.findIndex(tag => tag.name === value), 1);
-    this.setState({ tags });
-    this.props.loadFilteredReviews({});
+    this.setState({ tags }, this.onSubmitEditing);
+  };
+
+  onSubmitEditing = () => {
+    const { searchName, tags, isUserReviews } = this.state;
+    this.props.loadFilteredReviews({ searchName, tags, isUserReviews });
   };
 
   onCheckBoxClick = () => {
-    const { isOnlyUserReviews } = this.state;
-    this.setState({ isOnlyUserReviews: !isOnlyUserReviews });
-    this.props.loadFilteredReviews({});
+    const { isUserReviews } = this.state;
+    this.setState({ isUserReviews: !isUserReviews }, this.onSubmitEditing);
   };
 
   handleFilterMenu = () => {
@@ -50,7 +51,7 @@ class SearchBarView extends Component {
     });
   };
   render() {
-    const { searchName, expanded, tags, isOnlyUserReviews } = this.state;
+    const { searchName, expanded, tags, isUserReviews } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.searchBar}>
@@ -58,6 +59,7 @@ class SearchBarView extends Component {
             placeholder="Search..."
             value={searchName}
             onChange={this.onChangeSearchText}
+            onSubmitEditing={this.onSubmitEditing}
           />
           <TouchableOpacity
             onPress={this.handleFilterMenu}
@@ -72,7 +74,7 @@ class SearchBarView extends Component {
           selectTag={this.selectTag}
           deselectTag={this.deselectTag}
           expanded={expanded}
-          isOnlyUserReviews={isOnlyUserReviews}
+          isUserReviews={isUserReviews}
           onCheckBoxClick={this.onCheckBoxClick}
         />
       </View>

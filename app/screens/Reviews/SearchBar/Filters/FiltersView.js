@@ -37,7 +37,7 @@ class FiltersView extends Component {
     ));
 
   render() {
-    const { expanded, isOnlyUserReviews, onCheckBoxClick, tags } = this.props;
+    const { expanded, isUserReviews, onCheckBoxClick, tags } = this.props;
     return (
       <View style={styles.container}>
         <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
@@ -49,7 +49,7 @@ class FiltersView extends Component {
             onPress={onCheckBoxClick}
             style={styles.checkBoxContainer}
           >
-            <CheckBox isCheck={isOnlyUserReviews} />
+            <CheckBox isCheck={isUserReviews} />
             <Text style={styles.checkBoxText}>Only my reviews</Text>
           </TouchableOpacity>
         </View>
@@ -61,7 +61,7 @@ class FiltersView extends Component {
 FiltersView.propTypes = {
   expanded: PropTypes.bool,
   tags: PropTypes.array,
-  isOnlyUserReviews: PropTypes.bool,
+  isUserReviews: PropTypes.bool,
   deselectTag: PropTypes.func,
   selectTag: PropTypes.func,
   onCheckBoxClick: PropTypes.func
