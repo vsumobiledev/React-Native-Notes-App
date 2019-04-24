@@ -5,7 +5,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
 
-const SearchFieldView = ({ placeholder, value, onChange }) => {
+const SearchFieldView = ({ placeholder, value, onChange, onSubmitEditing }) => {
   return (
     <View style={styles.container}>
       <Icon style={styles.icon} name="ios-search" size={20} />
@@ -14,6 +14,7 @@ const SearchFieldView = ({ placeholder, value, onChange }) => {
         placeholder={placeholder}
         placeholderTextColor={AppStyles.rgba.BLACK_04}
         onChangeText={onChange}
+        onSubmitEditing={onSubmitEditing}
         selectionColor="black"
         value={value}
         returnKeyType="search"

@@ -5,7 +5,7 @@ import {
 } from './constants';
 import firebase from 'firebase';
 
-export const loadFilteredReviews = filters => dispatch => {
+export const loadFilteredReviews = filters => (dispatch, getState) => {
   dispatch({ type: LOAD_FILTERED_REVIEWS });
   firebase
     .database()
@@ -14,7 +14,25 @@ export const loadFilteredReviews = filters => dispatch => {
     .then(snapshot => {
       let dataReviews = false;
       if (snapshot.val()) {
-        dataReviews = Object.values(snapshot.val());
+        const { searchName, tags, isUserReviews } = filters;
+        const {
+          data: { uid }
+        } = getState().user;
+        dataReviews = Object.values(snapshot.val()).filter(review => {
+          let isSuit = true;
+          if (isSuit && searchName) {
+            isSuit = review.title.includes(searchName);
+          }
+          if (isSuit && tags.length > 0) {
+            isSuit = tags.every(tag =>
+              review.tags.some(reviewTag => reviewTag.name === tag.name)
+            );
+          }
+          if (isSuit && isUserReviews) {
+            isSuit = review.authorId === uid;
+          }
+          return isSuit;
+        });
       }
       dispatch({ type: LOAD_FILTERED_REVIEWS_SUCCESS, reviews: dataReviews });
     })
