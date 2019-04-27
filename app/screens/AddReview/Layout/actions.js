@@ -42,32 +42,22 @@ export const uploadReview = (review, selectedBook) => async (
       .set({
         key: bookId,
         title: review.title,
-        rating: [
-          {
-            key: uid,
+        rating: {
+          [uid]: {
             rating: review.authorRating
           }
-        ],
+        },
         image: review.image
       });
   } else {
     await firebaseRef
       .child('books')
       .child(bookId)
-      .once('value')
-      .then(snapshot => {
-        if (snapshot.val()) {
-          const { rating } = snapshot.val();
-          rating.push({
-            key: uid,
-            rating: review.authorRating
-          });
-          firebaseRef
-            .child('books')
-            .child(bookId)
-            .child('rating')
-            .set(rating);
-        }
+      .child('rating')
+      .child(uid)
+      .set({
+        key: uid,
+        rating: review.authorRating
       });
   }
   review.bookId = bookId;
@@ -101,9 +91,10 @@ export const preloadBooks = bookTitle => dispatch => {
         booksData = data
           .filter(bookData => bookData.title.includes(bookTitle))
           .map(book => {
+            const ratingsArr = Object.values(book.rating);
             book.rating =
-              book.rating.reduce((sum, user) => (sum += user.rating), 0) /
-              book.rating.length;
+              ratingsArr.reduce((sum, user) => (sum += user.rating), 0) /
+              ratingsArr.length;
             return book;
           });
       }

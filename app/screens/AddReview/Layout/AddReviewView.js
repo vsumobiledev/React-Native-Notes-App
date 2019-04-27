@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { ScrollView, View, Text, Image, TouchableOpacity } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Alert
+} from 'react-native';
 import ImageResizer from 'react-native-image-resizer';
 import { AirbnbRating } from 'react-native-ratings';
 import ImagePicker from 'react-native-image-picker';
@@ -19,7 +26,7 @@ class AddReviewView extends Component {
   state = {
     title: '',
     selectedBook: false,
-    discription: '',
+    description: '',
     authorRating: 0,
     tags: [],
     image: false,
@@ -56,8 +63,8 @@ class AddReviewView extends Component {
       });
     }
   };
-  onChangeDiscription = value => {
-    this.setState({ discription: value, isInvalid: false });
+  onChangeDescription = value => {
+    this.setState({ description: value, isInvalid: false });
   };
   onAddTagClick = () => {
     NavigationService.navigate('Tags', { selectTag: this.selectTag });
@@ -74,7 +81,7 @@ class AddReviewView extends Component {
 
   deselectTag = value => {
     const { tags } = this.state;
-    tags.splice(tags.findIndex(tag => tag.value === value) - 1, 1);
+    tags.splice(tags.findIndex(tag => tag.name === value), 1);
     this.setState({ tags, isInvalid: false });
   };
 
@@ -139,17 +146,17 @@ class AddReviewView extends Component {
   uploadReview = () => {
     const {
       title,
-      discription,
+      description,
       authorRating,
       tags,
       image,
       selectedBook
     } = this.state;
-    if (title && discription && authorRating && tags.length > 0 && image) {
+    if (title && description && authorRating && tags.length > 0 && image) {
       this.props.uploadReview(
         {
           title,
-          discription,
+          description,
           authorRating,
           tags,
           image
@@ -164,7 +171,7 @@ class AddReviewView extends Component {
   render() {
     const {
       title,
-      discription,
+      description,
       authorRating,
       tags,
       image,
@@ -237,10 +244,10 @@ class AddReviewView extends Component {
           </View>
         </View>
         <Fieldset
-          onChangeText={this.onChangeDiscription}
-          textValue={discription}
-          placeholder="Enter discription..."
-          title="Discription"
+          onChangeText={this.onChangeDescription}
+          textValue={description}
+          placeholder="Enter description..."
+          title="Description"
           isMultiline={true}
         />
         {(isInvalid || error) && (
@@ -262,7 +269,6 @@ class AddReviewView extends Component {
 
 AddReviewView.propTypes = {
   isLoading: PropTypes.bool,
-  initAuth: PropTypes.func,
   uploadReview: PropTypes.func,
   isLoadingHints: PropTypes.bool,
   books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])

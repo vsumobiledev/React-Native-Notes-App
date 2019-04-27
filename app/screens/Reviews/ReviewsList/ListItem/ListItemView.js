@@ -15,7 +15,8 @@ class ListItemView extends React.PureComponent {
       </View>
     ));
   onPress = () => {
-    NavigationService.navigate('Tags');
+    const { id, title } = this.props;
+    NavigationService.navigate('Review', { title, id });
   };
 
   render() {
@@ -24,7 +25,7 @@ class ListItemView extends React.PureComponent {
       title,
       author,
       authorRating,
-      discription,
+      description,
       userRating,
       tags
     } = this.props;
@@ -66,7 +67,7 @@ class ListItemView extends React.PureComponent {
               <Text>Tags: </Text>
               {this.renderTags(tags)}
             </View>
-            <Text>{discription}</Text>
+            <Text>{description}</Text>
           </View>
         </Ripple>
       </View>
@@ -76,17 +77,18 @@ class ListItemView extends React.PureComponent {
 
 ListItemView.propTypes = {
   title: PropTypes.string,
-  imageURL: PropTypes.oneOfType([PropTypes.string, PropTypes.shape()]),
+  image: PropTypes.oneOfType([PropTypes.string, PropTypes.shape()]),
   author: PropTypes.string,
   authorRating: PropTypes.number,
-  discription: PropTypes.string,
+  description: PropTypes.string,
   userRating: PropTypes.number,
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       color: PropTypes.string,
       name: PropTypes.string
     })
-  )
+  ),
+  id: PropTypes.string
 };
 
 export default ListItemView;

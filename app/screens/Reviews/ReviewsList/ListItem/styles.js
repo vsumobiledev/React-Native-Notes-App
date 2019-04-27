@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 10
   },
-  discription: {
+  description: {
     maxHeight: 80,
     overflow: 'hidden'
   }

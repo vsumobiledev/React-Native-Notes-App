@@ -1,5 +1,6 @@
 import Reviews from 'app/screens/Reviews/Layout';
 import AddReview from 'app/screens/AddReview/Layout';
+import Review from 'app/screens/Review/Layout';
 import { createStackNavigator } from 'react-navigation';
 
 /* eslint-disable react-native/no-inline-styles */
@@ -15,6 +16,15 @@ const ReviewsStack = createStackNavigator({
     screen: AddReview,
     navigationOptions: {
       title: 'Add review'
+    }
+  },
+  Review: {
+    screen: Review,
+    navigationOptions: ({ navigation }) => {
+      const {
+        state: { params }
+      } = navigation;
+      return { title: params.title };
     }
   }
 });

@@ -15,7 +15,9 @@ class ButtonView extends Component {
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
         >
-          <Text style={styles.text}>{text}</Text>
+          <Text style={[styles.text, { marginRight: isLoading ? 5 : 0 }]}>
+            {text}
+          </Text>
           {isLoading && <ActivityIndicator size="small" color="white" />}
         </LinearGradient>
       </TouchableOpacity>
