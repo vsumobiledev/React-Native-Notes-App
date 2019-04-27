@@ -17,8 +17,7 @@ const styles = StyleSheet.create({
   text: {
     color: AppStyles.color.WHITE,
     fontWeight: 'bold',
-    fontSize: 18,
-    marginRight: 5
+    fontSize: 18
   }
 });
 

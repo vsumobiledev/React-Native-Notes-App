@@ -10,7 +10,9 @@ class ReviewsListView extends Component {
     this.props.loadFilteredReviews();
   }
 
-  renderItem = ({ item }) => <ListItem {...item} />;
+  renderItem = ({ item }) => {
+    return <ListItem id={item.key} {...item} />;
+  };
   render() {
     const { reviews, isLoading } = this.props;
     return (

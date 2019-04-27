@@ -10,10 +10,11 @@ class ReviewsListContainer extends Component {
 }
 
 function mapStateToProps(state) {
+  const { isLoading, reviews, error } = state.reviewsList;
   return {
-    isLoading: state.reviewsList.isLoading,
-    reviews: state.reviewsList.reviews,
-    error: state.reviewsList.error
+    isLoading,
+    reviews,
+    error
   };
 }
 function mapDispatchToProps(dispatch) {

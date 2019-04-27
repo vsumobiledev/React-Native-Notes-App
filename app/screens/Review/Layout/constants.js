@@ -1,0 +1,9 @@
+export const SAVE_REVIEW = 'review/SAVE_REVIEW';
+export const SAVE_REVIEW_SUCCESS = 'review/SAVE_REVIEW_SUCCESS';
+export const SAVE_REVIEW_ERROR = 'review/SAVE_REVIEW_ERROR';
+export const PRELOAD_REVIEW = 'review/PRELOAD_REVIEW';
+export const PRELOAD_REVIEW_SUCCESS = 'review/PRELOAD_REVIEW_SUCCESS';
+export const PRELOAD_REVIEW_ERROR = 'review/PRELOAD_REVIEW_ERROR';
+export const DELETE_REVIEW = 'review/DELETE_REVIEW';
+export const DELETE_REVIEW_SUCCESS = 'review/DELETE_REVIEW_SUCCESS';
+export const DELETE_REVIEW_ERROR = 'review/DELETE_REVIEW_ERROR';
