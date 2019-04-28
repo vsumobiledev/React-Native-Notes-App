@@ -11,17 +11,19 @@ class AddReviewContainer extends Component {
 
 function mapStateToProps(state) {
   const { isLoading, isLoadingHints, error, books } = state.addReview;
+  const { uid, firstName, lastName, subscribers } = state.user.data;
   return {
     isLoading,
     isLoadingHints,
     error,
-    books
+    books,
+    user: { uid, firstName, lastName, subscribers }
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    uploadReview: (review, selectedBook) => {
-      dispatch(uploadReview(review, selectedBook));
+    uploadReview: (review, selectedBook, user) => {
+      dispatch(uploadReview(review, selectedBook, user));
     },
     preloadBooks: title => {
       dispatch(preloadBooks(title));

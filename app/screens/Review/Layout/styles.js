@@ -62,5 +62,8 @@ export const styles = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center'
+  },
+  buttonWrapper: {
+    width: '50%'
   }
 });

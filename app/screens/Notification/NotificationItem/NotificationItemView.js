@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 
 const iconName = {
   [NotificationType.NEW_SUB]: 'ios-person-add',
-  [NotificationType.NEW_REVIEW]: 'bookmarks'
+  [NotificationType.NEW_REVIEW]: 'ios-bookmarks'
 };
 
 const UserItemView = ({ data: itemData, openUserDetail }) => {

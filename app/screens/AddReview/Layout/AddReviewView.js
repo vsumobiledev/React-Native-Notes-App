@@ -153,6 +153,7 @@ class AddReviewView extends Component {
       selectedBook
     } = this.state;
     if (title && description && authorRating && tags.length > 0 && image) {
+      const { user } = this.props;
       this.props.uploadReview(
         {
           title,
@@ -161,7 +162,8 @@ class AddReviewView extends Component {
           tags,
           image
         },
-        selectedBook
+        selectedBook,
+        user
       );
     } else {
       this.setState({ isInvalid: true });
@@ -271,7 +273,8 @@ AddReviewView.propTypes = {
   isLoading: PropTypes.bool,
   uploadReview: PropTypes.func,
   isLoadingHints: PropTypes.bool,
-  books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool])
+  books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
+  user: PropTypes.object
 };
 
 export default AddReviewView;

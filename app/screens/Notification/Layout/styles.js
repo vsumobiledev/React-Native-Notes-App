@@ -16,6 +16,11 @@ const styles = StyleSheet.create({
   },
   deleteButtonText: {
     color: '#fff'
+  },
+  noNotif: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

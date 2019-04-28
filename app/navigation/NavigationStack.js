@@ -8,6 +8,7 @@ import {
   createAppContainer
 } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+import BadgeIcon from '../shared/components/BadgeIcon/index';
 import ReviewsStack from './reviewsScreens';
 import UsersStack from './usersScreens';
 import Tags from '../screens/Tags/Layout';
@@ -37,7 +38,7 @@ const Tab = createBottomTabNavigator(
       screen: ProfileStack,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="ios-contact" size={30} color={tintColor} />
+          <BadgeIcon name="ios-contact" size={30} color={tintColor} />
         )
       })
     }
@@ -47,8 +48,11 @@ const Tab = createBottomTabNavigator(
     tabBarOptions: {
       showLabel: true,
       activeTintColor: AppStyles.color.DARK_BLUE,
-      inactiveTintColor: AppStyles.color.DARK_GRAY
-    }
+      inactiveTintColor: AppStyles.color.DARK_GRAY,
+      style: {
+        height: 50
+      }
+    },
   }
 );
 const optionsHeaderless = { header: null, gesturesEnabled: false };

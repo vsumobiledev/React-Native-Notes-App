@@ -41,7 +41,9 @@ class NotificationView extends Component {
               disableRightSwipe={true}
             />
           ) : (
-            <Text>You have no notifications</Text>
+            <View style={styles.noNotif}>
+              <Text>You have no notifications</Text>
+            </View>
           )
         ) : (
           <View>

@@ -16,7 +16,8 @@ class ProfileContainer extends Component {
 function mapStateToProps(state) {
   return {
     user: state.user.data,
-    isLoading: state.user.isLoading
+    isLoading: state.user.isLoading,
+    notificationsIds: Object.keys(state.notifications.data)
   };
 }
 function mapDispatchToProps(dispatch) {

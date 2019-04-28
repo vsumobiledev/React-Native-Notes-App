@@ -24,6 +24,21 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 16,
     marginLeft: 10
+  },
+  badge: {
+    borderRadius: 25,
+    width: 25,
+    height: 25,
+    padding: 5,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'red',
+    overflow: 'hidden'
+  },
+  badgeText: {
+    color: '#fff',
+    fontWeight: 'bold'
   }
 });
 

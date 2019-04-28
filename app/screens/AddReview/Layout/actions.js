@@ -13,8 +13,10 @@ import { Platform } from 'react-native';
 import Toast from 'react-native-root-toast';
 import { NativeModules } from 'react-native';
 import uuidv4 from 'uuid/v4';
+import { sendNotification } from '../../../core/redux/notifications/actions';
+import { NotificationType } from '../../../core/redux/notifications/constants';
 
-export const uploadReview = (review, selectedBook) => async (
+export const uploadReview = (review, selectedBook, user) => async (
   dispatch,
   getState
 ) => {
@@ -71,6 +73,21 @@ export const uploadReview = (review, selectedBook) => async (
       Toast.show('Created', {
         position: 70
       });
+      const { firstName, lastName, subscribers } = user;
+      if (subscribers) {
+        const { title, key } = review;
+        Object.keys(subscribers).forEach(subUid => {
+          dispatch(
+            sendNotification(subUid, {
+              type: NotificationType.NEW_REVIEW,
+              title: `${firstName} ${lastName} added a new review`,
+              subTitle: title,
+              data: key,
+              date: new Date().toString()
+            })
+          );
+        });
+      }
       dispatch(loadFilteredReviews());
       NavigationService.navigate('Reviews');
     })
