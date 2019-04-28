@@ -5,7 +5,7 @@ import {
 } from './constants';
 import firebase from 'firebase';
 
-export const initUser = () => dispatch => {
+export const initUsers = () => dispatch => {
   dispatch({ type: UPDATE_USERS });
   const firebaseRef = firebase.database().ref();
   firebaseRef.child('users').on('value', e => {

@@ -10,6 +10,8 @@ import {
   UPDATE_FAILED
 } from './constants';
 import firebase from 'firebase';
+import { sendNotification } from '../../../core/redux/notifications/actions';
+import { NotificationType } from '../../../core/redux/notifications/constants';
 import Toast from 'react-native-root-toast';
 
 export const initUser = uid => dispatch => {
@@ -38,12 +40,13 @@ export const initUser = uid => dispatch => {
 };
 
 export const subscribeUser = (
-  subscriberUid,
+  subscriberUser,
   channelUid,
   isSubscribed
 ) => dispatch => {
   dispatch({ type: SUBSCRIBE });
   const firebaseDbRef = firebase.database().ref();
+  const { uid: subscriberUid, firstName, lastName } = subscriberUser;
   if (!isSubscribed) {
     firebaseDbRef
       .child('users')
@@ -64,6 +67,15 @@ export const subscribeUser = (
                 Toast.show('Subscribed', {
                   position: 70
                 });
+                dispatch(
+                  sendNotification(channelUid, {
+                    type: NotificationType.NEW_SUB,
+                    title: 'You have a new subscriber',
+                    subTitle: `${firstName} ${lastName}`,
+                    data: subscriberUid,
+                    date: new Date().toString()
+                  })
+                );
                 dispatch({ type: SUBSCRIBE_SUCCESS });
               },
               error => {

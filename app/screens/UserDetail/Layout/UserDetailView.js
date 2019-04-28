@@ -5,7 +5,7 @@ import Button from '../../../shared/component/Button/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
-class ProfileView extends Component {
+class UserDetailView extends Component {
   componentDidMount() {
     const uid = this.props.navigation.getParam('uid', {});
     this.props.initUser(uid);
@@ -13,9 +13,9 @@ class ProfileView extends Component {
   subscribe = () => {
     const { user } = this.props;
     const isSubscribed = !!Object.keys(user.subscribers).find(
-      uid => uid === this.props.userUid
+      uid => uid === this.props.profile.uid
     );
-    this.props.subscribeUser(this.props.userUid, user.uid, isSubscribed);
+    this.props.subscribeUser(this.props.profile, user.uid, isSubscribed);
   };
   deleteUser = () => {
     this.props.deleteUser(this.props.user.uid);
@@ -23,7 +23,7 @@ class ProfileView extends Component {
   };
   getSubscribeData = user => {
     const isSubscribed = !!Object.keys(user.subscribers).find(
-      uid => uid === this.props.userUid
+      uid => uid === this.props.profile.uid
     );
     const count = Object.keys(user.subscribers).length;
     return {
@@ -52,7 +52,7 @@ class ProfileView extends Component {
                 colorEnd={subData.isSubscribed ? 'lightgrey' : 'darkred'}
                 onClick={this.subscribe}
               />
-              {this.props.role === 'admin' ? (
+              {this.props.profile && this.props.profile.role === 'admin' ? (
                 <Button
                   text="DELETE"
                   colorStart="red"
@@ -68,10 +68,9 @@ class ProfileView extends Component {
   }
 }
 
-ProfileView.propTypes = {
+UserDetailView.propTypes = {
   navigation: PropTypes.object,
-  role: PropTypes.string,
-  userUid: PropTypes.string,
+  profile: PropTypes.object,
   subscribeUser: PropTypes.func,
   deleteUser: PropTypes.func,
   initUser: PropTypes.func,
@@ -79,4 +78,4 @@ ProfileView.propTypes = {
   user: PropTypes.object
 };
 
-export default ProfileView;
+export default UserDetailView;

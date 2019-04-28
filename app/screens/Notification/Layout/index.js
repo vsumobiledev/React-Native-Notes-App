@@ -1,2 +1,2 @@
-import NotificationView from './NotificationView';
-export default NotificationView;
+import NotificationContainer from './NotificationContainer';
+export default NotificationContainer;

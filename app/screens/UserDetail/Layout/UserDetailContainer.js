@@ -12,16 +12,15 @@ class UserDetailContainer extends Component {
 function mapStateToProps(state) {
   return {
     isLoading: state.userDetail.isLoading,
-    role: state.user.data ? state.user.data.role : 'unknown',
-    userUid: state.user.data ? state.user.data.uid : '',
     isDataLoading: state.userDetail.isDataLoading,
-    user: state.userDetail.data
+    user: state.userDetail.data,
+    profile: state.user.data,
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    subscribeUser: (sUid, cUid, isSub) =>
-      dispatch(subscribeUser(sUid, cUid, isSub)),
+    subscribeUser: (sUser, cUid, isSub) =>
+      dispatch(subscribeUser(sUser, cUid, isSub)),
     deleteUser: uid => dispatch(deleteUser(uid)),
     initUser: uid => dispatch(initUser(uid))
   };

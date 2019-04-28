@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import UsersView from './UsersView';
-import { initUser } from './actions';
+import { initUsers } from './actions';
 
 class UsersContainer extends Component {
   render() {
@@ -18,7 +18,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    initUsers: () => dispatch(initUser())
+    initUsers: () => dispatch(initUsers())
   };
 }
 export default connect(

@@ -9,6 +9,7 @@ import userReducer from '../core/redux/user/reducer';
 import tagsReducer from '../screens/Tags/Layout/reducer';
 import usersReducer from '../screens/Users/Layout/reducer';
 import userDetailReducer from '../screens/UserDetail/Layout/reducer';
+import notificationsReducer from '../core/redux/notifications/reducer';
 
 const rootReducer = {
   addReview: addReviewReducer,
@@ -21,7 +22,8 @@ const rootReducer = {
   user: userReducer,
   tags: tagsReducer,
   users: usersReducer,
-  userDetail: userDetailReducer
+  userDetail: userDetailReducer,
+  notifications: notificationsReducer
 };
 
 export default rootReducer;

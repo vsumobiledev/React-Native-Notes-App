@@ -8,7 +8,9 @@ import {
   SAVE_USER_SUCCESS
 } from './constants';
 import NavigationService from '../../../navigation/NavigationService';
+import { initNotifications } from '../notifications/actions';
 import firebase from 'firebase';
+import Toast from 'react-native-root-toast';
 
 export const initUser = uid => dispatch => {
   dispatch({ type: INIT_USER });
@@ -19,6 +21,7 @@ export const initUser = uid => dispatch => {
     .child(uid)
     .on('value', e => {
       if (e.val()) {
+        dispatch(initNotifications(uid));
         dispatch({
           type: UPDATE_USER,
           payload: {
@@ -52,6 +55,9 @@ export const saveUser = user => dispatch => {
     .set(user)
     .then(
       () => {
+        Toast.show('Saved', {
+          position: 75
+        });
         dispatch({ type: SAVE_USER_SUCCESS });
       },
       () => {

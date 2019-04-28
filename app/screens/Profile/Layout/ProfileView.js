@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, View, Text, Image, FlatList } from 'react-native';
+import { Alert, View, FlatList } from 'react-native';
 import MenuRowComponent from '../MenuRow';
 import ProfileCardComponent from '../../../shared/components/ProfileCard';
 import styles from './styles';

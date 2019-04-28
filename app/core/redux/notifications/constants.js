@@ -1,0 +1,20 @@
+export const SEND_NOTIFICATION = 'notifications/SEND_NOTIFICATION';
+export const SEND_NOTIFICATION_SUCCESS =
+  'notifications/SEND_NOTIFICATION_SUCCESS';
+export const SEND_NOTIFICATION_FAILED =
+  'notifications/SEND_NOTIFICATION_FAILED';
+
+export const INIT_NOTIFICATIONS = 'notifications/INIT_NOTIFICATIONS';
+export const UPDATE_NOTIFICATIONS_SUCCESS =
+  'notifications/UPDATE_NOTIFICATIONS_SUCCESS';
+
+export const DELETE_NOTIFICATION = 'notifications/DELETE_NOTIFICATION';
+export const DELETE_NOTIFICATION_SUCCESS =
+  'notifications/DELETE_NOTIFICATION_SUCCESS';
+export const DELETE_NOTIFICATION_FAILED =
+  'notifications/DELETE_NOTIFICATION_FAILED';
+
+export const NotificationType = {
+  NEW_SUB: 'NEW_SUB',
+  NEW_REVIEW: 'NEW_REVIEW'
+};
