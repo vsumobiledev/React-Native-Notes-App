@@ -9,7 +9,7 @@ import {
 } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ReviewsStack from './reviewsScreens';
-import Users from 'app/screens/Users/Layout';
+import UsersStack from './usersScreens';
 import Tags from '../screens/Tags/Layout';
 import AuthStack from './authScreens';
 import ProfileStack from './profileScreens';
@@ -26,7 +26,7 @@ const Tab = createBottomTabNavigator(
       })
     },
     Users: {
-      screen: Users,
+      screen: UsersStack,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon name="ios-people" size={30} color={tintColor} />

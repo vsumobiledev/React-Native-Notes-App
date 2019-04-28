@@ -1,2 +1,2 @@
-import UsersView from './UsersView';
-export default UsersView;
+import UsersContainer from './UsersContainer';
+export default UsersContainer;

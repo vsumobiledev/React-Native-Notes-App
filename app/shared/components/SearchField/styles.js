@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     height: 40,
     marginBottom: 5,
     marginTop: 10,
-    width: '83%'
+    width: '100%'
   },
   icon: {
     marginLeft: 10,

@@ -7,6 +7,8 @@ import reviewModalReducer from '../screens/Review/RatingModal/reducer';
 import reviewsListReducer from 'app/screens/Reviews/ReviewsList/Layout/reducer';
 import userReducer from '../core/redux/user/reducer';
 import tagsReducer from '../screens/Tags/Layout/reducer';
+import usersReducer from '../screens/Users/Layout/reducer';
+import userDetailReducer from '../screens/UserDetail/Layout/reducer';
 
 const rootReducer = {
   addReview: addReviewReducer,
@@ -17,7 +19,9 @@ const rootReducer = {
   reviewModal: reviewModalReducer,
   reviewsList: reviewsListReducer,
   user: userReducer,
-  tags: tagsReducer
+  tags: tagsReducer,
+  users: usersReducer,
+  userDetail: userDetailReducer
 };
 
 export default rootReducer;

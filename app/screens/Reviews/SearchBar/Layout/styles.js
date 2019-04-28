@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.3,
     borderColor: AppStyles.rgba.BLACK_04
   },
+  searchFieldWrapper: {
+    width: '83%'
+  },
   searchBar: {
     alignItems: 'center',
     width: '100%',

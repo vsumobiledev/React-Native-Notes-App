@@ -1,0 +1,3 @@
+export const UPDATE_USERS = 'users/UPDATE_USERS';
+export const UPDATE_USERS_SUCCESS = 'users/UPDATE_USERS_SUCCESS';
+export const UPDATE_USERS_FAILED = 'users/UPDATE_USERS_FAILED';

@@ -10,14 +10,14 @@ const styles = StyleSheet.create({
   },
   menuRow: {
     alignItems: 'center',
-    borderBottomWidth: 1,
+    borderBottomWidth: 0.5,
     borderColor: AppStyles.rgba.BLACK_03,
     flexDirection: 'row',
     height: 40,
     width: '100%'
   },
   menuRowTop: {
-    borderTopWidth: 1
+    borderTopWidth: 0.5
   },
   menuText: {
     color: AppStyles.color.BLACK,

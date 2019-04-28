@@ -21,7 +21,8 @@ export const registerUser = (user, password) => dispatch => {
             firstName,
             lastName,
             email: login,
-            role: 'user'
+            role: 'user',
+            uid: firebaseUser.uid
           })
           .then(
             () => {

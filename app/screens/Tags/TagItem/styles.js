@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   container: {
     margin: 3,
     borderRadius: 50,
-    borderWidth: 1,
+    borderWidth: 0.5,
     marginLeft: '3%',
     width: '95%',
     overflow: 'hidden',

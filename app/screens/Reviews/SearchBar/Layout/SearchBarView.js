@@ -55,12 +55,14 @@ class SearchBarView extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.searchBar}>
-          <SearchField
-            placeholder="Search..."
-            value={searchName}
-            onChange={this.onChangeSearchText}
-            onSubmitEditing={this.onSubmitEditing}
-          />
+          <View style={styles.searchFieldWrapper}>
+            <SearchField
+              placeholder="Search..."
+              value={searchName}
+              onChange={this.onChangeSearchText}
+              onSubmitEditing={this.onSubmitEditing}
+            />
+          </View>
           <TouchableOpacity
             onPress={this.handleFilterMenu}
             activeOpacity={0.1}
