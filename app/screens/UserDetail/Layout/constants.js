@@ -1,3 +1,9 @@
 export const SUBSCRIBE = 'userDetail/SUBSCRIBE';
 export const SUBSCRIBE_SUCCESS = 'userDetail/SUBSCRIBE_SUCCESS';
 export const SUBSCRIBE_FAILED = 'userDetail/SUBSCRIBE_FAILED';
+export const DELETE_USER = 'userDetail/DELETE_USER';
+export const DELETE_USER_SUCCESS = 'userDetail/DELETE_USER_SUCCESS';
+export const DELETE_USER_FAILED = 'userDetail/DELETE_USER_FAILED';
+export const INIT_USER = 'userDetail/INIT_USER';
+export const UPDATE_USER = 'userDetail/UPDATE_USER';
+export const UPDATE_FAILED = 'userDetail/UPDATE_FAILED';

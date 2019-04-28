@@ -12,7 +12,8 @@ class UsersContainer extends Component {
 function mapStateToProps(state) {
   return {
     users: state.users.data,
-    isLoading: state.users.isLoading
+    isLoading: state.users.isLoading,
+    userUid: state.user.data ? state.user.data.uid : '',
   };
 }
 function mapDispatchToProps(dispatch) {

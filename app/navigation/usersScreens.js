@@ -14,9 +14,8 @@ const UsersStack = createStackNavigator({
   UserDetail: {
     screen: UserDetail,
     navigationOptions: ({ navigation }) => {
-      console.log(navigation);
-      const { user } = navigation.state.params;
-      return { title: `${user.firstName} ${user.lastName}` };
+      const { title } = navigation.state.params;
+      return { title };
     }
   }
 });

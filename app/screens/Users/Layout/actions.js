@@ -16,6 +16,8 @@ export const initUser = () => dispatch => {
           ...acc,
           [key]: {
             ...val[key],
+            subscriptions: val[key].subscriptions ? val[key].subscriptions : [],
+            subscribers: val[key].subscribers ? val[key].subscribers : [],
             uid: key
           }
         };

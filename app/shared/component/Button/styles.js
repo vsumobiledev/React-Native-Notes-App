@@ -3,7 +3,7 @@ import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
-    margin: 5,
+    margin: 2,
     alignSelf: 'center'
   },
   gradient: {
@@ -12,12 +12,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   text: {
     color: AppStyles.color.WHITE,
     fontWeight: 'bold',
-    fontSize: 18
+    fontSize: 18,
+    width: '100%',
+    textAlign: 'center'
   }
 });
 

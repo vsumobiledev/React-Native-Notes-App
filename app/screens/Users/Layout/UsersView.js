@@ -18,22 +18,26 @@ class ProfileView extends Component {
   };
 
   openUserDetail = uid => {
+    const user = this.props.users[uid];
     this.props.navigation.navigate('UserDetail', {
-      user: this.props.users[uid]
+      uid,
+      title: `${user.firstName} ${user.lastName}`
     });
   };
 
   getData = () => {
+    const users = this.props.users;
+    delete users[this.props.userUid];
+    let data = Object.keys(users);
     if (this.state.search) {
-      const { users } = this.props;
-      return Object.keys(this.props.users).filter(
+      return data.filter(
         key =>
           !!`${users[key].firstName} ${users[key].lastName}`
             .toLowerCase()
             .match(this.state.search.toLowerCase())
       );
     }
-    return Object.keys(this.props.users);
+    return data;
   };
 
   componentDidMount() {
@@ -78,7 +82,8 @@ ProfileView.propTypes = {
   navigation: PropTypes.object,
   initUsers: PropTypes.func,
   isLoading: PropTypes.isLoading,
-  users: PropTypes.array
+  users: PropTypes.array,
+  userUid: PropTypes.string
 };
 
 export default ProfileView;
