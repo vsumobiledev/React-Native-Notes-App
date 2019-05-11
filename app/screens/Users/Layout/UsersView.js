@@ -60,6 +60,7 @@ class ProfileView extends Component {
             <FlatList
               data={this.getData()}
               keyExtractor={item => `user${item}`}
+              contentContainerStyle={styles.containerList}
               renderItem={({ item }) => (
                 <UserItem
                   data={users[item]}
@@ -81,8 +82,8 @@ class ProfileView extends Component {
 ProfileView.propTypes = {
   navigation: PropTypes.object,
   initUsers: PropTypes.func,
-  isLoading: PropTypes.isLoading,
-  users: PropTypes.array,
+  isLoading: PropTypes.bool,
+  users: PropTypes.object,
   userUid: PropTypes.string
 };
 

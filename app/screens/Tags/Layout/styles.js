@@ -10,6 +10,10 @@ const styles = StyleSheet.create({
   },
   tagsList: {
     width: '100%'
+  },
+  containerList: {
+    paddingTop: 5,
+    paddingBottom: 100
   }
 });
 

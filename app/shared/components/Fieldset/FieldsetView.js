@@ -30,7 +30,8 @@ class FieldsetView extends React.PureComponent {
       isMultiline,
       placeholder,
       withHints,
-      isLoadingHints
+      isLoadingHints,
+      type
     } = this.props;
 
     return (
@@ -47,6 +48,7 @@ class FieldsetView extends React.PureComponent {
           onBlur={this.onBlur}
           value={textValue}
           multiline={isMultiline}
+          secureTextEntry={type === 'password'}
         />
         {withHints && isLoadingHints && (
           <ActivityIndicator
@@ -69,7 +71,8 @@ FieldsetView.propTypes = {
   withHints: PropTypes.bool,
   isLoadingHints: PropTypes.bool,
   hintsData: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  onSelectBook: PropTypes.func
+  onSelectBook: PropTypes.func,
+  type: PropTypes.string
 };
 
 export default FieldsetView;

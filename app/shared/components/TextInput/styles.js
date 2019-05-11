@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   input: {
     height: 40,
     backgroundColor: AppStyles.color.TRANSPARENT,
@@ -17,3 +17,5 @@ export const styles = StyleSheet.create({
     borderColor: AppStyles.color.LIGHT_GREEN
   }
 });
+
+export default styles;

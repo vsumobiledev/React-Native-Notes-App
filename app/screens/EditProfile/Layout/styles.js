@@ -11,30 +11,12 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   container: {
-    alignItems: 'center',
     flex: 1,
-    marginTop: 20
+    marginTop: 20,
+    alignItems: 'center'
   },
   dataWrapper: {
-    alignItems: 'center',
     marginTop: 15
-  },
-  login: {
-    alignItems: 'center',
-    backgroundColor: AppStyles.color.LIGHT_GREEN,
-    borderRadius: 50,
-    height: 40,
-    justifyContent: 'center',
-    marginTop: 15,
-    width: '50%'
-  },
-  loginText: {
-    color: AppStyles.color.WHITE,
-    fontWeight: 'bold'
-  },
-  menu: {
-    marginTop: 10,
-    width: '100%'
   },
   nameText: {
     color: AppStyles.color.BLACK,
@@ -44,6 +26,9 @@ const styles = StyleSheet.create({
   },
   subTitleText: {
     textAlign: 'center'
+  },
+  button: {
+    width: '43%'
   }
 });
 

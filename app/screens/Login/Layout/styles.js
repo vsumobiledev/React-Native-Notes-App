@@ -12,22 +12,7 @@ const styles = StyleSheet.create({
   inputsWrapper: {
     width: '50%'
   },
-  loading: {
-    marginBottom: 30
-  },
-  login: {
-    alignItems: 'center',
-    backgroundColor: AppStyles.color.LIGHT_GREEN,
-    borderRadius: 50,
-    height: 40,
-    justifyContent: 'center',
-    marginTop: 15,
-    width: '50%'
-  },
-  loginText: {
-    color: AppStyles.color.WHITE,
-    fontWeight: 'bold'
-  },
+
   logo: {
     height: 100,
     width: 100
@@ -41,6 +26,9 @@ const styles = StyleSheet.create({
   },
   subHeader: {
     marginBottom: 30
+  },
+  button: {
+    width: '50%'
   }
 });
 

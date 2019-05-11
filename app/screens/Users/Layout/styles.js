@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
+  },
+  containerList: {
+    paddingTop: 5,
+    paddingBottom: 100
   }
 });
 

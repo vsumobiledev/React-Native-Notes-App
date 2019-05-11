@@ -16,23 +16,8 @@ const styles = StyleSheet.create({
   inputsWrapper: {
     width: '50%'
   },
-  loading: {
-    margin: 30
-  },
-  register: {
-    alignItems: 'center',
-    backgroundColor: AppStyles.color.LIGHT_GREEN,
-    borderRadius: 50,
-    color: AppStyles.color.DARK_WHITE,
-    height: 40,
-    justifyContent: 'center',
-    margin: 5,
-    marginTop: 15,
+  button: {
     width: '50%'
-  },
-  registerText: {
-    color: AppStyles.color.WHITE,
-    fontWeight: 'bold'
   },
   subHeader: {
     marginBottom: 30

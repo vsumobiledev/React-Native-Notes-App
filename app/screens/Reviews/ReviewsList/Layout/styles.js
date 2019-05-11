@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
   },
   flatList: {
     paddingTop: 10,
-    paddingBottom: 80,
+    paddingBottom: 150,
     backgroundColor: AppStyles.color.DARK_WHITE
   },
   item: {

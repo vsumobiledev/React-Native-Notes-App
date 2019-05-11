@@ -1,16 +1,10 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react-native';
-import Ripple from 'react-native-material-ripple';
-import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
+import Button from '../../../shared/components/Button';
+import Fieldset from '../../../shared/components/Fieldset';
 
 class LoginView extends Component {
   constructor(props) {
@@ -42,31 +36,32 @@ class LoginView extends Component {
             style={styles.logo}
           />
         </View>
-        {this.props.isLoading ? (
-          <ActivityIndicator
-            style={styles.loading}
-            size="large"
-            color={AppStyles.color.YELLOW}
-          />
-        ) : null}
         <View style={styles.inputsWrapper}>
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onEmailChangeText}
+            textValue={this.state.login}
             placeholder="Enter email..."
+            title="Login"
+            isMultiline={false}
           />
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onPasswordChangeText}
+            textValue={this.state.password}
             placeholder="Enter password..."
+            title="Password"
+            isMultiline={false}
             type="password"
           />
         </View>
-        <Ripple
-          rippleContainerBorderRadius={50}
-          style={styles.login}
-          onPress={this.login}
-        >
-          <Text style={styles.loginText}>LOGIN</Text>
-        </Ripple>
+        <View style={styles.button}>
+          <Button
+            text="LOGIN"
+            onClick={this.login}
+            isLoading={this.props.isLoading}
+            colorStart={AppStyles.color.MAIN_COLOR}
+            colorEnd={AppStyles.color.MAIN_COLOR}
+          />
+        </View>
         <TouchableOpacity onPress={this.openRegister}>
           <Text style={styles.register}>Create Account</Text>
         </TouchableOpacity>

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Image, Text, TouchableOpacity, ScrollView } from 'react-native';
-import Ripple from 'react-native-material-ripple';
-import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
+import { View, Image, TouchableOpacity, ScrollView } from 'react-native';
 import styles from './styles';
 import ImagePicker from 'react-native-image-picker';
 import PropTypes from 'prop-types';
+import Button from '../../../shared/components/Button';
+import AppStyles from '../../../config/styles';
+import Fieldset from '../../../shared/components/Fieldset';
 
 class EditProfileView extends Component {
   constructor(props) {
@@ -26,6 +27,8 @@ class EditProfileView extends Component {
       this.props.navigation.goBack();
     }
   };
+  onLastNameChange = value => this.setState({ lastName: value });
+  onFirstNameChange = value => this.setState({ firstName: value });
   changeAvatar = () => {
     const options = {
       title: 'Select Avatar',
@@ -65,26 +68,32 @@ class EditProfileView extends Component {
                 </View>
               </TouchableOpacity>
               <View style={styles.dataWrapper}>
-                <TextInputComponent
-                  onChangeText={value => this.setState({ firstName: value })}
-                  placeholder="First Name..."
-                  value={this.state.firstName}
+                <Fieldset
+                  onChangeText={this.onLastNameChange}
+                  textValue={this.state.lastName}
+                  placeholder="Last name..."
+                  title="Lastname"
+                  isMultiline={false}
                 />
-                <TextInputComponent
-                  onChangeText={value => this.setState({ lastName: value })}
-                  placeholder="Last Name..."
-                  value={this.state.lastName}
+                <Fieldset
+                  onChangeText={this.onFirstNameChange}
+                  textValue={this.state.firstName}
+                  placeholder="First name..."
+                  title="Firstname"
+                  isMultiline={false}
                 />
               </View>
             </View>
           ) : null}
-          <Ripple
-            rippleContainerBorderRadius={50}
-            style={styles.login}
-            onPress={this.save}
-          >
-            <Text style={styles.loginText}>SAVE</Text>
-          </Ripple>
+          <View style={styles.button}>
+            <Button
+              text="SAVE"
+              onClick={this.save}
+              isLoading={this.props.isLoading}
+              colorStart={AppStyles.color.MAIN_COLOR}
+              colorEnd={AppStyles.color.MAIN_COLOR}
+            />
+          </View>
         </View>
       </ScrollView>
     );

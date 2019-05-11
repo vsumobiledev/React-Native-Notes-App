@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
 import React from 'react';
 import {
   createBottomTabNavigator,
@@ -6,7 +8,6 @@ import {
 } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import BadgeIcon from '../shared/components/BadgeIcon/index';
-import TabBarIcon from '../shared/components/TabBarIcon/index';
 import ReviewsStack from './reviewsScreens';
 import UsersStack from './usersScreens';
 import Tags from '../screens/Tags/Layout';
@@ -19,36 +20,24 @@ const Tab = createBottomTabNavigator(
     Reviews: {
       screen: ReviewsStack,
       navigationOptions: () => ({
-        tabBarIcon: (
-          <TabBarIcon
-            renderIcon={tintColor => (
-              <Icon name="ios-paper" size={30} color={tintColor} />
-            )}
-          />
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="ios-paper" size={30} color={tintColor} />
         )
       })
     },
     Users: {
       screen: UsersStack,
       navigationOptions: () => ({
-        tabBarIcon: (
-          <TabBarIcon
-            renderIcon={tintColor => (
-              <Icon name="ios-people" size={30} color={tintColor} />
-            )}
-          />
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="ios-people" size={30} color={tintColor} />
         )
       })
     },
     Profile: {
       screen: ProfileStack,
       navigationOptions: () => ({
-        tabBarIcon: (
-          <TabBarIcon
-            renderIcon={tintColor => (
-              <BadgeIcon name="ios-contact" size={30} color={tintColor} />
-            )}
-          />
+        tabBarIcon: ({ tintColor }) => (
+          <BadgeIcon name="ios-contact" size={30} color={tintColor} />
         )
       })
     }

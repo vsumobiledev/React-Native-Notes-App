@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Text, View, ActivityIndicator } from 'react-native';
-import Ripple from 'react-native-material-ripple';
-import TextInputComponent from '../../../shared/components/TextInput/TextInputComponent';
+import { View } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
+import Button from '../../../shared/components/Button';
+import Fieldset from '../../../shared/components/Fieldset';
 
 class RegistrationView extends Component {
   constructor(props) {
@@ -41,39 +41,46 @@ class RegistrationView extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.props.isLoading ? (
-          <ActivityIndicator
-            style={styles.loading}
-            size="large"
-            color={AppStyles.color.YELLOW}
-          />
-        ) : null}
         <View style={styles.inputsWrapper}>
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onFirstNameChangeText}
+            textValue={this.state.firstName}
             placeholder="Enter first name..."
+            title="Firstname"
+            isMultiline={false}
           />
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onLastNameChangeText}
+            textValue={this.state.lastName}
             placeholder="Enter last name..."
+            title="Lastname"
+            isMultiline={false}
           />
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onEmailChangeText}
+            textValue={this.state.login}
             placeholder="Enter email..."
+            title="Login"
+            isMultiline={false}
           />
-          <TextInputComponent
+          <Fieldset
             onChangeText={this.onPasswordChangeText}
+            textValue={this.state.password}
             placeholder="Enter password..."
+            title="Password"
+            isMultiline={false}
             type="password"
           />
         </View>
-        <Ripple
-          rippleContainerBorderRadius={50}
-          style={styles.register}
-          onPress={this.register}
-        >
-          <Text style={styles.registerText}>REGISTER</Text>
-        </Ripple>
+        <View style={styles.button}>
+          <Button
+            text="REGISTER"
+            onClick={this.register}
+            isLoading={this.props.isLoading}
+            colorStart={AppStyles.color.MAIN_COLOR}
+            colorEnd={AppStyles.color.MAIN_COLOR}
+          />
+        </View>
       </View>
     );
   }

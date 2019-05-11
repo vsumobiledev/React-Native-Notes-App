@@ -4,8 +4,7 @@ import AppStyles from '../../../config/styles';
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
-    marginTop: 10,
-    marginBottom: 10
+    marginBottom: 2
   },
   titleContainer: {
     backgroundColor: AppStyles.color.WHITE,
@@ -26,10 +25,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,
-    paddingTop: 10
+    paddingTop: 10,
   },
   focusedInput: {
-    borderColor: AppStyles.color.DARK_BLUE,
+    borderColor: AppStyles.color.MAIN_COLOR,
     borderWidth: 1,
     borderRadius: 5,
     padding: 10,

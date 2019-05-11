@@ -209,24 +209,28 @@ class ReviewView extends Component {
             />
             {review.authorId === uid ? (
               <View style={styles.btnContainer}>
-                <Button
-                  text={isEdit ? 'Save' : 'Edit'}
-                  onClick={isEdit ? this.saveReview : this.editReview}
-                  isLoading={isLoading}
-                  colorStart={
-                    !isEdit ? AppStyles.color.YELLOW : AppStyles.color.GREEN
-                  }
-                  colorEnd={
-                    !isEdit ? AppStyles.color.GRAY : AppStyles.color.GRAY
-                  }
-                />
-                <Button
-                  text="Delete"
-                  onClick={this.deleteReview}
-                  isLoading={isLoading}
-                  colorStart={AppStyles.color.GRAY}
-                  colorEnd={AppStyles.color.RED}
-                />
+                <View style={styles.button}>
+                  <Button
+                    text={isEdit ? 'Save' : 'Edit'}
+                    onClick={isEdit ? this.saveReview : this.editReview}
+                    isLoading={isLoading}
+                    colorStart={
+                      !isEdit ? AppStyles.color.YELLOW : AppStyles.color.GREEN
+                    }
+                    colorEnd={
+                      !isEdit ? AppStyles.color.GRAY : AppStyles.color.GRAY
+                    }
+                  />
+                </View>
+                <View style={styles.button}>
+                  <Button
+                    text="Delete"
+                    onClick={this.deleteReview}
+                    isLoading={isLoading}
+                    colorStart={AppStyles.color.GRAY}
+                    colorEnd={AppStyles.color.RED}
+                  />
+                </View>
               </View>
             ) : (
               <View style={styles.btnContainer}>

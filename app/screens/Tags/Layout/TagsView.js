@@ -66,6 +66,7 @@ class TagsView extends Component {
           <FlatList
             data={this.getTagsData()}
             keyExtractor={(item, index) => `tagitem${index}`}
+            contentContainerStyle={styles.containerList}
             renderItem={({ item, index }) => (
               <TagItem
                 data={item}
