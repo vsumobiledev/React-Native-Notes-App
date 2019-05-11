@@ -7,7 +7,6 @@ import {
   FlatList,
   Modal,
   View,
-  Platform
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { AirbnbRating } from 'react-native-ratings';

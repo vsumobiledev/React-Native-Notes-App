@@ -23,7 +23,8 @@
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "no-var": ["error"],
-    "eqeqeq": ["error"]
+    "eqeqeq": ["error"],
+    "react-native/sort-styles": 0
   },
   "globals": {
     "fetch": true

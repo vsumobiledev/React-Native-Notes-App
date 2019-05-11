@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,7 +9,7 @@ const styles = StyleSheet.create({
     width: '98%',
     marginLeft: '1%',
     borderBottomWidth: 0.5,
-    borderBottomColor: 'grey'
+    borderBottomColor: AppStyles.color.GRAY
   },
   usersList: {
     width: '100%',

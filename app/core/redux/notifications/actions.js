@@ -38,7 +38,7 @@ export const sendNotification = (uid, notifcationData) => dispatch => {
       () => {
         dispatch({ type: SEND_NOTIFICATION_SUCCESS });
       },
-      error => {
+      () => {
         dispatch({ type: SEND_NOTIFICATION_FAILED });
       }
     );
@@ -61,7 +61,7 @@ export const deleteNotification = (uid, notifId) => dispatch => {
         });
         dispatch({ type: DELETE_NOTIFICATION_SUCCESS });
       },
-      error => {
+      () => {
         dispatch({ type: DELETE_NOTIFICATION_FAILED });
       }
     );

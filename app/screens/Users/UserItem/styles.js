@@ -7,10 +7,10 @@ const styles = StyleSheet.create({
     width: '96%',
     borderRadius: 50,
     borderWidth: 0.5,
-    borderColor: 'grey',
+    borderColor: AppStyles.color.GRAY,
     margin: 2,
     marginLeft: '2%',
-    backgroundColor: '#fff',
+    backgroundColor: AppStyles.color.WHITE,
     shadowColor: AppStyles.color.BLACK,
     shadowOffset: {
       width: 0,

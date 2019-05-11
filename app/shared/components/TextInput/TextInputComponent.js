@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { TextInput } from 'react-native';
-import { styles } from './styles';
+import styles from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
 

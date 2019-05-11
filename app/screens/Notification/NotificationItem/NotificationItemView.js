@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { NotificationType } from '../../../core/redux/notifications/constants';
 import styles from './styles';
@@ -10,8 +10,8 @@ const iconName = {
   [NotificationType.NEW_REVIEW]: 'ios-bookmarks'
 };
 
-const UserItemView = ({ data: itemData, openUserDetail }) => {
-  const { data, title, subTitle, date, type } = itemData;
+const UserItemView = ({ data: itemData }) => {
+  const { title, subTitle, date, type } = itemData;
   return (
     <View style={styles.container}>
       <Icon name={iconName[type]} size={40} color="black" />

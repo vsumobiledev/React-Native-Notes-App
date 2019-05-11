@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { ActivityIndicator, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { styles } from './styles';
+import styles from './styles';
 
 class AuthLoadingView extends Component {
   constructor(props) {

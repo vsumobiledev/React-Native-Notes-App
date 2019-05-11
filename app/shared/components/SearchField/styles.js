@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     alignSelf: 'stretch',
     borderColor: AppStyles.rgba.BLACK_04,
@@ -24,3 +24,5 @@ export const styles = StyleSheet.create({
     width: '80%'
   }
 });
+
+export default styles;

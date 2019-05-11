@@ -11,23 +11,23 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case UPDATE_USERS:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case UPDATE_USERS_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        data: action.payload
-      };
-    case UPDATE_USERS_FAILED:
-      return {
-        ...state,
-        isLoading: false
-      };
-    default:
-      return state;
+  case UPDATE_USERS:
+    return {
+      ...state,
+      isLoading: true
+    };
+  case UPDATE_USERS_SUCCESS:
+    return {
+      ...state,
+      isLoading: false,
+      data: action.payload
+    };
+  case UPDATE_USERS_FAILED:
+    return {
+      ...state,
+      isLoading: false
+    };
+  default:
+    return state;
   }
 }

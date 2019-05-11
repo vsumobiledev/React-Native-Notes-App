@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   addImage: {
     borderRadius: 10,
     justifyContent: 'center',
@@ -67,3 +67,5 @@ export const styles = StyleSheet.create({
     width: '50%'
   }
 });
+
+export default styles;

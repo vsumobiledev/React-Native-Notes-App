@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: '100%',
     textAlign: 'center'
-  }
+  },
 });
 
 export default styles;

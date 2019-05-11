@@ -1,7 +1,7 @@
 import { StyleSheet, Platform } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   avatar: {
     height: 150,
     width: 150
@@ -32,3 +32,5 @@ export const styles = StyleSheet.create({
     textAlign: 'center'
   }
 });
+
+export default styles;

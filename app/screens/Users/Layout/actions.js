@@ -1,7 +1,6 @@
 import {
   UPDATE_USERS,
   UPDATE_USERS_SUCCESS,
-  UPDATE_USERS_FAILED
 } from './constants';
 import firebase from 'firebase';
 

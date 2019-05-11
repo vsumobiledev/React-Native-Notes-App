@@ -13,13 +13,13 @@ import ImagePicker from 'react-native-image-picker';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ripple from 'react-native-material-ripple';
 import NavigationService from '../../../navigation/NavigationService';
-import AddTag from '../../../shared/component/AddTag';
-import CancelableTag from '../../../shared/component/CancelableTag';
-import Fieldset from '../../../shared/component/Fieldset';
+import AddTag from '../../../shared/components/AddTag';
+import CancelableTag from '../../../shared/components/CancelableTag';
+import Fieldset from '../../../shared/components/Fieldset';
 import ModalBooks from '../ModalBooks';
-import Button from '../../../shared/component/Button';
+import Button from '../../../shared/components/Button';
 import PropTypes from 'prop-types';
-import { styles } from './styles';
+import styles from './styles';
 import AppStyles from '../../../config/styles';
 
 class AddReviewView extends Component {
@@ -214,13 +214,7 @@ class AddReviewView extends Component {
           <Ripple
             disabled={selectedBook ? true : false}
             rippleContainerBorderRadius={10}
-            style={[
-              styles.addImage,
-              !image && {
-                borderWidth: 2,
-                borderStyle: 'dashed'
-              }
-            ]}
+            style={[styles.addImage, !image && styles.addNotIamge]}
             onPress={this.onChooseImage}
           >
             {!image ? (
@@ -274,7 +268,8 @@ AddReviewView.propTypes = {
   uploadReview: PropTypes.func,
   isLoadingHints: PropTypes.bool,
   books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
-  user: PropTypes.object
+  user: PropTypes.object,
+  error: PropTypes.string
 };
 
 export default AddReviewView;

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 12,
     right: 12,
-    backgroundColor: AppStyles.color.DARK_GREEN,
+    backgroundColor: AppStyles.color.MAIN_COLOR,
     width: 60,
     height: 60,
     borderRadius: 100 / 2,

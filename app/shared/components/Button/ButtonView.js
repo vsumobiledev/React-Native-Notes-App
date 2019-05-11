@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
+import { TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import PropTypes from 'prop-types';
 import styles from './styles';
 
 class ButtonView extends Component {
+  getLoadingStyle = isLoading => {
+    return { marginRight: isLoading ? 5 : 0 };
+  };
   render() {
     const { onClick, text, isLoading, colorStart, colorEnd } = this.props;
     return (
@@ -15,7 +18,7 @@ class ButtonView extends Component {
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
         >
-          <Text style={[styles.text, { marginRight: isLoading ? 5 : 0 }]}>
+          <Text style={[styles.text, this.getLoadingStyle(isLoading)]}>
             {text}
           </Text>
           {isLoading && <ActivityIndicator size="small" color="white" />}

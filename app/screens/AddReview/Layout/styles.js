@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   addImage: {
     borderRadius: 10,
     justifyContent: 'center',
@@ -10,6 +10,10 @@ export const styles = StyleSheet.create({
     color: AppStyles.rgba.BLACK_03,
     width: '45%',
     overflow: 'hidden'
+  },
+  addNotIamge: {
+    borderWidth: 2,
+    borderStyle: 'dashed'
   },
   bookCover: {
     paddingTop: 1,
@@ -44,3 +48,5 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
+
+export default styles;

@@ -4,28 +4,28 @@ import { connect } from 'react-redux';
 import { registerUser } from './actions';
 
 class RegisterContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return <RegisterView {...this.props} />;
-    }
+  render() {
+    return <RegisterView {...this.props} />;
+  }
 }
 
 function mapStateToProps(state) {
-    return {
-        isLoading: state.register.isLoading
-    };
+  return {
+    isLoading: state.register.isLoading
+  };
 }
 function mapDispatchToProps(dispatch) {
-    return {
-        register: (user, password) => {
-            dispatch(registerUser(user, password));
-        }
-    };
+  return {
+    register: (user, password) => {
+      dispatch(registerUser(user, password));
+    }
+  };
 }
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(RegisterContainer);

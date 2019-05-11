@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   deleteButton: {
-    backgroundColor: 'red',
+    backgroundColor: AppStyles.color.RED,
     height: '100%',
     width: 100,
     alignItems: 'center',
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     right: 0
   },
   deleteButtonText: {
-    color: '#fff'
+    color: AppStyles.color.RED
   },
   noNotif: {
     flex: 1,

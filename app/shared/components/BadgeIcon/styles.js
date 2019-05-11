@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {},
@@ -6,7 +7,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     right: -10,
     top: 0,
-    backgroundColor: 'red',
+    backgroundColor: AppStyles.color.RED,
     borderRadius: 9,
     width: 18,
     height: 18,
@@ -14,7 +15,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   badgeText: {
-    color: '#fff',
+    color: AppStyles.color.WHITE,
     fontSize: 12
   }
 });

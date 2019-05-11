@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import AppStyles from '../../../config/styles';
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: AppStyles.color.WHITE,
@@ -43,3 +43,5 @@ export const styles = StyleSheet.create({
     marginBottom: 30
   }
 });
+
+export default styles;

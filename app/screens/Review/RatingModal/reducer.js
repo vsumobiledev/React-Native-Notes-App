@@ -11,24 +11,24 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case LOAD_RATING:
-      return {
-        ...state,
-        isLoading: true
-      };
-    case LOAD_RATING_ERROR:
-      return {
-        ...state,
-        isLoading: false,
-        error: action.error
-      };
-    case LOAD_RATING_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        rating: action.rating
-      };
-    default:
-      return state;
+  case LOAD_RATING:
+    return {
+      ...state,
+      isLoading: true
+    };
+  case LOAD_RATING_ERROR:
+    return {
+      ...state,
+      isLoading: false,
+      error: action.error
+    };
+  case LOAD_RATING_SUCCESS:
+    return {
+      ...state,
+      isLoading: false,
+      rating: action.rating
+    };
+  default:
+    return state;
   }
 }

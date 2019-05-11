@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ActivityIndicator } from 'react-native';
 import ProfileCard from '../../../shared/components/ProfileCard/index';
-import Button from '../../../shared/component/Button/index';
+import Button from '../../../shared/components/Button/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
 

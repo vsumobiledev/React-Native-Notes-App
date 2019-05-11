@@ -13,7 +13,7 @@ function mapStateToProps(state) {
   const {
     review: { isLoading, review, userRating },
     user: {
-      data: { uidz }
+      data: { uid }
     }
   } = state;
   return {

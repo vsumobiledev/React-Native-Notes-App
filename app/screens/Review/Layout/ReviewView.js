@@ -9,14 +9,14 @@ import {
 } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import NavigationService from '../../../navigation/NavigationService';
-import AddTag from '../../../shared/component/AddTag';
+import AddTag from '../../../shared/components/AddTag';
 import Tag from '../../../shared/components/Tag';
-import CancelableTag from '../../../shared/component/CancelableTag';
-import Fieldset from '../../../shared/component/Fieldset';
-import Button from '../../../shared/component/Button';
+import CancelableTag from '../../../shared/components/CancelableTag';
+import Fieldset from '../../../shared/components/Fieldset';
+import Button from '../../../shared/components/Button';
 import RatingModal from '../RatingModal';
 import PropTypes from 'prop-types';
-import { styles } from './styles';
+import styles from './styles';
 import AppStyles from '../../../config/styles';
 
 class ReviewView extends Component {
@@ -269,7 +269,8 @@ ReviewView.propTypes = {
   saveReview: PropTypes.func,
   preloadReview: PropTypes.func,
   deleteReview: PropTypes.func,
-  uid: PropTypes.string
+  uid: PropTypes.string,
+  navigation: PropTypes.object
 };
 
 export default ReviewView;

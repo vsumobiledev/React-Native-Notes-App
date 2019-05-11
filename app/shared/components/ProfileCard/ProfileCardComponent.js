@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { styles } from './styles';
+import styles from './styles';
 import PropTypes from 'prop-types';
 
 const ProfileCardComponent = ({ user }) => (

@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
+    backgroundColor: AppStyles.color.RED,
     overflow: 'hidden'
   },
   badgeText: {
-    color: '#fff',
+    color: AppStyles.color.WHITE,
     fontWeight: 'bold'
   }
 });

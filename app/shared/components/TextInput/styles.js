@@ -4,7 +4,7 @@ import AppStyles from '../../../config/styles';
 export const styles = StyleSheet.create({
   input: {
     height: 40,
-    backgroundColor: 'transparent',
+    backgroundColor: AppStyles.color.TRANSPARENT,
     borderColor: AppStyles.color.LIGHT_BLACK,
     borderBottomWidth: 2,
     width: '100%',

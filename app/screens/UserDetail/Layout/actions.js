@@ -78,12 +78,12 @@ export const subscribeUser = (
                 );
                 dispatch({ type: SUBSCRIBE_SUCCESS });
               },
-              error => {
+              () => {
                 dispatch({ type: SUBSCRIBE_FAILED });
               }
             );
         },
-        error => {
+        () => {
           dispatch({ type: SUBSCRIBE_FAILED });
         }
       );
@@ -109,12 +109,12 @@ export const subscribeUser = (
                 });
                 dispatch({ type: SUBSCRIBE_SUCCESS });
               },
-              error => {
+              () => {
                 dispatch({ type: SUBSCRIBE_FAILED });
               }
             );
         },
-        error => {
+        () => {
           dispatch({ type: SUBSCRIBE_FAILED });
         }
       );
@@ -136,7 +136,7 @@ export const deleteUser = uid => dispatch => {
         });
         dispatch({ type: DELETE_USER_SUCCESS });
       },
-      error => {
+      () => {
         dispatch({ type: DELETE_USER_FAILED });
       }
     );

@@ -27,8 +27,6 @@ const styles = StyleSheet.create({
     width: '45%'
   },
   ratingContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
     alignSelf: 'flex-start',
     justifyContent: 'flex-start',
     flexDirection: 'row',

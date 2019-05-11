@@ -1,6 +1,6 @@
 import React from 'react';
 import { TextInput, View } from 'react-native';
-import { styles } from './styles';
+import styles from './styles';
 import Icon from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
@@ -26,7 +26,8 @@ const SearchFieldView = ({ placeholder, value, onChange, onSubmitEditing }) => {
 SearchFieldView.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onSubmitEditing: PropTypes.func
 };
 
 export default SearchFieldView;

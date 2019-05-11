@@ -7,9 +7,9 @@ import {
   UIManager
 } from 'react-native';
 import PropTypes from 'prop-types';
-import CancelableTag from '../../../../shared/component/CancelableTag';
+import CancelableTag from '../../../../shared/components/CancelableTag';
 import NavigationService from '../../../../navigation/NavigationService';
-import AddTag from '../../../../shared/component/AddTag';
+import AddTag from '../../../../shared/components/AddTag';
 import CheckBox from '../CheckBox';
 import styles from './styles';
 
@@ -36,11 +36,16 @@ class FiltersView extends Component {
       />
     ));
 
+  getExpandedStyle = expanded => ({
+    height: expanded ? null : 0,
+    overflow: 'hidden'
+  });
+
   render() {
     const { expanded, isUserReviews, onCheckBoxClick, tags } = this.props;
     return (
       <View style={styles.container}>
-        <View style={{ height: expanded ? null : 0, overflow: 'hidden' }}>
+        <View style={this.getExpandedStyle(expanded)}>
           <View style={styles.tagsContainer}>
             {this.renderSelectedTags(tags)}
             <AddTag onClick={this.onAddTagClick} />
