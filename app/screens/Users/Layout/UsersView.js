@@ -4,6 +4,7 @@ import SearchField from '../../../shared/components/SearchField/index';
 import UserItem from '../UserItem/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class ProfileView extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ class ProfileView extends Component {
           </View>
         ) : (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" color="green" />
+            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
           </View>
         )}
       </View>

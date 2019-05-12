@@ -4,6 +4,7 @@ import ProfileCard from '../../../shared/components/ProfileCard/index';
 import Button from '../../../shared/components/Button/index';
 import styles from './styles';
 import PropTypes from 'prop-types';
+import AppStyles from '../../../config/styles';
 
 class UserDetailView extends Component {
   componentDidMount() {
@@ -38,7 +39,7 @@ class UserDetailView extends Component {
       <View style={styles.container}>
         {this.props.isDataLoading ? (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" color="green" />
+            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
           </View>
         ) : (
           <View>

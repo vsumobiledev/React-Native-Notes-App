@@ -5,9 +5,9 @@ import {
   DELETE_USER,
   DELETE_USER_FAILED,
   DELETE_USER_SUCCESS,
-  INIT_USER,
-  UPDATE_USER,
-  UPDATE_FAILED
+  INIT_USER_DETAIL,
+  UPDATE_USER_DETAIL,
+  UPDATE_DETAIL_FAILED
 } from './constants';
 
 const initialState = {
@@ -32,18 +32,18 @@ export default function reducer(state = initialState, action) {
       ...state,
       isLoading: false
     };
-  case INIT_USER:
+  case INIT_USER_DETAIL:
     return {
       ...state,
       isDataLoading: true
     };
-  case UPDATE_USER:
+  case UPDATE_USER_DETAIL:
     return {
       ...state,
       data: action.payload,
       isDataLoading: false
     };
-  case UPDATE_FAILED:
+  case UPDATE_DETAIL_FAILED:
     return {
       ...state,
       isDataLoading: false

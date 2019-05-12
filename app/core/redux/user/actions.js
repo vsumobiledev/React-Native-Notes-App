@@ -40,8 +40,8 @@ export const logoutUser = () => dispatch => {
     .auth()
     .signOut()
     .then(() => {
-      dispatch({ type: LOGOUT_USER });
       NavigationService.setToRoot('Login');
+      dispatch({ type: LOGOUT_USER });
     });
 };
 
