@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { View, FlatList, ActivityIndicator } from 'react-native';
 import ListItem from '../ListItem';
 import styles from './styles';
+import AppStyles from '../../../../config/styles';
 
 class ReviewsListView extends Component {
   state = {};
@@ -29,7 +30,7 @@ class ReviewsListView extends Component {
           </View>
         ) : (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" color="green" />
+            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
           </View>
         )}
       </View>

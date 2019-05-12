@@ -37,7 +37,7 @@ class UserDetailView extends Component {
     return (
       <View style={styles.container}>
         {this.props.isDataLoading ? (
-          <View>
+          <View style={styles.loading}>
             <ActivityIndicator size="large" color="green" />
           </View>
         ) : (

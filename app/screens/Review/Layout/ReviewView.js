@@ -246,7 +246,7 @@ class ReviewView extends Component {
           </View>
         ) : (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" />
+            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
           </View>
         )}
       </ScrollView>

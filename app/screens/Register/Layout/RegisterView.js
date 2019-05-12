@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 import AppStyles from '../../../config/styles';
@@ -17,14 +17,18 @@ class RegistrationView extends Component {
     };
   }
   register = () => {
-    this.props.register(
-      {
-        login: this.state.login,
-        firstName: this.state.firstName,
-        lastName: this.state.lastName
-      },
-      this.state.password
-    );
+    if (this.state.firstName.length < 3 || this.state.lastName.length < 3) {
+      Alert.alert('Register Error', 'The name must be longer than 3');
+    } else {
+      this.props.register(
+        {
+          login: this.state.login,
+          firstName: this.state.firstName,
+          lastName: this.state.lastName
+        },
+        this.state.password
+      );
+    }
   };
   onFirstNameChangeText = value => {
     this.setState({ firstName: value });

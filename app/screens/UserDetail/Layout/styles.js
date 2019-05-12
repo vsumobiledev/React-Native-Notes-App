@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
   buttonsWrapper: {
     marginTop: 10,
     width: '50%'
+  },
+  loading: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

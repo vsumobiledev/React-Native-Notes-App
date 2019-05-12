@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   loading: {
-    marginTop: 50,
+    marginTop: Dimensions.get('screen').height / 2 - 50,
     justifyContent: 'center',
     alignItems: 'center'
   },

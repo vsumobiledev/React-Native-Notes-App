@@ -54,7 +54,7 @@ class EditProfileView extends Component {
             <View>
               <TouchableOpacity onPress={this.changeAvatar}>
                 <View style={styles.avatarWrapper}>
-                  {this.props.user && this.props.user.avatar ? (
+                  {this.props.user && this.props.user.avatar || this.state.avatar ? (
                     <Image
                       style={styles.avatar}
                       source={{ uri: this.state.avatar }}
@@ -69,17 +69,17 @@ class EditProfileView extends Component {
               </TouchableOpacity>
               <View style={styles.dataWrapper}>
                 <Fieldset
-                  onChangeText={this.onLastNameChange}
-                  textValue={this.state.lastName}
-                  placeholder="Last name..."
-                  title="Lastname"
-                  isMultiline={false}
-                />
-                <Fieldset
                   onChangeText={this.onFirstNameChange}
                   textValue={this.state.firstName}
                   placeholder="First name..."
                   title="Firstname"
+                  isMultiline={false}
+                />
+                <Fieldset
+                  onChangeText={this.onLastNameChange}
+                  textValue={this.state.lastName}
+                  placeholder="Last name..."
+                  title="Lastname"
                   isMultiline={false}
                 />
               </View>

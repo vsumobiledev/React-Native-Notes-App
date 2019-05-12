@@ -5,9 +5,9 @@ import {
   DELETE_USER_FAILED,
   DELETE_USER_SUCCESS,
   DELETE_USER,
-  INIT_USER,
-  UPDATE_USER,
-  UPDATE_FAILED
+  INIT_USER_DETAIL,
+  UPDATE_USER_DETAIL,
+  UPDATE_DETAIL_FAILED
 } from './constants';
 import firebase from 'firebase';
 import { sendNotification } from '../../../core/redux/notifications/actions';
@@ -15,7 +15,7 @@ import { NotificationType } from '../../../core/redux/notifications/constants';
 import Toast from 'react-native-root-toast';
 
 export const initUser = uid => dispatch => {
-  dispatch({ type: INIT_USER });
+  dispatch({ type: INIT_USER_DETAIL });
   firebase
     .database()
     .ref()
@@ -25,7 +25,7 @@ export const initUser = uid => dispatch => {
       const val = e.val();
       if (val) {
         dispatch({
-          type: UPDATE_USER,
+          type: UPDATE_USER_DETAIL,
           payload: {
             ...val,
             subscriptions: val.subscriptions ? val.subscriptions : [],
@@ -34,7 +34,7 @@ export const initUser = uid => dispatch => {
           }
         });
       } else {
-        dispatch({ type: UPDATE_FAILED });
+        dispatch({ type: UPDATE_DETAIL_FAILED });
       }
     });
 };
