@@ -1,8 +1,9 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 import AppStyles from '../../../config/styles';
 
 const styles = StyleSheet.create({
   container: {
+    elevation: Platform.OS === 'ios' ? 1 : 8,
     flexDirection: 'row',
     width: '96%',
     borderRadius: 50,
@@ -12,11 +13,7 @@ const styles = StyleSheet.create({
     marginLeft: '2%',
     backgroundColor: AppStyles.color.WHITE,
     shadowColor: AppStyles.color.BLACK,
-    shadowOffset: {
-      width: 0,
-      height: 5
-    },
-    shadowRadius: 8,
+    shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 1
   },
   avatarWrapper: {

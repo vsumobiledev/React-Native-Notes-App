@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
+import { SafeAreaView } from 'react-navigation';
 import SearchField from '../../../shared/components/SearchField/index';
 import UserItem from '../UserItem/index';
 import styles from './styles';
@@ -48,7 +49,10 @@ class ProfileView extends Component {
   render() {
     const { users } = this.props;
     return (
-      <View style={styles.container}>
+      <SafeAreaView
+        style={styles.container}
+        forceInset={{ top: 'always', horizontal: 'never' }}
+      >
         <View style={styles.searchFieldWrapper}>
           <SearchField
             placeholder="Search..."
@@ -78,7 +82,7 @@ class ProfileView extends Component {
             />
           </View>
         )}
-      </View>
+      </SafeAreaView>
     );
   }
 }
