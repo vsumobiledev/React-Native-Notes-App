@@ -269,7 +269,7 @@ AddReviewView.propTypes = {
   isLoadingHints: PropTypes.bool,
   books: PropTypes.oneOfType([PropTypes.array, PropTypes.bool]),
   user: PropTypes.object,
-  error: PropTypes.string
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
 };
 
 export default AddReviewView;

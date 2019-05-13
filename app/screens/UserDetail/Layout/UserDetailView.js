@@ -39,10 +39,13 @@ class UserDetailView extends Component {
       <View style={styles.container}>
         {this.props.isDataLoading ? (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
+            <ActivityIndicator
+              size="large"
+              color={AppStyles.color.THIRD_COLOR}
+            />
           </View>
         ) : (
-          <View>
+          <View style={styles.container}>
             <View style={styles.profileCardWrapper}>
               <ProfileCard user={user} />
             </View>

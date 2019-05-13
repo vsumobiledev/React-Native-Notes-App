@@ -59,7 +59,7 @@ class TagsView extends Component {
           <ActivityIndicator
             style={styles.loading}
             size="large"
-            color={AppStyles.color.YELLOW}
+            color={AppStyles.color.THIRD_COLOR}
           />
         ) : null}
         <View style={styles.tagsList}>

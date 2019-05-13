@@ -17,7 +17,7 @@ class AuthLoadingView extends Component {
     return (
       <View style={styles.container}>
         {this.props.isLoading ? (
-          <ActivityIndicator size="large" color="green" />
+          <ActivityIndicator size="large" color="white" />
         ) : null}
       </View>
     );

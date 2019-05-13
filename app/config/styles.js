@@ -1,4 +1,6 @@
-const MAIN_COLOR = '#00FF44';
+const MAIN_COLOR = '#2BA699';
+const SECOND_COLOR = '#3A64B0';
+const THIRD_COLOR = '#F9404E';
 
 const AppStyles = {
   color: {
@@ -20,7 +22,9 @@ const AppStyles = {
     BLACK: '#000000',
     LIGHT_BLACK: '#282828',
     MAIN_COLOR,
-    TINT_COLOR: MAIN_COLOR
+    SECOND_COLOR,
+    THIRD_COLOR,
+    TINT_COLOR: SECOND_COLOR
   },
   rgba: {
     BLACK_03: 'rgba(0, 0, 0, 0.3)',

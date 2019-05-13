@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, ActivityIndicator, TouchableOpacity } from 'react-native';
 import NotificationItem from '../NotificationItem/index';
 import Icon from 'react-native-vector-icons/Ionicons';
+import AppStyles from '../../../config/styles';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import styles from './styles';
 import PropTypes from 'prop-types';
@@ -47,7 +48,10 @@ class NotificationView extends Component {
           )
         ) : (
           <View>
-            <ActivityIndicator size="large" color="green" />
+            <ActivityIndicator
+              size="large"
+              color={AppStyles.color.THIRD_COLOR}
+            />
           </View>
         )}
       </View>

@@ -72,7 +72,10 @@ class ProfileView extends Component {
           </View>
         ) : (
           <View style={styles.loading}>
-            <ActivityIndicator size="large" color={AppStyles.color.MAIN_COLOR} />
+            <ActivityIndicator
+              size="large"
+              color={AppStyles.color.THIRD_COLOR}
+            />
           </View>
         )}
       </View>
